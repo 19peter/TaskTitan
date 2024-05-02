@@ -1,0 +1,5 @@
+"status" : "unassigned",//unnassigned,todo ,inprogress, completed
+
+    "priority" : "low, medium, high", 
+
+         "level":"easy,medium,hard"
