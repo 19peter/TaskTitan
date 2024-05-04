@@ -26,7 +26,7 @@
                 {
                     "id" : "1",
                     "title" : "Login",
-                    "assignedTo": [{"email" : "hassan@gmail.com"}],
+                    "assignedTo": {"email" : "hassan@gmail.com","name":"hassan"},
                     "startDate": "",
                     "endDate": "",
                     "status" : "inProgress",
@@ -36,7 +36,7 @@
                 {
                     "id" : "2",
                     "title" : "Register",
-                    "assignedTo": [{"email" : "mekha@gmail.com"}],
+                    "assignedTo": {"email" : "mekha@gmail.com","name":"mekha"},
                     "startDate": "",
                     "endDate": "",
                     "status" : "toDo",
