@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
@@ -6,35 +6,36 @@ import interationPlugin from "@fullcalendar/interaction";
 import FormDialog from "./CalendarDialog";
 
 const Calendar = () => {
-  const [startDate, setStartDate] = useState();
-  const [endDate, setEndDate] = useState();
   const [allEvents, setAllEvents] = useState([]);
-  const [event, setEvent] = useState({});
-  const [isDialogOpened, setIsDialogOpened] = useState(false);
-  const [title, setTitle] = useState("");
   const [info, setInfo] = useState(null);
+  const [isDialogOpened, setIsDialogOpened] = useState(false);
+  const [event, setEvent] = useState({});
+ 
+  useEffect(() => {
+    setAllEvents(oldEvents => [...oldEvents, event])
+  } ,[event])
+ 
 
   let selectHandler = function (info) {
     setIsDialogOpened(true);
-    // alert('Selected range: ' + info.startStr + ' to ' + info.endStr)
-    setInfo(info)
-    console.log(event);
+    setInfo(info);
+    console.log(info);
+ 
   };
 
-  const AddProgectTitle = (title) => {
-    setTitle(title);
-    console.log(title);
-    setEvent({ start: info.startStr, end: info.endStr, title: title });
-    setAllEvents([...allEvents, event]);
-  };
 
-  const eventHandler = function () {};
+  let eventHandler = (info) => {
+    console.log(info);
+  }
+
+
 
   return (
     <div>
       {isDialogOpened === true && (
         <FormDialog
-          setTitle={AddProgectTitle}
+          info= {info}
+          setEvent={setEvent}
           setIsDialogOpened={setIsDialogOpened}
         ></FormDialog>
       )}
@@ -54,7 +55,7 @@ const Calendar = () => {
         expandRows="false"
         // dateClick={func}
         select={selectHandler}
-        // eventClick={eventHandler}
+      eventClick={eventHandler}
       />
     </div>
   );

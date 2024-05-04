@@ -9,12 +9,13 @@ import DialogTitle from '@mui/material/DialogTitle';
 
 
 
-const CalendarDialog = ({setTitle, setIsDialogOpened}) => {
+const CalendarDialog = ({ info, setIsDialogOpened, setEvent }) => {
 
   const [open, setOpen] = React.useState(true);
 
-  
+
   const handleClose = () => {
+    setIsDialogOpened(false);
     setOpen(false);
   };
 
@@ -22,44 +23,45 @@ const CalendarDialog = ({setTitle, setIsDialogOpened}) => {
   return (
     <div>
       <React.Fragment>
-      <Dialog
-        open={open}
-        onClose={handleClose}
-        PaperProps={{
-          component: 'form',
-          onSubmit: (event) => {
-            event.preventDefault();
-            const formData = new FormData(event.currentTarget);
-            const formJson = Object.fromEntries(formData.entries());
-            const projectTitle = formJson.email;
-            setTitle(projectTitle);
-            handleClose();
-          },
-        }}
-      >
-        <DialogTitle>You'r Projects</DialogTitle>
-        <DialogContent>
-          <DialogContentText>
-            Enter You'r project Name to be added as an event in your Dialog
-          </DialogContentText>
-          <TextField
-            autoFocus
-            required
-            margin="dense"
-            id="name"
-            name="email"
-            label="Project Title"
-            type="text"
-            fullWidth
-            variant="standard"
-          />
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
-          <Button type="submit">Subscribe</Button>
-        </DialogActions>
-      </Dialog>
-    </React.Fragment>
+        <Dialog
+          open={open}
+          onClose={handleClose}
+          PaperProps={{
+            component: 'form',
+            onSubmit: (event) => {
+              event.preventDefault();
+              const formData = new FormData(event.currentTarget);
+              const formJson = Object.fromEntries(formData.entries());
+              const projectTitle = formJson.email;
+              // setTitle(projectTitle);
+              setEvent({ start: info.startStr, end: info.endStr, title: projectTitle })
+              handleClose();
+            },
+          }}
+        >
+          <DialogTitle>You'r Projects</DialogTitle>
+          <DialogContent>
+            <DialogContentText>
+              Enter You'r project Name to be added as an event in your Dialog
+            </DialogContentText>
+            <TextField
+              autoFocus
+              required
+              margin="dense"
+              id="name"
+              name="email"
+              label="Project Title"
+              type="text"
+              fullWidth
+              variant="standard"
+            />
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleClose}>Cancel</Button>
+            <Button type="submit">Subscribe</Button>
+          </DialogActions>
+        </Dialog>
+      </React.Fragment>
     </div>
   );
 }
