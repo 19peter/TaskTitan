@@ -15,24 +15,38 @@
         }],
     
         "projects": [{
-            "id" : "",
-            "manager": {"email" : "", "id" : ""},
-            "members": [{"email" : "", "id" : ""}],
-            "title" : "",
-            "tasks":  [ {
-                    "id" : "",
-                    "title" : "",
-                    "assignedTo": [{"email" : ""}],
-                    "startDate": "date",
-                    "endDate": "date",
-                    "status" : "unassigned",
+            "id" : "1",
+            "manager": {"email" : "peter@gmail.com", "id" : "1"},
+            "members": [
+                {"email" : "peter@gmail.com", "id" : "1"},
+                {"email" : "badr@gmail.com", "id" : "2"}
+            ],
+            "title" : "Event Reservation",
+            "tasks":  [ 
+                {
+                    "id" : "1",
+                    "title" : "Login",
+                    "assignedTo": [{"email" : "hassan@gmail.com"}],
+                    "startDate": "",
+                    "endDate": "",
+                    "status" : "inProgress",
                     "priority" : "low", 
-                    "level":"easy"
-                 }
+                    "level":"difficult"
+                },
+                {
+                    "id" : "2",
+                    "title" : "Register",
+                    "assignedTo": [{"email" : "mekha@gmail.com"}],
+                    "startDate": "",
+                    "endDate": "",
+                    "status" : "toDo",
+                    "priority" : "high", 
+                    "level":"difficult"
+                }
                     
-                ],
-                "startDate": "date",
-                "endDate": "date"
+            ],
+            "startDate": "date",
+            "endDate": "date"
         }]
         
     }
