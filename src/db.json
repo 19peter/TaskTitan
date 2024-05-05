@@ -4,13 +4,11 @@
       "id": "",
       "name": "",
       "email": "",
-      "password": "",
+      "image": "",
       "userProjects": [
         {
           "projects_id": "id",
-          "assignedTasks": [
-            "taskID"
-          ],
+          "assignedTasks": ["taskID"],
           "role": "manager,leader,member"
         }
       ]
