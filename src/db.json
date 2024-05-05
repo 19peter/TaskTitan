@@ -43,7 +43,7 @@
           "endDate": "",
           "status": "toDo",
           "priority": "high",
-          "level": "difficult"
+          "level": "easy"
         },
         {
           "id": "3",
@@ -53,7 +53,7 @@
           "endDate": "",
           "status": "Backlog",
           "priority": "high",
-          "level": "difficult"
+          "level": "intermediate"
         },
         {
           "id": "4",
@@ -62,7 +62,37 @@
           "startDate": "",
           "endDate": "",
           "status": "Done",
-          "priority": "high",
+          "priority": "medium",
+          "level": "difficult"
+        },
+        {
+          "id": "5",
+          "title": "DesignScreen",
+          "assignedTo": { "email": "mekha@gmail.com", "name": "mekha" },
+          "startDate": "",
+          "endDate": "",
+          "status": "Backlog",
+          "priority": "medium",
+          "level": "difficult"
+        },
+        {
+          "id": "6",
+          "title": "testAuth",
+          "assignedTo": { "email": "mekha@gmail.com", "name": "mekha" },
+          "startDate": "",
+          "endDate": "",
+          "status": "Backlog",
+          "priority": "medium",
+          "level": "difficult"
+        },
+        {
+          "id": "7",
+          "title": "test5",
+          "assignedTo": { "email": "mekha@gmail.com", "name": "mekha" },
+          "startDate": "",
+          "endDate": "",
+          "status": "Backlog",
+          "priority": "medium",
           "level": "difficult"
         }
       ],

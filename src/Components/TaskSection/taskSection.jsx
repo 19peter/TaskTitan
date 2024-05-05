@@ -10,6 +10,7 @@ import React from "react";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import ErrorIcon from "@mui/icons-material/Error";
 import SpeedIcon from "@mui/icons-material/Speed";
+import { orange } from "@mui/material/colors";
 
 const TaskSection = ({ id, title, assignedTo, priority, level, status }) => {
   return (
@@ -46,6 +47,7 @@ const TaskSection = ({ id, title, assignedTo, priority, level, status }) => {
             <AccountCircleIcon />
           </IconButton>
         </Tooltip>
+
         <Tooltip
           title={priority}
           slotProps={{
@@ -61,9 +63,21 @@ const TaskSection = ({ id, title, assignedTo, priority, level, status }) => {
             },
           }}
         >
-          <IconButton>
-            <ErrorIcon color="error" />
-          </IconButton>
+          {priority === "high" && (
+            <IconButton>
+              <ErrorIcon color="error" />
+            </IconButton>
+          )}
+          {priority === "low" && (
+            <IconButton>
+              <ErrorIcon color="success" />
+            </IconButton>
+          )}
+          {priority === "medium" && (
+            <IconButton>
+              <ErrorIcon sx={{ color: "#FF6600" }} />
+            </IconButton>
+          )}
         </Tooltip>
         <Tooltip
           title={level}
@@ -80,9 +94,21 @@ const TaskSection = ({ id, title, assignedTo, priority, level, status }) => {
             },
           }}
         >
-          <IconButton>
-            <SpeedIcon color="error" />
-          </IconButton>
+          {level === "difficult" && (
+            <IconButton>
+              <SpeedIcon color="error" />
+            </IconButton>
+          )}
+          {level === "intermediate" && (
+            <IconButton>
+              <SpeedIcon sx={{ color: "#FF6600" }} />
+            </IconButton>
+          )}
+          {level === "easy" && (
+            <IconButton>
+              <SpeedIcon color="success" />
+            </IconButton>
+          )}
         </Tooltip>
       </Stack>
     </Box>
