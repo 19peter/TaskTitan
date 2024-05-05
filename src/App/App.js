@@ -1,17 +1,15 @@
-import './App.css';
-import TimelinePge from '../pages/Project.jsx';
-import BoardCollection from '../Components/BoardCollection/boardCollection.jsx';
-import { Provider } from 'react-redux';
-import store from '../redux/store/store.js';
-
+import "./App.css";
+import TimelinePge from "../pages/Project.jsx";
+import { Provider } from "react-redux";
+import store from "../redux/store/store.js";
+import Boardpage from "./../pages/Boardpage";
 
 function App() {
   return (
     <Provider store={store}>
-
       <div className="App">
         {/* <TimelinePge></TimelinePge> */}
-        <BoardCollection></BoardCollection>
+        <Boardpage></Boardpage>
       </div>
     </Provider>
   );

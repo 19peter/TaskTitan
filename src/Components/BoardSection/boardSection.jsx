@@ -2,13 +2,13 @@ import { Box, Paper, Stack, Typography } from "@mui/material";
 import React from "react";
 import TaskSection from "../TaskSection/taskSection";
 
-const BoardSection = ({backlog}) => {
+const BoardSection = ({ name, taskCollection }) => {
   return (
     <Stack
       borderRadius={"13px"}
       bgcolor={"#707B7C"}
       direction={"column"}
-      sx={{ minWidth: "300px", maxHeight: "75vh" ,overflowY:"scroll"}}
+      sx={{ minWidth: "300px", maxHeight: "75vh", overflowY: "scroll" }}
       alignItems={"center"}
     >
       <Typography
@@ -22,12 +22,12 @@ const BoardSection = ({backlog}) => {
         paddingTop={"3%"}
         variant="h6"
         marginBottom={"7px"}
-       
       >
-        Backlog
+        {name}
       </Typography>
-        {backlog.map((task)=><TaskSection key={task.id} {...task}></TaskSection>)}
-
+      {taskCollection.map((task) => (
+        <TaskSection key={task.id} {...task}></TaskSection>
+      ))}
     </Stack>
   );
 };
