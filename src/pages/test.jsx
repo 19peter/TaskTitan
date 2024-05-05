@@ -1,49 +1,39 @@
-// import React from "react";
-// import { GoogleLogin } from "@react-oauth/google";
-// import { jwtDecode } from "jwt-decode";
-// import { googleLogout } from "@react-oauth/google";
-// const Test = () => {
-//   return (
-//     <>
-//       <GoogleLogin
-//         onSuccess={(credentialResponse) => {
-//           console.log(credentialResponse);
-//           let x = jwtDecode(credentialResponse.credential);
-//           console.log(x);
-//         }}
-//         onError={() => {
-//           console.log("Login Failed");
-//         }}
-//       />
-//       <button
-//         onClick={() => {
-//           googleLogout();
-//         }}
-//       >
-//         sign out
-//       </button>
-//     </>
-//   );
-// };
-
-// export default Test;
-
 import React, { useState, useEffect } from "react";
 import { googleLogout, useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { getUserAction } from "../redux/store/slices/userSlice";
 
 function Test() {
   const [user, setUser] = useState(null);
   const [profile, setProfile] = useState(null);
-
+  const isSigned = false;
+  const currentUser = useSelector((state)=>state.user.user);
+  const dispatch = useDispatch();
+  console.log(currentUser);
   const login = useGoogleLogin({
-    onSuccess: (codeResponse) => setUser(codeResponse),
+    onSuccess: (codeResponse) =>{ setUser(codeResponse)
+      console.log(codeResponse);
+    },
     onError: (error) => console.log("Login Failed:", error),
   });
 
+
+
   useEffect(() => {
+    if(localStorage.getItem("id"))
+      {
+        setProfile({
+          id:localStorage.getItem("id"),
+          name:localStorage.getItem("name"),
+          picture:localStorage.getItem("picture"),
+          email:localStorage.getItem("email")
+        })
+      }
+
     if (user) {
-      console.log(user.access_token);
+      // console.log(user.access_token);
       axios
         .get(
           `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`,
@@ -55,7 +45,13 @@ function Test() {
           }
         )
         .then((res) => {
+          // console.log(res.data);
           setProfile(res.data);
+          localStorage.setItem("id",res.data.id)
+          localStorage.setItem("name",res.data.name)
+          localStorage.setItem("picture",res.data.picture)
+          localStorage.setItem("email",res.data.email)
+          dispatch(getUserAction(res.data));
         })
         .catch((err) => console.log(err));
     }
@@ -90,3 +86,8 @@ function Test() {
   );
 }
 export default Test;
+//1-check local storage? if found show signout
+//2-signIn
+//3-check database if found do nothing
+//4-add to database
+//5-add to localStorage

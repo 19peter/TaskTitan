@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import backlogSlice from "./slices/backlogSlice";
+import userSlice from "./slices/userSlice";
 
 const store = configureStore({
     reducer:{
-       backlog:backlogSlice 
+       backlog:backlogSlice,
+       user:userSlice
     }
 })
 
