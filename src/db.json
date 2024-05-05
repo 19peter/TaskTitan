@@ -8,57 +8,79 @@
       "userProjects": [
         {
           "projects_id": "id",
-          "assignedTasks": ["taskID"],
+          "assignedTasks": [
+            "taskID"
+          ],
           "role": "manager,leader,member"
         }
       ]
     }
   ],
-
   "projects": [
     {
       "id": "1",
-      "manager": { "email": "peter@gmail.com", "id": "1" },
+      "manager": {
+        "email": "peter@gmail.com",
+        "id": "1"
+      },
       "members": [
-        { "email": "peter@gmail.com", "id": "1" },
-        { "email": "badr@gmail.com", "id": "2" }
+        {
+          "email": "peter@gmail.com",
+          "id": "1"
+        },
+        {
+          "email": "badr@gmail.com",
+          "id": "2"
+        }
       ],
       "title": "Event Reservation",
       "tasks": [
         {
           "id": "1",
           "title": "Login",
-          "assignedTo": { "email": "hassan@gmail.com", "name": "hassan" },
+          "assignedTo": {
+            "email": "hassan@gmail.com",
+            "name": "hassan"
+          },
           "startDate": "",
           "endDate": "",
-          "status": "inProgress",
+          "status": "Todo",
           "priority": "low",
           "level": "difficult"
         },
         {
           "id": "2",
           "title": "Register",
-          "assignedTo": { "email": "mekha@gmail.com", "name": "mekha" },
+          "assignedTo": {
+            "email": "mekha@gmail.com",
+            "name": "mekha"
+          },
           "startDate": "",
           "endDate": "",
-          "status": "toDo",
+          "status": "Backlog",
           "priority": "high",
           "level": "easy"
         },
         {
           "id": "3",
           "title": "Test",
-          "assignedTo": { "email": "mekha@gmail.com", "name": "mekha" },
+          "assignedTo": {
+            "email": "mekha@gmail.com",
+            "name": "mekha"
+          },
           "startDate": "",
           "endDate": "",
-          "status": "Backlog",
+          "status": "In Progress",
           "priority": "high",
           "level": "intermediate"
         },
         {
           "id": "4",
           "title": "Design",
-          "assignedTo": { "email": "mekha@gmail.com", "name": "mekha" },
+          "assignedTo": {
+            "email": "mekha@gmail.com",
+            "name": "mekha"
+          },
           "startDate": "",
           "endDate": "",
           "status": "Done",
@@ -68,17 +90,23 @@
         {
           "id": "5",
           "title": "DesignScreen",
-          "assignedTo": { "email": "mekha@gmail.com", "name": "mekha" },
+          "assignedTo": {
+            "email": "mekha@gmail.com",
+            "name": "mekha"
+          },
           "startDate": "",
           "endDate": "",
-          "status": "Backlog",
+          "status": "Done",
           "priority": "medium",
           "level": "difficult"
         },
         {
           "id": "6",
           "title": "testAuth",
-          "assignedTo": { "email": "mekha@gmail.com", "name": "mekha" },
+          "assignedTo": {
+            "email": "mekha@gmail.com",
+            "name": "mekha"
+          },
           "startDate": "",
           "endDate": "",
           "status": "Backlog",
@@ -88,10 +116,13 @@
         {
           "id": "7",
           "title": "test5",
-          "assignedTo": { "email": "mekha@gmail.com", "name": "mekha" },
+          "assignedTo": {
+            "email": "mekha@gmail.com",
+            "name": "mekha"
+          },
           "startDate": "",
           "endDate": "",
-          "status": "Backlog",
+          "status": "Todo",
           "priority": "medium",
           "level": "difficult"
         }

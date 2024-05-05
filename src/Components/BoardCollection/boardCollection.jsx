@@ -3,46 +3,89 @@ import React, { useEffect, useState } from "react";
 import BoardSection from "../BoardSection/boardSection";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { getBacklogAction } from "../../redux/store/slices/backlogSlice";
-
+import { getBacklogAction, updateTaskStatusAction } from "../../redux/store/slices/backlogSlice";
+import { DragDropContext } from "react-beautiful-dnd";
 const BoardCollection = () => {
   const Tasks = useSelector((state) => state.backlog.backlog);
+
   const backlogTasks = Tasks.filter(
     (t) => t.status.toLowerCase() === "backlog"
   );
   const toDoTasks = Tasks.filter((t) => t.status.toLowerCase() === "todo");
+
   const InProgressTasks = Tasks.filter(
-    (t) => t.status.toLowerCase() === "inprogress"
+    (t) => t.status.toLowerCase() === "in progress"
   );
+
   const DoneTasks = Tasks.filter((t) => t.status.toLowerCase() === "done");
 
-  console.log("here", toDoTasks);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getBacklogAction(1)); //id of project
   }, []);
-  return (
-    <Stack
-      height={"90vh"}
-      direction={"row"}
-      spacing={5}
-      padding={"2vw"}
-      sx={{ overflowX: "scroll" }}
-    >
-      {/* backlog section static */}
-      {/* <BoardSection backlog={backlog}></BoardSection> */}
 
-      <BoardSection
-        name={"Backlog"}
-        taskCollection={backlogTasks}
-      ></BoardSection>
-      <BoardSection name={"ToDo"} taskCollection={toDoTasks}></BoardSection>
-      <BoardSection
-        name={"InProgress"}
-        taskCollection={InProgressTasks}
-      ></BoardSection>
-      <BoardSection name={"Done"} taskCollection={DoneTasks}></BoardSection>
-    </Stack>
+  const handleDragEnd = (result) => {
+    const { destination, source, draggableId } = result;
+    if (source.droppableId == destination.droppableId) return;
+    let params = {}
+    switch(destination.droppableId)
+    {
+      case "1":
+          params ={projectId:1,taskId:draggableId,newStatus:"Backlog"}
+          break;
+          case "2":
+          params ={projectId:1,taskId:draggableId,newStatus:"Todo"}
+          break;
+          case "3":
+          params ={projectId:1,taskId:draggableId,newStatus:"In Progress"}
+          break;
+          case "4":
+          params ={projectId:1,taskId:draggableId,newStatus:"Done"}
+          break;
+          
+    }
+    // if(destination.droppableId == 2)
+    //   {
+    //     let params ={projectId:1,taskId:draggableId,newStatus:"toDo"}
+    //   }
+      
+      dispatch(updateTaskStatusAction(params))
+  };
+
+  return (
+    <DragDropContext onDragEnd={handleDragEnd}>
+      <Stack
+        height={"90vh"}
+        direction={"row"}
+        spacing={5}
+        padding={"2vw"}
+        sx={{ overflowX: "scroll" }}
+      >
+        {/* backlog section static */}
+        {/* <BoardSection backlog={backlog}></BoardSection> */}
+
+        <BoardSection
+          name={"Backlog"}
+          taskCollection={backlogTasks}
+          id="1"
+        ></BoardSection>
+        <BoardSection
+          name={"ToDo"}
+          taskCollection={toDoTasks}
+          id="2"
+        ></BoardSection>
+        <BoardSection
+          name={"InProgress"}
+          taskCollection={InProgressTasks}
+          id="3"
+        ></BoardSection>
+        <BoardSection
+          name={"Done"}
+          taskCollection={DoneTasks}
+          id="4"
+        ></BoardSection>
+      </Stack>
+    </DragDropContext>
   );
 };
 
