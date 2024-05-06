@@ -20,6 +20,13 @@
       "email": "mikhashadow@gmail.com",
       "picture": "https://lh3.googleusercontent.com/a/ACg8ocIpOywxyF4Ml0jP16pEmMxByILyd_xNcdaM0-u_53qITkGEBvE=s96-c",
       "userProjects": []
+    },
+    {
+      "id": "112730736456781467110",
+      "name": "hassan walid",
+      "email": "hassan.walid77@gmail.com",
+      "picture": "https://lh3.googleusercontent.com/a/ACg8ocJ0IMbCQbNcHpI9Ii1pVa1umtP3fv_PmIiFGQDW9AKDlTlo7A=s96-c",
+      "userProjects": []
     }
   ],
   "projects": [
@@ -43,11 +50,12 @@
       "tasks": [
         {
           "title": "Payement",
-          "status": "In Progress",
+          "status": "Backlog",
           "level": "intermediate",
           "priority": "high",
           "assignedTo": {
-            "email": "Badr@gmail.com"
+            "name": "hassan walid",
+            "email": "hassan.walid77@gmail.com"
           },
           "id": "2",
           "startDate": "2024-05-07",
@@ -55,7 +63,7 @@
         },
         {
           "title": "Dashboard",
-          "status": "In Progress",
+          "status": "Backlog",
           "level": "intermediate",
           "priority": "high",
           "assignedTo": {
