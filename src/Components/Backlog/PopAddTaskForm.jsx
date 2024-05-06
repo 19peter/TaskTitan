@@ -15,14 +15,12 @@ import Select from "@mui/material/Select";
 import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuid } from "uuid"
 import { AddTaskAction } from "../../redux/store/slices/backlogSlice";
-import { useSelector } from "react-redux";
 
 const PopAddTaskForm = ({ setIsAddFormOpened }) => {
 
   const tasks = useSelector((state) => state.backlog.backlog);
 
   const [open, setOpen] = useState(true);
-  const backlogTasks = useSelector((state) => state.backlog.backlog); // Assuming you have access to tasks in your redux store
   const [doesTitleExist, setDoesTitleExist] = useState(false);
 
   let exists = false;
@@ -111,10 +109,10 @@ const PopAddTaskForm = ({ setIsAddFormOpened }) => {
 
           <Box sx={{ minWidth: 60, marginY: "1rem" }}>
             <FormControl fullWidth>
-              <InputLabel id={`status-label-`}>Level</InputLabel>
+              <InputLabel >Level</InputLabel>
               <Select
-                labelId={`status-label-`}
-                id={`status-select-`}
+                labelId={"status-label-"}
+                id={"status-select-"}
                 name="level"
                 value={formData.level}
                 onChange={handleChange}
@@ -127,10 +125,10 @@ const PopAddTaskForm = ({ setIsAddFormOpened }) => {
           </Box>
           <Box sx={{ minWidth: 60, marginY: "1rem" }}>
             <FormControl fullWidth>
-              <InputLabel id={`status-label-`}>Priority</InputLabel>
+              <InputLabel id={"status-label-"}>Priority</InputLabel>
               <Select
-                labelId={`status-label-`}
-                id={`status-select-`}
+                labelId={"status-label-"}
+                id={"status-select-"}
                 name="priority"
                 value={formData.priority}
                 onChange={handleChange}
