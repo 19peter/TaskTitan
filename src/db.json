@@ -1,19 +1,18 @@
 {
   "users": [
     {
-      "id": "",
-      "name": "",
-      "email": "",
-      "password": "",
-      "userProjects": [
-        {
-          "projects_id": "id",
-          "assignedTasks": [
-            "taskID"
-          ],
-          "role": "manager,leader,member"
-        }
-      ]
+      "id": "114450078144869306460",
+      "name": "Mokhtar Mostafa",
+      "email": "mokhtarmostafa1526@gmail.com",
+      "picture": "https://lh3.googleusercontent.com/a/ACg8ocL79KirYiU01voOig8FVLWo-3piytJDnyAfDpVROOUB6yftJO8=s96-c",
+      "userProjects": []
+    },
+    {
+      "id": "107111098656219910391",
+      "name": "mokhtar mostafa",
+      "email": "mikhashadow@gmail.com",
+      "picture": "https://lh3.googleusercontent.com/a/ACg8ocIpOywxyF4Ml0jP16pEmMxByILyd_xNcdaM0-u_53qITkGEBvE=s96-c",
+      "userProjects": []
     }
   ],
   "projects": [

@@ -1,5 +1,17 @@
-"status" : "unassigned",//unnassigned,todo ,inprogress, completed
 
+"task"
+{
+    "status" : Backlog,Todo ,In Progress, Done
     "priority" : "low, medium, high", 
+    "level":"easy,intermediate,difficult"
+}
 
-         "level":"easy,medium,hard"
+"userProjects": [
+        {
+          "projectId": "id",
+          "assignedTasks": [
+            "taskID"
+          ],
+          "role": "manager,leader,member"
+        }
+      ]
