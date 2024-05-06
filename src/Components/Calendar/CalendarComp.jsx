@@ -12,30 +12,53 @@ import {
 } from "../../redux/store/slices/backlogSlice";
 import { useSelector } from "react-redux";
 import { getEventsWithDates } from "../../redux/store/slices/eventsWithDates";
+import FullScreenDialog from "./DetailsDialog";
 
 const CalendarComp = () => {
 
   const [allEvents, setAllEvents] = useState([]);
-
   const [info, setInfo] = useState(null);
   const [isDialogOpened, setIsDialogOpened] = useState(false);
-  const [event, setEvent] = useState({});
+  const [fullScreenDialogFlag, setFullScreenDialogFlag] = useState(false);
+  const [taskDetails, setTaskDetails] = useState('');
+
+  // const [event, setEvent] = useState({});
   const dispatch = useDispatch();
 
-  const tsks = useSelector((state) => state.eventsWithDates.eventsWithDates);
+  const tsks = useSelector((state) => state.eventsWithDates.eventsWithDates)
 
-  const Events = tsks.map((m) => {
-    return {
-      start: m.startDate,
-      end: m.endDate,
-      title: m.title,
-    };
-  });
+  // const Events = tsks?.map((t => {
+  //   return {
+  //     start: t.startDate,
+  //     end : t.endDate,
+  //     title: t.title
+  //   }
+  // }))
+
+  // console.log(tsks);
+  // console.log(allEvents);
 
   useEffect(() => {
-    setAllEvents((oldEvents) => [...oldEvents, event]);
     dispatch(getEventsWithDates("1"));
-  }, [dispatch,event ]);
+  }, [dispatch]);
+
+
+  useEffect(() => {
+    setAllEvents(tsks?.map((t => {
+      return {
+        start: t.startDate,
+        end: t.endDate,
+        title: t.title
+      }
+    })))
+  }, [tsks])
+
+  // useEffect(() => {
+  //   setAllEvents((old) => {
+  //     console.log(old);
+  //     // return {...old, event}
+  //   })
+  // }, [event])
 
   let selectHandler = function (info) {
     setIsDialogOpened(true);
@@ -43,13 +66,11 @@ const CalendarComp = () => {
   };
 
   let eventHandler = (info) => {
-    console.log(info);
+    setTaskDetails(info.event.title);
+    setFullScreenDialogFlag(true);
   };
 
   const UpdateTaskDate = (task) => {
-    console.log(task.id);
-    console.log(info.startStr);
-    console.log(info.endStr);
     dispatch(
       UpdateTaskDateAction({
         projectId: "1",
@@ -65,7 +86,7 @@ const CalendarComp = () => {
       {isDialogOpened === true && (
         <FormDialog
           info={info}
-          setEvent={setEvent}
+          setAllEvents={setAllEvents}
           setIsDialogOpened={setIsDialogOpened}
           UpdateTaskDate={UpdateTaskDate}
         ></FormDialog>
@@ -88,6 +109,10 @@ const CalendarComp = () => {
         select={selectHandler}
         eventClick={eventHandler}
       />
+
+      {fullScreenDialogFlag &&
+        <FullScreenDialog allTasks = {allEvents} task = {taskDetails} setFullScreenDialogFlag = {setFullScreenDialogFlag}></FullScreenDialog>
+      }
     </div>
   );
 };

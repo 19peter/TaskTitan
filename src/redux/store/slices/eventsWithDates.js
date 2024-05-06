@@ -4,7 +4,7 @@ import axios from "axios";
 export const getEventsWithDates =  createAsyncThunk("backlog/getTasksWithDates",async (projectId)=>{
     const res = await axios.get("http://localhost:8000/projects/"+projectId);
     const tasks = res.data.tasks.filter((m) => m.startDate)
-    console.log(tasks);
+    // console.log(tasks);
     return tasks;
 
 })
