@@ -12,6 +12,8 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { setCurrentUser } from "../redux/store/slices/currentUserSlice.js";
+import ResponsiveDrawer from "../Components/Members/members.jsx";
+import Navbar from "../Components/NavBar/navbar.jsx";
 
 function App() {
   const dispatch = useDispatch();
@@ -32,6 +34,10 @@ function App() {
   const router = createBrowserRouter([
     { path: "/board", element: <Boardpage></Boardpage> },
     { path: "/", element: <Intro></Intro> },
+    { path: "/members", element: <ResponsiveDrawer data={['Team Leaders', 'Members', 'Invite Members']}></ResponsiveDrawer> },
+
+    { path: "/home", element: <ResponsiveDrawer data={['Projects', 'Dashboard', 'Calender']}></ResponsiveDrawer>  },
+
   ]);
   return (
     // <Provider store={store}>
@@ -43,6 +49,8 @@ function App() {
         {/* <CalendarComp></CalendarComp> */}
         {/* <ProjectPage></ProjectPage> */}
         {/* <Intro></Intro> */}
+        {/* <ResponsiveDrawer/> */}
+        <Navbar/>
       </>
     </RouterProvider>
     // </Provider>

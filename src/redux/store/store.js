@@ -4,13 +4,15 @@ import backlogSlice from "./slices/backlogSlice";
 import eventsWithDatesSlice from "./slices/eventsWithDates";
 import isUserInDBSlice from "./slices/isUserInDBSlice";
 import currentUserSlice from "./slices/currentUserSlice";
+import projectReducer from "./slices/projectSlice"
 
 const store = configureStore({
     reducer:{
        backlog:backlogSlice,
        eventsWithDates:eventsWithDatesSlice,
        isUserInDB:isUserInDBSlice,
-       currentUser:currentUserSlice
+       currentUser:currentUserSlice,
+       project:projectReducer
     }
 })
 

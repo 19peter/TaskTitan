@@ -27,6 +27,13 @@
       "email": "hassan.walid77@gmail.com",
       "picture": "https://lh3.googleusercontent.com/a/ACg8ocJ0IMbCQbNcHpI9Ii1pVa1umtP3fv_PmIiFGQDW9AKDlTlo7A=s96-c",
       "userProjects": []
+    },
+    {
+      "id": "113705067715860298092",
+      "name": "Nouran Sayed Nasr",
+      "email": "nouransayednasr@gmail.com",
+      "picture": "https://lh3.googleusercontent.com/a/ACg8ocLmxDNwuea-g_8rCTSJAT7atXinkmEmxUYiT1A43dXwAyG0fQ=s96-c",
+      "userProjects": []
     }
   ],
   "projects": [
@@ -38,8 +45,8 @@
       },
       "members": [
         {
-          "email": "peter@gmail.com",
-          "id": "1"
+          "email": "nouransayednasr@gmail.com",
+          "id": "113705067715860298092"
         },
         {
           "email": "badr@gmail.com",
@@ -80,7 +87,8 @@
           "level": "intermediate",
           "priority": "high",
           "assignedTo": {
-            "email": "peter@gmail.com"
+            "name": "Nouran Sayed Nasr",
+            "email": "nouransayednasr@gmail.com"
           },
           "id": "3",
           "startDate": "2024-05-27",
@@ -99,6 +107,30 @@
       ],
       "startDate": "date",
       "endDate": "date"
+    },
+    {
+      "id": "ca4bf85b-867b-4b65-8ebd-92da68b37d02",
+      "manager": {
+        "email": "nouransayednasr@gmail.com",
+        "id": "113705067715860298092"
+      },
+      "tasks": [],
+      "members": [],
+      "title": "Blood Donation",
+      "startDate": "2024-06-01",
+      "endDate": "2024-06-25"
+    },
+    {
+      "id": "c7ebe41d-7d7e-4e63-ba0b-477843593954",
+      "manager": {
+        "email": "nouransayednasr@gmail.com",
+        "id": "113705067715860298092"
+      },
+      "tasks": [],
+      "members": [],
+      "title": "Examination System",
+      "startDate": "2024-05-02",
+      "endDate": "2024-05-12"
     }
   ]
 }
