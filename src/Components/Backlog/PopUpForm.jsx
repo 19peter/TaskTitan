@@ -89,7 +89,7 @@ const PopupForm = ({ setIsFormOpened, taskToBeUpdated }) => {
                 onChange={handleChange}
               >
                 <MenuItem value="easy">Easy</MenuItem>
-                <MenuItem value="medium">Medium</MenuItem>
+                <MenuItem value="intermediate">intermediate</MenuItem>
                 <MenuItem value="difficult">Difficult</MenuItem>
               </Select>
             </FormControl>

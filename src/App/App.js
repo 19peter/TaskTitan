@@ -16,8 +16,8 @@ function App() {
         {/* <Boardpage></Boardpage> */}
         {/* <Backlog></Backlog>  */}
         {/* <CalendarComp></CalendarComp> */}
-        {/* <ProjectPage></ProjectPage> */}
-        <Intro></Intro>
+        <ProjectPage></ProjectPage>
+        {/* <Intro></Intro> */}
       </div>
     </Provider>
   );
