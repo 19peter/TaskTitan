@@ -42,19 +42,6 @@
       "title": "Event Reservation",
       "tasks": [
         {
-          "title": "MUI",
-          "status": "Todo",
-          "level": "difficult",
-          "priority": "medium",
-          "assignedTo": {
-            "name": "Mokhtar Mostafa",
-            "email": "Badr@gmail.com"
-          },
-          "id": "1",
-          "startDate": "2024-05-07",
-          "endDate": "2024-05-12"
-        },
-        {
           "title": "Payement",
           "status": "In Progress",
           "level": "intermediate",
@@ -63,8 +50,8 @@
             "email": "Badr@gmail.com"
           },
           "id": "2",
-          "startDate": "2024-05-13",
-          "endDate": "2024-05-17"
+          "startDate": "2024-05-07",
+          "endDate": "2024-05-11"
         },
         {
           "title": "Dashboard",
@@ -79,14 +66,56 @@
           "endDate": "2024-06-01"
         },
         {
-          "title": "test",
-          "status": "In Progress",
+          "id": "7393c78f-4243-4c0a-a9f8-96f8ec70910c",
+          "title": "Test",
+          "status": "Backlog",
           "level": "intermediate",
-          "priority": "low",
+          "priority": "medium",
           "assignedTo": {
-            "email": "mekh@gmail.com"
+            "email": "peter@gmail.com"
           },
-          "id": "4"
+          "details": "Testing App",
+          "startDate": "2024-05-13",
+          "endDate": "2024-05-18"
+        },
+        {
+          "title": "Register",
+          "status": "Backlog",
+          "level": "easy",
+          "priority": "high",
+          "assignedTo": {
+            "email": "Badr@gmail.com"
+          },
+          "details": "Add Register Page",
+          "id": "eda3904e-d379-4adb-b699-dc42b311b96d",
+          "startDate": "2024-05-20",
+          "endDate": "2024-05-23"
+        },
+        {
+          "title": "Login",
+          "status": "Backlog",
+          "level": "intermediate",
+          "priority": "medium",
+          "assignedTo": {
+            "email": "badr@gmail.com"
+          },
+          "details": "add login ",
+          "id": "e1440279-c93f-4b57-a138-9f4c5b3ed8c8",
+          "startDate": "2024-04-30",
+          "endDate": "2024-05-03"
+        },
+        {
+          "title": "text",
+          "status": "Backlog",
+          "level": "intermediate",
+          "priority": "medium",
+          "assignedTo": {
+            "email": "asd"
+          },
+          "details": "kjh",
+          "id": "756dde85-b171-4dc8-9ceb-4372c7584fff",
+          "startDate": "2024-04-30",
+          "endDate": "2024-05-03"
         }
       ],
       "startDate": "date",
