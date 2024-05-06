@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Button from '@mui/material/Button';
+import { useEffect, useState } from "react";
 import Dialog from '@mui/material/Dialog';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -11,39 +12,16 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import CloseIcon from '@mui/icons-material/Close';
 import Slide from '@mui/material/Slide';
-import { useSelector, useDispatch } from 'react-redux';
-import { getEventsWithDates } from '../../redux/store/slices/eventsWithDates';
-import { getBacklogAction } from '../../redux/store/slices/backlogSlice';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function FullScreenDialog({ task, setFullScreenDialogFlag}) {
-  // const allTasks = useSelector((state) => state.backlog.backlog)
-  const allTasks = useSelector((state) => state.eventsWithDates.eventsWithDates)
-  
-  // const allTasks = useSelector((state) => {
-  //   console.log(state);
-  // })
+export default function FullScreenDialog({ task, setFullScreenDialogFlag, allTasks  }) {
 
   const currentTask = allTasks.find((t) => t.title === task);
-  console.log(allTasks);
-  console.log(task);
-  console.log(currentTask);
+  const [open, setOpen] = useState(true);
 
-  const [open, setOpen] = React.useState(true);
-  const dispatch = useDispatch();
-
-  // React.useEffect(() => {
-  //   dispatch(getBacklogAction("1"))
-  //   dispatch(getEventsWithDates("1"))
-
-  // }, [dispatch])
-
-  const handleClickOpen = () => {
-    setFullScreenDialogFlag(true);
-  };
 
   const handleClose = () => {
     setOpen(false);

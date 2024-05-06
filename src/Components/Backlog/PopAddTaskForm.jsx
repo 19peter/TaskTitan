@@ -109,10 +109,10 @@ const PopAddTaskForm = ({ setIsAddFormOpened }) => {
 
           <Box sx={{ minWidth: 60, marginY: "1rem" }}>
             <FormControl fullWidth>
-              <InputLabel id={`status-label-`}>Level</InputLabel>
+              <InputLabel >Level</InputLabel>
               <Select
-                labelId={`status-label-`}
-                id={`status-select-`}
+                labelId={"status-label-"}
+                id={"status-select-"}
                 name="level"
                 value={formData.level}
                 onChange={handleChange}
@@ -125,10 +125,10 @@ const PopAddTaskForm = ({ setIsAddFormOpened }) => {
           </Box>
           <Box sx={{ minWidth: 60, marginY: "1rem" }}>
             <FormControl fullWidth>
-              <InputLabel id={`status-label-`}>Priority</InputLabel>
+              <InputLabel id={"status-label-"}>Priority</InputLabel>
               <Select
-                labelId={`status-label-`}
-                id={`status-select-`}
+                labelId={"status-label-"}
+                id={"status-select-"}
                 name="priority"
                 value={formData.priority}
                 onChange={handleChange}

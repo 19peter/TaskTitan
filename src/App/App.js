@@ -8,8 +8,6 @@ import Backlog from "../Components/Backlog/Backlog.jsx";
 import CalendarComp from "../Components/Calendar/CalendarComp.jsx";
 import ProjectPage from "../pages/ProjectPage.jsx";
 import Intro from "../Components/Intro/intro.jsx";
-
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { setCurrentUser } from "../redux/store/slices/currentUserSlice.js";
@@ -30,10 +28,10 @@ function App() {
     }
   }, []);
 
-  const router = createBrowserRouter([
-    { path: "/board", element: <Boardpage></Boardpage> },
-    { path: "/", element: <Intro></Intro> },
-  ]);
+  // const router = createBrowserRouter([
+  //   { path: "/board", element: <Boardpage></Boardpage> },
+  //   { path: "/", element: <Intro></Intro> },
+  // ]);
 
   const router = createBrowserRouter([
     { path: '/', element: <Backlog></Backlog> },

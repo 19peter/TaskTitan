@@ -7,6 +7,7 @@ import FormDialog from "./CalendarDialog";
 import { useDispatch } from "react-redux";
 import {
   UpdateTaskDateAction,
+  getBacklogAction,
   getTasksWithDates,
   updateTaskAction,
 } from "../../redux/store/slices/backlogSlice";
@@ -21,25 +22,15 @@ const CalendarComp = () => {
   const [isDialogOpened, setIsDialogOpened] = useState(false);
   const [fullScreenDialogFlag, setFullScreenDialogFlag] = useState(false);
   const [taskDetails, setTaskDetails] = useState('');
-
-  // const [event, setEvent] = useState({});
   const dispatch = useDispatch();
 
   const tsks = useSelector((state) => state.eventsWithDates.eventsWithDates)
-
-  // const Events = tsks?.map((t => {
-  //   return {
-  //     start: t.startDate,
-  //     end : t.endDate,
-  //     title: t.title
-  //   }
-  // }))
-
-  // console.log(tsks);
-  // console.log(allEvents);
+  const AllTasks = useSelector((state) => state.backlog.backlog)
 
   useEffect(() => {
     dispatch(getEventsWithDates("1"));
+    dispatch(getBacklogAction("1"))
+    
   }, [dispatch]);
 
 
@@ -112,7 +103,7 @@ const CalendarComp = () => {
       />
 
       {fullScreenDialogFlag &&
-        <FullScreenDialog task = {taskDetails} setFullScreenDialogFlag = {setFullScreenDialogFlag}></FullScreenDialog>
+        <FullScreenDialog allTasks={AllTasks} task = {taskDetails} setFullScreenDialogFlag = {setFullScreenDialogFlag}></FullScreenDialog>
       }
     </div>
   );

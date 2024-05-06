@@ -49,6 +49,19 @@
       "title": "Event Reservation",
       "tasks": [
         {
+          "title": "MUI",
+          "status": "Todo",
+          "level": "difficult",
+          "priority": "medium",
+          "assignedTo": {
+            "name": "Mokhtar Mostafa",
+            "email": "Badr@gmail.com"
+          },
+          "id": "1",
+          "startDate": "2024-05-27",
+          "endDate": "2024-05-30"
+        },
+        {
           "title": "Payement",
           "status": "Backlog",
           "level": "intermediate",
@@ -58,8 +71,8 @@
             "email": "hassan.walid77@gmail.com"
           },
           "id": "2",
-          "startDate": "2024-05-07",
-          "endDate": "2024-05-11"
+          "startDate": "2024-05-27",
+          "endDate": "2024-05-31"
         },
         {
           "title": "Dashboard",
@@ -70,21 +83,8 @@
             "email": "peter@gmail.com"
           },
           "id": "3",
-          "startDate": "2024-05-27",
-          "endDate": "2024-06-01"
-        },
-        {
-          "id": "7393c78f-4243-4c0a-a9f8-96f8ec70910c",
-          "title": "Test",
-          "status": "Backlog",
-          "level": "intermediate",
-          "priority": "medium",
-          "assignedTo": {
-            "email": "peter@gmail.com"
-          },
-          "details": "Testing App",
-          "startDate": "2024-05-13",
-          "endDate": "2024-05-18"
+          "startDate": "2024-05-07",
+          "endDate": "2024-05-11"
         },
         {
           "title": "Register",
@@ -96,8 +96,8 @@
           },
           "details": "Add Register Page",
           "id": "eda3904e-d379-4adb-b699-dc42b311b96d",
-          "startDate": "2024-05-20",
-          "endDate": "2024-05-23"
+          "startDate": "2024-04-30",
+          "endDate": "2024-05-04"
         },
         {
           "title": "Login",
@@ -113,17 +113,15 @@
           "endDate": "2024-05-03"
         },
         {
-          "title": "text",
+          "title": "tsssst",
           "status": "Backlog",
-          "level": "intermediate",
+          "level": "easy",
           "priority": "medium",
           "assignedTo": {
-            "email": "asd"
+            "email": "peter@gmail.com"
           },
-          "details": "kjh",
-          "id": "756dde85-b171-4dc8-9ceb-4372c7584fff",
-          "startDate": "2024-04-30",
-          "endDate": "2024-05-03"
+          "details": "asd",
+          "id": "44b396e5-0075-40b0-80f7-e5a82d74b2c3"
         }
       ],
       "startDate": "date",
