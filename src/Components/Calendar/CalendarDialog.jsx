@@ -1,24 +1,39 @@
-import React from 'react';
-import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
+import React, { useEffect, useState } from "react";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
+import Box from "@mui/material/Box";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
+import { useDispatch } from "react-redux";
+import { getBacklogAction } from "../../redux/store/slices/backlogSlice";
+import { useSelector } from "react-redux";
 
+const CalendarDialog = ({ info, setIsDialogOpened, setEvent, UpdateTaskDate }) => {
+  const dispatch = useDispatch();
 
-
-const CalendarDialog = ({ info, setIsDialogOpened, setEvent }) => {
-
+  const allTasks = useSelector((state) => state.backlog.backlog);
+  const [selectedTask, setSelectedTask] = useState();
   const [open, setOpen] = React.useState(true);
 
+  useEffect(() => {
+    dispatch(getBacklogAction(1));
+  }, []);
+
+  const handleTaskChange = (e) => {
+    setSelectedTask(e.target.value);
+  };
 
   const handleClose = () => {
     setIsDialogOpened(false);
     setOpen(false);
   };
-
 
   return (
     <div>
@@ -27,14 +42,16 @@ const CalendarDialog = ({ info, setIsDialogOpened, setEvent }) => {
           open={open}
           onClose={handleClose}
           PaperProps={{
-            component: 'form',
+            component: "form",
             onSubmit: (event) => {
               event.preventDefault();
-              const formData = new FormData(event.currentTarget);
-              const formJson = Object.fromEntries(formData.entries());
-              const projectTitle = formJson.email;
-              // setTitle(projectTitle);
-              setEvent({ start: info.startStr, end: info.endStr, title: projectTitle })
+              const taskUpdated = allTasks.find((t) => t.title ===selectedTask);
+              UpdateTaskDate(taskUpdated);
+              setEvent({
+                start: info.startStr,
+                end: info.endStr,
+                title: selectedTask,
+              });
               handleClose();
             },
           }}
@@ -44,26 +61,33 @@ const CalendarDialog = ({ info, setIsDialogOpened, setEvent }) => {
             <DialogContentText>
               Enter You'r project Name to be added as an event in your Dialog
             </DialogContentText>
-            <TextField
-              autoFocus
-              required
-              margin="dense"
-              id="name"
-              name="email"
-              label="Project Title"
-              type="text"
-              fullWidth
-              variant="standard"
-            />
+            <Box sx={{ minWidth: 60, marginY: "1rem" }}>
+              <FormControl fullWidth>
+                <InputLabel id={`status-label-`}>Tasks</InputLabel>
+                <Select
+                  labelId={`status-label-`}
+                  id={`status-select-`}
+                  name="tasks"
+                  value={selectedTask}
+                  onChange={handleTaskChange}
+                >
+                  {allTasks.map((task) => (
+                    <MenuItem key={task.id} value={task.title}>
+                      {task.title}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+            </Box>
           </DialogContent>
           <DialogActions>
             <Button onClick={handleClose}>Cancel</Button>
-            <Button type="submit">Subscribe</Button>
+            <Button type="submit">Submit</Button>
           </DialogActions>
         </Dialog>
       </React.Fragment>
     </div>
   );
-}
+};
 
 export default CalendarDialog;
