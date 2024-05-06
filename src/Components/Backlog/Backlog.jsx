@@ -11,9 +11,10 @@ import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import { IconButton } from "@mui/material";
 import PopupForm from "./PopUpForm";
 import { useDispatch, useSelector } from "react-redux";
-import { getBacklogAction } from "../../redux/store/slices/backlogSlice";
+import { DelteTaskAction, getBacklogAction } from "../../redux/store/slices/backlogSlice";
 import AddIcon from "@mui/icons-material/Add";
 import PopAddTaskForm from "./PopAddTaskForm";
+import DeleteIcon from '@mui/icons-material/Delete';
 
 //#region Styling
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -39,11 +40,15 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
 const Backlog = () => {
   const tasks = useSelector((state) => state.backlog.backlog);
+  // console.log(tasks);
   const dispatch = useDispatch();
 
+
+  
   useEffect(() => {
-    dispatch(getBacklogAction(1)); //id of project
-  }, []);
+    dispatch(getBacklogAction(1));
+  }, [dispatch]);
+
 
   const [isAddFormOpened, setIsAddFormOpened] = useState(false);
   const handleAddButton = () => {
@@ -59,7 +64,11 @@ const Backlog = () => {
     // console.log(taskToBeUpdated);
   };
 
-  if (tasks.length === 0) return <div>Loading...</div>;
+  const handleDeleteButton = (id) => {
+    dispatch(DelteTaskAction({projectId:"1", deletedTaskId: id}))
+  }
+
+  if (!tasks) return <div>Loading...</div>;
   return (
     <div>
       <TableContainer component={Paper}>
@@ -68,7 +77,10 @@ const Backlog = () => {
             <TableRow>
               <StyledTableCell>
                 Task Title
-                <IconButton onClick={handleAddButton} style={{ color: "white", marginX: "1rem" }}>
+                <IconButton
+                  onClick={handleAddButton}
+                  style={{ color: "white", marginX: "1rem" }}
+                >
                   <AddIcon />
                 </IconButton>
               </StyledTableCell>
@@ -88,6 +100,13 @@ const Backlog = () => {
                     }}
                   >
                     <EditOutlinedIcon></EditOutlinedIcon>
+                  </IconButton>
+                  <IconButton
+                    onClick={() => {
+                      handleDeleteButton(task.id);
+                    }}
+                  >
+                    <DeleteIcon></DeleteIcon>
                   </IconButton>
                   {task.title}
                 </StyledTableCell>
@@ -109,7 +128,10 @@ const Backlog = () => {
         ></PopupForm>
       )}
       {isAddFormOpened && (
-        <PopAddTaskForm setIsAddFormOpened={setIsAddFormOpened}></PopAddTaskForm>
+        <PopAddTaskForm
+          setIsAddFormOpened={setIsAddFormOpened}
+          // fireDispatch={fireDispatch}
+        ></PopAddTaskForm>
       )}
     </div>
   );

@@ -11,18 +11,22 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import { useDispatch } from "react-redux";
+import {v4 as uuid} from "uuid"
+import { AddTaskAction } from "../../redux/store/slices/backlogSlice";
 
 const PopAddTaskForm = ({setIsAddFormOpened}) => {
 
-    const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(true);
 
+  const dispatch = useDispatch();
 
   const [formData, setFormData] = useState({
     title: "",
-    status: "",
+    status: "Backlog",
     level: "",
     priority: "",
-    assignedTo: ""
+    assignedTo: {}
   });
 
   const handleClose = () => {
@@ -32,14 +36,19 @@ const PopAddTaskForm = ({setIsAddFormOpened}) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    if(name==="assignedTo"){
+    setFormData({ ...formData, [name]: {email: value} });
+    }else
     setFormData({ ...formData, [name]: value });
   };
 
   const handleSubmit = () => {
-    console.log(formData);
+    formData.id = uuid()
+    // console.log(formData);
+
+    dispatch(AddTaskAction({projectId: "1", AddedTask: formData}))
     handleClose();
   };
-
 
     return (
         <div>
@@ -66,22 +75,6 @@ const PopAddTaskForm = ({setIsAddFormOpened}) => {
             onChange={handleChange}
             fullWidth
           />
-          <Box sx={{ minWidth: 60 ,marginY: "1rem" }}>
-            <FormControl fullWidth>
-              <InputLabel id={`status-label-`}>Status</InputLabel>
-              <Select
-                labelId={`status-label-`}
-                id={`status-select-`}
-                name="status"
-                value={formData.status}
-                onChange={ handleChange}
-              >
-                <MenuItem value="Backlog">Backlog</MenuItem>
-                <MenuItem value="inProgress">In Progress</MenuItem>
-                <MenuItem value="done">Done</MenuItem>
-              </Select>
-            </FormControl>
-          </Box>
           <Box sx={{ minWidth: 60,marginY: "1rem" }}>
             <FormControl fullWidth>
               <InputLabel id={`status-label-`}>Level</InputLabel>

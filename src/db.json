@@ -36,95 +36,59 @@
       "title": "Event Reservation",
       "tasks": [
         {
-          "id": "1",
-          "title": "Login",
+          "title": "cal",
+          "status": "Backlog",
+          "level": "medium",
+          "priority": "medium",
           "assignedTo": {
-            "email": "hassan@gmail.com",
-            "name": "hassan"
+            "email": "peter@gmail.com"
+          }
+        },
+        {
+          "title": "MUI",
+          "status": "Backlog",
+          "level": "difficult",
+          "priority": "medium",
+          "assignedTo": {
+            "email": "Badr@gmail.com"
           },
-          "startDate": "",
-          "endDate": "",
-          "status": "Todo",
+          "id": "d5042b53-66f5-40fe-aa39-665ce0a329f4",
+          "startDate": "2024-05-07",
+          "endDate": "2024-05-12"
+        },
+        {
+          "title": "Payement",
+          "status": "Backlog",
+          "level": "medium",
+          "priority": "high",
+          "assignedTo": {
+            "email": "Badr@gmail.com"
+          },
+          "id": "5af64260-6c7e-4c7e-9606-2cbcb0760f75",
+          "startDate": "2024-05-13",
+          "endDate": "2024-05-17"
+        },
+        {
+          "title": "Dashboard",
+          "status": "Backlog",
+          "level": "medium",
+          "priority": "high",
+          "assignedTo": {
+            "email": "peter@gmail.com"
+          },
+          "id": "348b8708-06dc-4b39-9262-c589467aac2f",
+          "startDate": "2024-05-27",
+          "endDate": "2024-06-01"
+        },
+        {
+          "title": "test",
+          "status": "Backlog",
+          "level": "medium",
           "priority": "low",
-          "level": "difficult"
-        },
-        {
-          "id": "2",
-          "title": "Register",
           "assignedTo": {
-            "email": "mekha@gmail.com",
-            "name": "mekha"
+            "email": "mekh@gmail.com"
           },
-          "startDate": "",
-          "endDate": "",
-          "status": "Backlog",
-          "priority": "high",
-          "level": "easy"
-        },
-        {
-          "id": "3",
-          "title": "Test",
-          "assignedTo": {
-            "email": "mekha@gmail.com",
-            "name": "mekha"
-          },
-          "startDate": "",
-          "endDate": "",
-          "status": "In Progress",
-          "priority": "high",
-          "level": "intermediate"
-        },
-        {
-          "id": "4",
-          "title": "Design",
-          "assignedTo": {
-            "email": "mekha@gmail.com",
-            "name": "mekha"
-          },
-          "startDate": "",
-          "endDate": "",
-          "status": "Done",
-          "priority": "medium",
-          "level": "difficult"
-        },
-        {
-          "id": "5",
-          "title": "DesignScreen",
-          "assignedTo": {
-            "email": "mekha@gmail.com",
-            "name": "mekha"
-          },
-          "startDate": "",
-          "endDate": "",
-          "status": "Done",
-          "priority": "medium",
-          "level": "difficult"
-        },
-        {
-          "id": "6",
-          "title": "testAuth",
-          "assignedTo": {
-            "email": "mekha@gmail.com",
-            "name": "mekha"
-          },
-          "startDate": "",
-          "endDate": "",
-          "status": "Backlog",
-          "priority": "medium",
-          "level": "difficult"
-        },
-        {
-          "id": "7",
-          "title": "test5",
-          "assignedTo": {
-            "email": "mekha@gmail.com",
-            "name": "mekha"
-          },
-          "startDate": "",
-          "endDate": "",
-          "status": "Todo",
-          "priority": "medium",
-          "level": "difficult"
+          "id": "df912e83-6d17-42a7-ac07-ff157edd3c05"
         }
       ],
       "startDate": "date",

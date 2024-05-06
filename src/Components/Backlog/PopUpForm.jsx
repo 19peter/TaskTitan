@@ -27,7 +27,7 @@ const PopupForm = ({ setIsFormOpened, taskToBeUpdated }) => {
     status: taskToBeUpdated.status,
     level: taskToBeUpdated.level,
     priority: taskToBeUpdated.priority,
-    assignedTo: taskToBeUpdated.assignedTo
+    assignedTo: {email: taskToBeUpdated.assignedTo.email}
   });
 
   const handleClose = () => {
@@ -37,12 +37,16 @@ const PopupForm = ({ setIsFormOpened, taskToBeUpdated }) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    if(name==="assignedTo"){
+    setFormData({ ...formData, [name]: {email: value} });
+    }else
     setFormData({ ...formData, [name]: value });
   };
 
   const handleSubmit = () => {
     console.log(formData);
-    dispatch(updateTaskAction(formData));
+    
+    dispatch(updateTaskAction({projectId:1,taskId:taskToBeUpdated.id, updatedTask: formData}));
     handleClose();
   };
 
@@ -73,22 +77,6 @@ const PopupForm = ({ setIsFormOpened, taskToBeUpdated }) => {
             onChange={handleChange}
             fullWidth
           />
-          <Box sx={{ minWidth: 60 ,marginY: "1rem" }}>
-            <FormControl fullWidth>
-              <InputLabel id={`status-label-`}>Status</InputLabel>
-              <Select
-                labelId={`status-label-`}
-                id={`status-select-`}
-                name="status"
-                value={formData.status}
-                onChange={ handleChange}
-              >
-                <MenuItem value="Backlog">Backlog</MenuItem>
-                <MenuItem value="inProgress">In Progress</MenuItem>
-                <MenuItem value="done">Done</MenuItem>
-              </Select>
-            </FormControl>
-          </Box>
           <Box sx={{ minWidth: 60,marginY: "1rem" }}>
             <FormControl fullWidth>
               <InputLabel id={`status-label-`}>Level</InputLabel>
