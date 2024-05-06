@@ -23,6 +23,7 @@ const PopupForm = ({ setIsFormOpened, taskToBeUpdated }) => {
   console.log(taskToBeUpdated);
 
   const [formData, setFormData] = useState({
+    id: taskToBeUpdated.id,
     title: taskToBeUpdated.title,
     status: taskToBeUpdated.status,
     level: taskToBeUpdated.level,

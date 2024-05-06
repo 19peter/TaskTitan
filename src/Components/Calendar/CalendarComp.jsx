@@ -7,25 +7,34 @@ import FormDialog from "./CalendarDialog";
 import { useDispatch } from "react-redux";
 import {
   UpdateTaskDateAction,
+  getTasksWithDates,
   updateTaskAction,
 } from "../../redux/store/slices/backlogSlice";
+import { useSelector } from "react-redux";
+import { getEventsWithDates } from "../../redux/store/slices/eventsWithDates";
 
 const CalendarComp = () => {
+  
   const [allEvents, setAllEvents] = useState([]);
+
+
   const [info, setInfo] = useState(null);
   const [isDialogOpened, setIsDialogOpened] = useState(false);
   const [event, setEvent] = useState({});
   const dispatch = useDispatch();
 
+  const tsks = useSelector((state) => console.log(state))
+   
+
   useEffect(() => {
     setAllEvents((oldEvents) => [...oldEvents, event]);
-  }, [event]);
+    dispatch(getEventsWithDates("1"));
+  }, [event, dispatch]);
 
   let selectHandler = function (info) {
     setIsDialogOpened(true);
     setInfo(info);
 
-    // console.log(info);
   };
 
   let eventHandler = (info) => {
