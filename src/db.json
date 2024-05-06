@@ -43,7 +43,7 @@
           },
           "startDate": "",
           "endDate": "",
-          "status": "Todo",
+          "status": "Backlog",
           "priority": "low",
           "level": "difficult"
         },
@@ -69,7 +69,7 @@
           },
           "startDate": "",
           "endDate": "",
-          "status": "In Progress",
+          "status": "Backlog",
           "priority": "high",
           "level": "intermediate"
         },
@@ -121,7 +121,7 @@
           },
           "startDate": "",
           "endDate": "",
-          "status": "Todo",
+          "status": "Backlog",
           "priority": "medium",
           "level": "difficult"
         }
