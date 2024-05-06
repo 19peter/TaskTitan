@@ -19,7 +19,9 @@ const CalendarDialog = ({ info, setIsDialogOpened, setEvent, UpdateTaskDate }) =
   const dispatch = useDispatch();
 
   const allTasks = useSelector((state) => state.backlog.backlog);
+
   const [selectedTask, setSelectedTask] = useState();
+
   const [open, setOpen] = React.useState(true);
 
   useEffect(() => {
@@ -27,6 +29,7 @@ const CalendarDialog = ({ info, setIsDialogOpened, setEvent, UpdateTaskDate }) =
   }, []);
 
   const handleTaskChange = (e) => {
+    console.log(e.target.value);
     setSelectedTask(e.target.value);
   };
 
@@ -45,12 +48,12 @@ const CalendarDialog = ({ info, setIsDialogOpened, setEvent, UpdateTaskDate }) =
             component: "form",
             onSubmit: (event) => {
               event.preventDefault();
-              const taskUpdated = allTasks.find((t) => t.title ===selectedTask);
+              const taskUpdated = allTasks.find((t) => t.id ===selectedTask);
               UpdateTaskDate(taskUpdated);
               setEvent({
                 start: info.startStr,
                 end: info.endStr,
-                title: selectedTask,
+                title: taskUpdated.title,
               });
               handleClose();
             },
@@ -72,7 +75,7 @@ const CalendarDialog = ({ info, setIsDialogOpened, setEvent, UpdateTaskDate }) =
                   onChange={handleTaskChange}
                 >
                   {allTasks.map((task) => (
-                    <MenuItem key={task.id} value={task.title}>
+                    <MenuItem key={task.id} value={task.id}>
                       {task.title}
                     </MenuItem>
                   ))}

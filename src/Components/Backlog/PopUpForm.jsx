@@ -23,6 +23,7 @@ const PopupForm = ({ setIsFormOpened, taskToBeUpdated }) => {
   console.log(taskToBeUpdated);
 
   const [formData, setFormData] = useState({
+    id: taskToBeUpdated.id,
     title: taskToBeUpdated.title,
     status: taskToBeUpdated.status,
     level: taskToBeUpdated.level,
@@ -88,7 +89,7 @@ const PopupForm = ({ setIsFormOpened, taskToBeUpdated }) => {
                 onChange={handleChange}
               >
                 <MenuItem value="easy">Easy</MenuItem>
-                <MenuItem value="medium">Medium</MenuItem>
+                <MenuItem value="intermediate">intermediate</MenuItem>
                 <MenuItem value="difficult">Difficult</MenuItem>
               </Select>
             </FormControl>
