@@ -1,38 +1,53 @@
-
-    {
-           "users": [{
-            "id" : "",
+{
+    "users": [
+        {
+            "id": "",
             "name": "",
             "email": "",
             "password": "",
             "userProjects": [
-            {
-                "projects_id": "id",
-                "assignedTasks": ["taskID"],
-                "role" : "manager,leader,member"
-            }
-        ]
-        }],
-    
-        "projects": [{
-            "id" : "",
-            "manager": {"email" : "", "id" : ""},
-            "members": [{"email" : "", "id" : ""}],
-            "title" : "",
-            "tasks":  [ {
-                    "id" : "",
-                    "title" : "",
-                    "assignedTo": [{"email" : ""}],
+                {
+                    "projects_id": "id",
+                    "assignedTasks": [
+                        "taskID"
+                    ],
+                    "role": "manager,leader,member"
+                }
+            ]
+        }
+    ],
+    "projects": [
+        {
+            "id": "",
+            "manager": {
+                "email": "",
+                "id": ""
+            },
+            "members": [
+                {
+                    "email": "",
+                    "id": ""
+                }
+            ],
+            "title": "",
+            "tasks": [
+                {
+                    "id": "",
+                    "title": "",
+                    "assignedTo": [
+                        {
+                            "email": ""
+                        }
+                    ],
                     "startDate": "date",
                     "endDate": "date",
-                    "status" : "unassigned",
-                    "priority" : "low", 
-                    "level":"easy"
-                 }
-                    
-                ],
-                "startDate": "date",
-                "endDate": "date"
-        }]
-        
-    }
+                    "status": "unassigned",
+                    "priority": "low",
+                    "level": "easy"
+                }
+            ],
+            "startDate": "date",
+            "endDate": "date"
+        }
+    ]
+}
