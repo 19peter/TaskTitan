@@ -8,6 +8,13 @@
       "userProjects": []
     },
     {
+      "id": "109552298439343528489",
+      "name": "Mokhtar Mostafa Mokhtar",
+      "email": "mokhtarmostafa1311@gmail.com",
+      "picture": "https://lh3.googleusercontent.com/a/ACg8ocKyrpMKW_FDR9ddD4GgMP3yiQHXLuSNf0TAWR0LTG71yES0A8A=s96-c",
+      "userProjects": []
+    },
+    {
       "id": "107111098656219910391",
       "name": "mokhtar mostafa",
       "email": "mikhashadow@gmail.com",
@@ -35,59 +42,51 @@
       "title": "Event Reservation",
       "tasks": [
         {
-          "title": "cal",
-          "status": "Backlog",
-          "level": "medium",
-          "priority": "medium",
-          "assignedTo": {
-            "email": "peter@gmail.com"
-          }
-        },
-        {
           "title": "MUI",
-          "status": "Backlog",
+          "status": "Todo",
           "level": "difficult",
           "priority": "medium",
           "assignedTo": {
+            "name": "Mokhtar Mostafa",
             "email": "Badr@gmail.com"
           },
-          "id": "d5042b53-66f5-40fe-aa39-665ce0a329f4",
+          "id": "1",
           "startDate": "2024-05-07",
           "endDate": "2024-05-12"
         },
         {
           "title": "Payement",
-          "status": "Backlog",
-          "level": "medium",
+          "status": "In Progress",
+          "level": "intermediate",
           "priority": "high",
           "assignedTo": {
             "email": "Badr@gmail.com"
           },
-          "id": "5af64260-6c7e-4c7e-9606-2cbcb0760f75",
+          "id": "2",
           "startDate": "2024-05-13",
           "endDate": "2024-05-17"
         },
         {
           "title": "Dashboard",
-          "status": "Backlog",
-          "level": "medium",
+          "status": "In Progress",
+          "level": "intermediate",
           "priority": "high",
           "assignedTo": {
             "email": "peter@gmail.com"
           },
-          "id": "348b8708-06dc-4b39-9262-c589467aac2f",
+          "id": "3",
           "startDate": "2024-05-27",
           "endDate": "2024-06-01"
         },
         {
           "title": "test",
-          "status": "Backlog",
-          "level": "medium",
+          "status": "In Progress",
+          "level": "intermediate",
           "priority": "low",
           "assignedTo": {
             "email": "mekh@gmail.com"
           },
-          "id": "df912e83-6d17-42a7-ac07-ff157edd3c05"
+          "id": "4"
         }
       ],
       "startDate": "date",
