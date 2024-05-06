@@ -13,7 +13,7 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import img from "../../images/signImage.gif";
-import { IconButton } from "@mui/material";
+import { Badge, IconButton, Stack } from "@mui/material";
 import GoogleIcon from '@mui/icons-material/Google';
 import { Google } from "@mui/icons-material";
 import { useState, useEffect } from "react";
@@ -23,11 +23,12 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { getUserAction } from "../../redux/store/slices/isUserInDBSlice";
 import { setCurrentUser } from "../../redux/store/slices/currentUserSlice";
-
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import CancelIcon from '@mui/icons-material/Cancel';
 
 // TODO remove, this demo shouldn't need to reset the theme.
 
-const defaultTheme = createTheme();
+// const defaultTheme = createTheme();
 
 export default function SignIn({closeSignin}) {
 
@@ -82,82 +83,74 @@ export default function SignIn({closeSignin}) {
   };
 
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <Grid
+    
+      <Grid 
         container
-        component="main"
-        sx={{ width: "60%", borderRadius: "13px" }}
-      >
-        <CssBaseline />
+        sx={{ width: "60vw", borderRadius: "13px" ,height:"60vh"}}
+        > 
         <Grid
           item
           xs={false}
           sm={4}
           md={4}
-          sx={{
-            backgroundImage: `url(${img})`,
-            backgroundRepeat: "no-repeat",
-            backgroundColor: (t) =>
-              t.palette.mode === "light"
-                ? t.palette.grey[50]
-                : t.palette.grey[900],
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        />
-        <Grid item xs={12} sm={8} md={8} component={Paper} elevation={6} square>
-          <Box
-            sx={{
-              my: 8,
-              mx: 4,
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-            }}
-          >
-            <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-              <LockOutlinedIcon />
-            </Avatar>
-            <Typography component="h1" variant="h5">
-              Sign in
-            </Typography>
-            <Box
-              component="form"
-              noValidate
-              onSubmit={handleSubmit}
-              sx={{ mt: 1 }}
+          sx={
+            {
+              backgroundImage: `url(${img})`,
+              backgroundRepeat: "no-repeat",
+              backgroundColor: (t) =>
+                t.palette.mode === "light"
+              ? t.palette.grey[50]
+              : t.palette.grey[900],
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }
+          }
+          />
+        
+        <Grid item  xs={12} sm={8} md={8} component={Paper} elevation={6} square height={"100%"}>
+            <Stack
+            height={"100%"}
+            alignItems={"center"}
             >
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
-                autoFocus
-              />
+              <IconButton sx={{width:"fit-content",alignSelf:"end"}} onClick={closeSignin}><CancelIcon ></CancelIcon></IconButton>
 
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2 }}
-              >
-                Sign In
-              </Button>
+              <Avatar sx={{ bgcolor: "#060F27"}}>
+                <LockOutlinedIcon />
+              </Avatar>
+              
+              <Typography component="h1" variant="h5">
+                Sign in
+              </Typography>
+              
+                <TextField
+                  margin="normal"
+                  required
+                  id="email"
+                  label="Email Address"
+                  name="email"
+                  autoComplete="email"
+                  autoFocus
+                  sx={{width:"70%"}}
+                />
 
-              <Button
-                onClick={login}
-                variant="contained"
-                color="primary"
-                startIcon={<Google></Google>}
-              >sign in with google
-              </Button>
-            </Box>
-          </Box>
+                <Button
+                  // type="submit"
+                  variant="contained"
+                  sx={{ mt: 3, mb: 2,width:"60%" ,backgroundColor:"#060F27"}}
+                >
+                  Sign In
+                </Button>
+                <Button
+                  onClick={login}
+                  variant="contained"
+                  startIcon={<Google></Google>}
+                  sx={{ mt: 3, mb: 2,width:"60%",backgroundColor:"#060F27" }}
+                >sign in with google
+                </Button>
+              </Stack>
         </Grid>
+        
       </Grid>
-    </ThemeProvider>
+    // </ThemeProvider>
   );
 }

@@ -1,4 +1,4 @@
-import { Button, Grid, Stack } from "@mui/material";
+import { Badge, Button, Grid, Stack } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import landing from "../../images/landing.jpg";
 import landing4 from "../../images/landing4.png";
@@ -7,8 +7,6 @@ import Backdrop from "@mui/material/Backdrop";
 import SignIn from "../Signin/signin";
 import { useDispatch } from "react-redux";
 import { setCurrentUser } from "../../redux/store/slices/currentUserSlice";
-import { useNavigate } from "react-router-dom";
-
 const Intro = () => {
   const dispatch = useDispatch();
   // const navigate = useNavigate();
@@ -58,6 +56,8 @@ const Intro = () => {
         open={open}
         // onClick={handleClose}
       >
+        
+
         <SignIn closeSignin={handleClose}></SignIn>
       </Backdrop>
     </>
