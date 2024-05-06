@@ -1,0 +1,25 @@
+.noScroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  overflow-y: scroll;
+}
+.noScroll::-webkit-scrollbar {
+  display: none;
+}
+
+.container {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  color: white;
+}
+
+.test {
+  color: red;
+}
+.title {
+  font-size: 4rem;
+  font-weight: 700;
+  color: #d8eaec;
+}

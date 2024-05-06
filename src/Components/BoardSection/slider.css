@@ -1,9 +1,8 @@
-.tasksState
-{
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    overflow-y: scroll;
+.tasksState {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  overflow-y: scroll;
 }
-.tasksState::-webkit-scrollbar{
-    display: none;
+.tasksState::-webkit-scrollbar {
+  display: none;
 }
