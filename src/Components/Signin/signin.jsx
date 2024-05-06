@@ -13,12 +13,65 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import img from "../../images/signImage.gif";
+import { IconButton } from "@mui/material";
+import GoogleIcon from '@mui/icons-material/Google';
+import { Google } from "@mui/icons-material";
+import { useState, useEffect } from "react";
+import { googleLogout, useGoogleLogin } from "@react-oauth/google";
+import axios from "axios";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { getUserAction } from "../../redux/store/slices/isUserInDBSlice";
+import { setCurrentUser } from "../../redux/store/slices/currentUserSlice";
+
 
 // TODO remove, this demo shouldn't need to reset the theme.
 
 const defaultTheme = createTheme();
 
-export default function SignIn() {
+export default function SignIn({closeSignin}) {
+
+  const [user, setUser] = useState(null);//signin state
+
+  const dispatch = useDispatch();
+
+  const login = useGoogleLogin({
+    onSuccess: (codeResponse) =>{ 
+      setUser(codeResponse)//token
+      closeSignin();
+      //redirect to dashboard
+    },
+    onError: (error) => console.log("Login Failed:", error),
+  });
+
+  useEffect(() => {
+
+
+    if (user) {
+      axios
+        .get(
+          `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`,
+          {
+            headers: {
+              Authorization: `Bearer ${user.access_token}`,
+              Accept: "application/json",
+            },
+          }
+        )
+        .then((res) => {
+          // console.log(res.data);
+          const userData = {id:res.data.id,name:res.data.name,email:res.data.email,picture:res.data.picture}
+          dispatch(setCurrentUser(userData))
+          localStorage.setItem("id",res.data.id)
+          localStorage.setItem("name",res.data.name)
+          localStorage.setItem("picture",res.data.picture)
+          localStorage.setItem("email",res.data.email)
+          dispatch(getUserAction(res.data));
+        })
+        .catch((err) => console.log(err));
+    }
+  }, [user]);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -92,6 +145,14 @@ export default function SignIn() {
                 sx={{ mt: 3, mb: 2 }}
               >
                 Sign In
+              </Button>
+
+              <Button
+                onClick={login}
+                variant="contained"
+                color="primary"
+                startIcon={<Google></Google>}
+              >sign in with google
               </Button>
             </Box>
           </Box>

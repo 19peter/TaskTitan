@@ -3,18 +3,15 @@ import { googleLogout, useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { getUserAction } from "../redux/store/slices/userSlice";
+import { getUserAction } from "../redux/store/slices/isUserInDBSlice";
 
 function Test() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(null);//signin state
   const [profile, setProfile] = useState(null);
-  const isSigned = false;
-  const currentUser = useSelector((state)=>state.user.user);
   const dispatch = useDispatch();
-  console.log(currentUser);
   const login = useGoogleLogin({
-    onSuccess: (codeResponse) =>{ setUser(codeResponse)
-      console.log(codeResponse);
+    onSuccess: (codeResponse) =>{ 
+      setUser(codeResponse)//token
     },
     onError: (error) => console.log("Login Failed:", error),
   });

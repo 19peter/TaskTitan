@@ -7,9 +7,9 @@ export const getUserAction =  createAsyncThunk("users/getUser",async (user)=>{
     return  res.data; 
 })
 
-const userSlice = createSlice({
+const isUserInDBSlice = createSlice({
     name:"user",
-    initialState:{user:[]},
+    initialState:{user:{}},
     extraReducers:(builder)=>{
         builder.addCase(getUserAction.fulfilled,(state,action)=>{
             state.backlog = action.payload
@@ -23,4 +23,4 @@ const userSlice = createSlice({
     }
 })
 
-export default userSlice.reducer;
+export default isUserInDBSlice.reducer;
