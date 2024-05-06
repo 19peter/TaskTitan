@@ -5,13 +5,17 @@ import store from "../redux/store/store.js";
 import Boardpage from "./../pages/Boardpage";
 import Test from "../pages/test.jsx";
 
+import Intro from "../Components/Intro/intro.jsx";
+
 function App() {
   return (
     <Provider store={store}>
       <div className="App">
         {/* <TimelinePge></TimelinePge> */}
         {/* <Boardpage></Boardpage> */}
-        <Test></Test>
+        {/* <Test></Test> */}
+        {/* <TestImg></TestImg> */}
+        <Intro></Intro>
       </div>
     </Provider>
   );
