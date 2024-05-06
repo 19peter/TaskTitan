@@ -6,7 +6,6 @@ import { useDispatch } from "react-redux";
 
 export const getBacklogAction =  createAsyncThunk("backlog/getAll",async (projectId)=>{
     const res = await axios.get("http://localhost:8000/projects/"+projectId);
-    console.log(res.data.tasks);
     return  res.data.tasks; 
 
 })
@@ -25,7 +24,7 @@ export const updateTaskStatusAction =  createAsyncThunk("backlog/updateTaskStatu
 })
 
 export const updateTaskAction =  createAsyncThunk("backlog/updateTask",async ({projectId,taskId,updatedTask})=>{
-    console.log(updatedTask);
+    // console.log(updatedTask);
     const res = await axios.get("http://localhost:8000/projects/"+projectId);
     const array = res.data.tasks.map((t)=>{
         if (t.id === taskId) {

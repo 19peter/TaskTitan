@@ -15,21 +15,20 @@ import { useDispatch } from "react-redux";
 import { getBacklogAction } from "../../redux/store/slices/backlogSlice";
 import { useSelector } from "react-redux";
 
-const CalendarDialog = ({ info, setIsDialogOpened, setEvent, UpdateTaskDate }) => {
+const CalendarDialog = ({ info, setIsDialogOpened, setAllEvents, UpdateTaskDate }) => {
   const dispatch = useDispatch();
 
   const allTasks = useSelector((state) => state.backlog.backlog);
-
-  const [selectedTask, setSelectedTask] = useState();
+  const [selectedTask, setSelectedTask] = useState('');
 
   const [open, setOpen] = React.useState(true);
 
   useEffect(() => {
     dispatch(getBacklogAction(1));
-  }, []);
+  }, [dispatch]);
 
   const handleTaskChange = (e) => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     setSelectedTask(e.target.value);
   };
 
@@ -48,12 +47,21 @@ const CalendarDialog = ({ info, setIsDialogOpened, setEvent, UpdateTaskDate }) =
             component: "form",
             onSubmit: (event) => {
               event.preventDefault();
-              const taskUpdated = allTasks.find((t) => t.id ===selectedTask);
+              const taskUpdated = allTasks.find((t) => t.id === selectedTask);
               UpdateTaskDate(taskUpdated);
-              setEvent({
-                start: info.startStr,
-                end: info.endStr,
-                title: taskUpdated.title,
+
+              setAllEvents((old) => {
+                
+                let data = old.filter((o) => o.title !== taskUpdated.title )
+                return [...data,
+                {
+                  start: info.startStr,
+                  end: info.endStr,
+                  title: taskUpdated.title,
+                }
+                ]
+
+
               });
               handleClose();
             },
@@ -66,19 +74,25 @@ const CalendarDialog = ({ info, setIsDialogOpened, setEvent, UpdateTaskDate }) =
             </DialogContentText>
             <Box sx={{ minWidth: 60, marginY: "1rem" }}>
               <FormControl fullWidth>
-                <InputLabel id={`status-label-`}>Tasks</InputLabel>
+                <InputLabel
+                //  id={`status-label-`}
+                 >Tasks</InputLabel>
                 <Select
-                  labelId={`status-label-`}
-                  id={`status-select-`}
+                  // labelId={`status-label-`}
+                  // id={`status-select-`}
                   name="tasks"
-                  value={selectedTask}
+                  value={selectedTask }
                   onChange={handleTaskChange}
                 >
-                  {allTasks.map((task) => (
-                    <MenuItem key={task.id} value={task.id}>
-                      {task.title}
-                    </MenuItem>
-                  ))}
+                  {allTasks.map((task) => {
+                    // console.log(task);
+                    
+                    return (
+                      <MenuItem key={task.id} value={task.id}>
+                        {task.title}
+                      </MenuItem>
+                    )
+                  })}
                 </Select>
               </FormControl>
             </Box>

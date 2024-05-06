@@ -11,14 +11,18 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { updateTaskAction } from "../../redux/store/slices/backlogSlice";
 
 const PopupForm = ({ setIsFormOpened, taskToBeUpdated }) => {
 
+  const tasks = useSelector((state) => state.backlog.backlog);
   const dispatch = useDispatch()
 
   const [open, setOpen] = useState(true);
+  const [doesTitleExist, setDoesTitleExist] = useState(false);
+  let exists = false;
+
 
   console.log(taskToBeUpdated);
 
@@ -28,7 +32,12 @@ const PopupForm = ({ setIsFormOpened, taskToBeUpdated }) => {
     status: taskToBeUpdated.status,
     level: taskToBeUpdated.level,
     priority: taskToBeUpdated.priority,
-    assignedTo: {email: taskToBeUpdated.assignedTo.email}
+    assignedTo: {
+      email: taskToBeUpdated.assignedTo.email,
+    },
+    details: taskToBeUpdated.details,
+    startDate: taskToBeUpdated.startDate,
+    endDate: taskToBeUpdated.endDate
   });
 
   const handleClose = () => {
@@ -38,17 +47,24 @@ const PopupForm = ({ setIsFormOpened, taskToBeUpdated }) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    if(name==="assignedTo"){
-    setFormData({ ...formData, [name]: {email: value} });
-    }else
-    setFormData({ ...formData, [name]: value });
+    if (name === "assignedTo") {
+      setFormData({ ...formData, [name]: { email: value } });
+    } else
+      setFormData({ ...formData, [name]: value });
   };
 
   const handleSubmit = () => {
-    console.log(formData);
-    
-    dispatch(updateTaskAction({projectId:1,taskId:taskToBeUpdated.id, updatedTask: formData}));
-    handleClose();
+    tasks.forEach(t => {
+      if (t.title === formData.title) {
+        exists = true;
+        setDoesTitleExist(true);
+      }
+    });
+
+    if (!exists) {
+      dispatch(updateTaskAction({ projectId: 1, taskId: taskToBeUpdated.id, updatedTask: formData }));
+      handleClose();
+    }
   };
 
 
@@ -69,6 +85,13 @@ const PopupForm = ({ setIsFormOpened, taskToBeUpdated }) => {
             onChange={handleChange}
             fullWidth
           />
+
+          {doesTitleExist && <div style={{
+            color: 'red'
+          }}>
+            This title already exists!. Please Enter a unique title
+          </div>}
+
           <TextField
             margin="dense"
             // label="Email"
@@ -78,7 +101,18 @@ const PopupForm = ({ setIsFormOpened, taskToBeUpdated }) => {
             onChange={handleChange}
             fullWidth
           />
-          <Box sx={{ minWidth: 60,marginY: "1rem" }}>
+
+          <TextField
+            margin="dense"
+            label="Task Details"
+            type="text"
+            name="details"
+            value={formData.details}
+            onChange={handleChange}
+            fullWidth
+          />
+
+          <Box sx={{ minWidth: 60, marginY: "1rem" }}>
             <FormControl fullWidth>
               <InputLabel id={`status-label-`}>Level</InputLabel>
               <Select
@@ -94,7 +128,7 @@ const PopupForm = ({ setIsFormOpened, taskToBeUpdated }) => {
               </Select>
             </FormControl>
           </Box>
-          <Box sx={{ minWidth: 60 ,marginY: "1rem"}}>
+          <Box sx={{ minWidth: 60, marginY: "1rem" }}>
             <FormControl fullWidth>
               <InputLabel id={`status-label-`}>Priority</InputLabel>
               <Select

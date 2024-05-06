@@ -65,8 +65,8 @@
             "email": "Badr@gmail.com"
           },
           "id": "1",
-          "startDate": "2024-05-07",
-          "endDate": "2024-05-12"
+          "startDate": "2024-05-27",
+          "endDate": "2024-05-30"
         },
         {
           "title": "Payement",
@@ -78,8 +78,8 @@
             "email": "hassan.walid77@gmail.com"
           },
           "id": "2",
-          "startDate": "2024-05-13",
-          "endDate": "2024-05-17"
+          "startDate": "2024-05-27",
+          "endDate": "2024-05-31"
         },
         {
           "title": "Dashboard",
@@ -91,18 +91,45 @@
             "email": "nouransayednasr@gmail.com"
           },
           "id": "3",
-          "startDate": "2024-05-27",
-          "endDate": "2024-06-01"
+          "startDate": "2024-05-07",
+          "endDate": "2024-05-11"
         },
         {
-          "title": "test",
+          "title": "Register",
+          "status": "Backlog",
+          "level": "easy",
+          "priority": "high",
+          "assignedTo": {
+            "email": "Badr@gmail.com"
+          },
+          "details": "Add Register Page",
+          "id": "eda3904e-d379-4adb-b699-dc42b311b96d",
+          "startDate": "2024-04-30",
+          "endDate": "2024-05-04"
+        },
+        {
+          "title": "Login",
           "status": "Backlog",
           "level": "intermediate",
-          "priority": "low",
+          "priority": "medium",
           "assignedTo": {
-            "email": "mekh@gmail.com"
+            "email": "badr@gmail.com"
           },
-          "id": "4"
+          "details": "add login ",
+          "id": "e1440279-c93f-4b57-a138-9f4c5b3ed8c8",
+          "startDate": "2024-04-30",
+          "endDate": "2024-05-03"
+        },
+        {
+          "title": "tsssst",
+          "status": "Backlog",
+          "level": "easy",
+          "priority": "medium",
+          "assignedTo": {
+            "email": "peter@gmail.com"
+          },
+          "details": "asd",
+          "id": "44b396e5-0075-40b0-80f7-e5a82d74b2c3"
         }
       ],
       "startDate": "date",

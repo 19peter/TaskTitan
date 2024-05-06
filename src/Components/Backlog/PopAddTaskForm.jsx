@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ReactDOM from 'react-dom'
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
@@ -11,13 +12,18 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import { useDispatch } from "react-redux";
-import {v4 as uuid} from "uuid"
+import { useDispatch, useSelector } from "react-redux";
+import { v4 as uuid } from "uuid"
 import { AddTaskAction } from "../../redux/store/slices/backlogSlice";
 
-const PopAddTaskForm = ({setIsAddFormOpened}) => {
+const PopAddTaskForm = ({ setIsAddFormOpened }) => {
+
+  const tasks = useSelector((state) => state.backlog.backlog);
 
   const [open, setOpen] = useState(true);
+  const [doesTitleExist, setDoesTitleExist] = useState(false);
+
+  let exists = false;
 
   const dispatch = useDispatch();
 
@@ -26,7 +32,8 @@ const PopAddTaskForm = ({setIsAddFormOpened}) => {
     status: "Backlog",
     level: "",
     priority: "",
-    assignedTo: {}
+    assignedTo: {email: ""},
+    details: ""
   });
 
   const handleClose = () => {
@@ -36,22 +43,31 @@ const PopAddTaskForm = ({setIsAddFormOpened}) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    if(name==="assignedTo"){
-    setFormData({ ...formData, [name]: {email: value} });
-    }else
-    setFormData({ ...formData, [name]: value });
+    if (name === "assignedTo") {
+      setFormData({ ...formData, [name]: { email: value } });
+    } else
+      setFormData({ ...formData, [name]: value });
   };
+
 
   const handleSubmit = () => {
-    formData.id = uuid()
-    // console.log(formData);
 
-    dispatch(AddTaskAction({projectId: "1", AddedTask: formData}))
-    handleClose();
+    tasks.forEach(t => {
+      if (t.title === formData.title) {
+        exists = true;
+        setDoesTitleExist(true);
+      }
+    });
+
+    if (!exists) {
+      formData.id = uuid()
+      dispatch(AddTaskAction({ projectId: "1", AddedTask: formData }))
+      handleClose();
+    }
   };
 
-    return (
-        <div>
+  return (
+    <div>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Enter Data</DialogTitle>
         <DialogContent>
@@ -66,6 +82,11 @@ const PopAddTaskForm = ({setIsAddFormOpened}) => {
             onChange={handleChange}
             fullWidth
           />
+          {doesTitleExist && <div style={{
+            color: 'red'
+          }}>
+            This title already exists!. Please Enter a unique title
+          </div>}
           <TextField
             margin="dense"
             label="Email"
@@ -75,12 +96,23 @@ const PopAddTaskForm = ({setIsAddFormOpened}) => {
             onChange={handleChange}
             fullWidth
           />
-          <Box sx={{ minWidth: 60,marginY: "1rem" }}>
+
+          <TextField
+            margin="dense"
+            label="Task Details"
+            type="text"
+            name="details"
+            value={formData.details}
+            onChange={handleChange}
+            fullWidth
+          />
+
+          <Box sx={{ minWidth: 60, marginY: "1rem" }}>
             <FormControl fullWidth>
-              <InputLabel id={`status-label-`}>Level</InputLabel>
+              <InputLabel >Level</InputLabel>
               <Select
-                labelId={`status-label-`}
-                id={`status-select-`}
+                labelId={"status-label-"}
+                id={"status-select-"}
                 name="level"
                 value={formData.level}
                 onChange={handleChange}
@@ -91,12 +123,12 @@ const PopAddTaskForm = ({setIsAddFormOpened}) => {
               </Select>
             </FormControl>
           </Box>
-          <Box sx={{ minWidth: 60 ,marginY: "1rem"}}>
+          <Box sx={{ minWidth: 60, marginY: "1rem" }}>
             <FormControl fullWidth>
-              <InputLabel id={`status-label-`}>Priority</InputLabel>
+              <InputLabel id={"status-label-"}>Priority</InputLabel>
               <Select
-                labelId={`status-label-`}
-                id={`status-select-`}
+                labelId={"status-label-"}
+                id={"status-select-"}
                 name="priority"
                 value={formData.priority}
                 onChange={handleChange}
@@ -118,7 +150,7 @@ const PopAddTaskForm = ({setIsAddFormOpened}) => {
         </DialogActions>
       </Dialog>
     </div>
-    );
+  );
 }
 
 export default PopAddTaskForm;
