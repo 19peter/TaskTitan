@@ -4,39 +4,56 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interationPlugin from "@fullcalendar/interaction";
 import FormDialog from "./CalendarDialog";
+import { useDispatch } from "react-redux";
+import {
+  UpdateTaskDateAction,
+  updateTaskAction,
+} from "../../redux/store/slices/backlogSlice";
 
-const Calendar = () => {
+const CalendarComp = () => {
   const [allEvents, setAllEvents] = useState([]);
   const [info, setInfo] = useState(null);
   const [isDialogOpened, setIsDialogOpened] = useState(false);
   const [event, setEvent] = useState({});
- 
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    setAllEvents(oldEvents => [...oldEvents, event])
-  } ,[event])
- 
+    setAllEvents((oldEvents) => [...oldEvents, event]);
+  }, [event]);
 
   let selectHandler = function (info) {
     setIsDialogOpened(true);
     setInfo(info);
-    console.log(info);
- 
-  };
 
+    // console.log(info);
+  };
 
   let eventHandler = (info) => {
     console.log(info);
-  }
+  };
 
-
+  const UpdateTaskDate = (task) => {
+    console.log(task.id);
+    console.log(info.startStr);
+    console.log(info.endStr);
+    dispatch(
+      UpdateTaskDateAction({
+        projectId: "1",
+        taskId: task.id,
+        startDate: info.startStr,
+        endDate: info.endStr,
+      })
+    );
+  };
 
   return (
     <div>
       {isDialogOpened === true && (
         <FormDialog
-          info= {info}
+          info={info}
           setEvent={setEvent}
           setIsDialogOpened={setIsDialogOpened}
+          UpdateTaskDate={UpdateTaskDate}
         ></FormDialog>
       )}
       <FullCalendar
@@ -55,10 +72,10 @@ const Calendar = () => {
         expandRows="false"
         // dateClick={func}
         select={selectHandler}
-      eventClick={eventHandler}
+        eventClick={eventHandler}
       />
     </div>
   );
 };
 
-export default Calendar;
+export default CalendarComp;
