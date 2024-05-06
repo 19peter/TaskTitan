@@ -14,27 +14,32 @@ import { useSelector } from "react-redux";
 import { getEventsWithDates } from "../../redux/store/slices/eventsWithDates";
 
 const CalendarComp = () => {
-  
-  const [allEvents, setAllEvents] = useState([]);
 
+  const [allEvents, setAllEvents] = useState([]);
 
   const [info, setInfo] = useState(null);
   const [isDialogOpened, setIsDialogOpened] = useState(false);
   const [event, setEvent] = useState({});
   const dispatch = useDispatch();
 
-  const tsks = useSelector((state) => console.log(state))
-   
+  const tsks = useSelector((state) => state.eventsWithDates.eventsWithDates);
+
+  const Events = tsks.map((m) => {
+    return {
+      start: m.startDate,
+      end: m.endDate,
+      title: m.title,
+    };
+  });
 
   useEffect(() => {
     setAllEvents((oldEvents) => [...oldEvents, event]);
     dispatch(getEventsWithDates("1"));
-  }, [event, dispatch]);
+  }, [dispatch,event ]);
 
   let selectHandler = function (info) {
     setIsDialogOpened(true);
     setInfo(info);
-
   };
 
   let eventHandler = (info) => {
@@ -74,7 +79,7 @@ const CalendarComp = () => {
           center: "title",
           end: "dayGridMonth,timeGridWeek,timeGridDay",
         }}
-        events={allEvents}
+        events={Events}
         // height={"50vh"}
         selectable="true"
         selectMirror="true"

@@ -14,10 +14,12 @@ import Select from "@mui/material/Select";
 import { useDispatch } from "react-redux";
 import {v4 as uuid} from "uuid"
 import { AddTaskAction } from "../../redux/store/slices/backlogSlice";
+import { useSelector } from "react-redux";
 
 const PopAddTaskForm = ({setIsAddFormOpened}) => {
 
   const [open, setOpen] = useState(true);
+  const backlogTasks = useSelector((state) => state.backlog.backlog); // Assuming you have access to tasks in your redux store
 
   const dispatch = useDispatch();
 
@@ -45,7 +47,11 @@ const PopAddTaskForm = ({setIsAddFormOpened}) => {
   const handleSubmit = () => {
     formData.id = uuid()
     // console.log(formData);
-
+    const existingTask = backlogTasks.find((task) => task.title === formData.title);
+    if (existingTask) {
+      alert("Task with this title already exists. Please choose a different title.");
+      return;
+    }
     dispatch(AddTaskAction({projectId: "1", AddedTask: formData}))
     handleClose();
   };
