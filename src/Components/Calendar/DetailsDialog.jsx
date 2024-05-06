@@ -19,9 +19,9 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function FullScreenDialog({ task, setFullScreenDialogFlag , allTasks }) {
+export default function FullScreenDialog({ task, setFullScreenDialogFlag}) {
   // const allTasks = useSelector((state) => state.backlog.backlog)
-  // const allTasks = useSelector((state) => state.eventsWithDates.eventsWithDates)
+  const allTasks = useSelector((state) => state.eventsWithDates.eventsWithDates)
   
   // const allTasks = useSelector((state) => {
   //   console.log(state);
@@ -35,11 +35,11 @@ export default function FullScreenDialog({ task, setFullScreenDialogFlag , allTa
   const [open, setOpen] = React.useState(true);
   const dispatch = useDispatch();
 
-  React.useEffect(() => {
-    // dispatch(getBacklogAction("1"))
-    // dispatch(getEventsWithDates("1"))
+  // React.useEffect(() => {
+  //   dispatch(getBacklogAction("1"))
+  //   dispatch(getEventsWithDates("1"))
 
-  }, [dispatch])
+  // }, [dispatch])
 
   const handleClickOpen = () => {
     setFullScreenDialogFlag(true);

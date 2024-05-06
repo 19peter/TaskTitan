@@ -112,7 +112,7 @@ const CalendarComp = () => {
       />
 
       {fullScreenDialogFlag &&
-        <FullScreenDialog allTasks = {allEvents} task = {taskDetails} setFullScreenDialogFlag = {setFullScreenDialogFlag}></FullScreenDialog>
+        <FullScreenDialog task = {taskDetails} setFullScreenDialogFlag = {setFullScreenDialogFlag}></FullScreenDialog>
       }
     </div>
   );
