@@ -26,13 +26,21 @@
       "name": "hassan walid",
       "email": "hassan.walid77@gmail.com",
       "picture": "https://lh3.googleusercontent.com/a/ACg8ocJ0IMbCQbNcHpI9Ii1pVa1umtP3fv_PmIiFGQDW9AKDlTlo7A=s96-c",
-      "userProjects": []
+      "userProjects": [],
+      "invitations": []
     },
     {
       "id": "113705067715860298092",
       "name": "Nouran Sayed Nasr",
       "email": "nouransayednasr@gmail.com",
       "picture": "https://lh3.googleusercontent.com/a/ACg8ocLmxDNwuea-g_8rCTSJAT7atXinkmEmxUYiT1A43dXwAyG0fQ=s96-c",
+      "userProjects": []
+    },
+    {
+      "id": "105176122730447230763",
+      "name": "Hassan Walid",
+      "email": "hassanwalid401@gmail.com",
+      "picture": "https://lh3.googleusercontent.com/a/ACg8ocJWUxi8c17VMpO8cfr4Hcj7sHMxDQNBuizb3obnKP-wG8Gy2Q=s96-c",
       "userProjects": []
     }
   ],
@@ -70,7 +78,7 @@
         },
         {
           "title": "Payement",
-          "status": "Backlog",
+          "status": "Todo",
           "level": "intermediate",
           "priority": "high",
           "assignedTo": {

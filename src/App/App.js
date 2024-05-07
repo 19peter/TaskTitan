@@ -2,7 +2,7 @@
 // import TimelinePge from "../pages/Project.jsx";
 import { Provider } from "react-redux";
 import store from "../redux/store/store.js";
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Boardpage from "./../pages/Boardpage";
 import Backlog from "../Components/Backlog/Backlog.jsx";
 import CalendarComp from "../Components/Calendar/CalendarComp.jsx";
@@ -36,15 +36,27 @@ function App() {
   // ]);
 
   const router = createBrowserRouter([
-    { path: '/', element: <Backlog></Backlog> },
-    { path: '/calender', element: <CalendarComp></CalendarComp> },
+    { path: "/", element: <Backlog></Backlog> },
+    { path: "/calender", element: <CalendarComp></CalendarComp> },
 
-    { path: "/members", element: <ResponsiveDrawer data={['Team Leaders', 'Members', 'Invite Members']}></ResponsiveDrawer> },
+    {
+      path: "/members",
+      element: (
+        <ResponsiveDrawer
+          data={["Team Leaders", "Members", "Invite Members"]}
+        ></ResponsiveDrawer>
+      ),
+    },
 
-    { path: "/home", element: <ResponsiveDrawer data={['Projects', 'Dashboard', 'Calender']}></ResponsiveDrawer>  },
-
-  ])
-
+    {
+      path: "/home",
+      element: (
+        <ResponsiveDrawer
+          data={["Projects", "Dashboard", "Calender"]}
+        ></ResponsiveDrawer>
+      ),
+    },
+  ]);
 
   return (
     // <Provider store={store}>
@@ -55,12 +67,10 @@ function App() {
         {/* <Backlog></Backlog>  */}
         {/* <CalendarComp></CalendarComp> */}
         {/* <ProjectPage></ProjectPage> */}
-        <RouterProvider router={router}>
-
-        </RouterProvider>
+        <RouterProvider router={router}></RouterProvider>
         {/* <Intro></Intro> */}
         {/* <ResponsiveDrawer/> */}
-        <Navbar/>
+        <Navbar />
       </>
     </RouterProvider>
     // </Provider>
