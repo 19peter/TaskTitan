@@ -11,6 +11,8 @@ import Intro from "../Components/Intro/intro.jsx";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { setCurrentUser } from "../redux/store/slices/currentUserSlice.js";
+import ResponsiveDrawer from "../Components/Members/members.jsx";
+import Navbar from "../Components/NavBar/navbar.jsx";
 
 function App() {
   const dispatch = useDispatch();
@@ -37,6 +39,10 @@ function App() {
     { path: '/', element: <Backlog></Backlog> },
     { path: '/calender', element: <CalendarComp></CalendarComp> },
 
+    { path: "/members", element: <ResponsiveDrawer data={['Team Leaders', 'Members', 'Invite Members']}></ResponsiveDrawer> },
+
+    { path: "/home", element: <ResponsiveDrawer data={['Projects', 'Dashboard', 'Calender']}></ResponsiveDrawer>  },
+
   ])
 
 
@@ -53,6 +59,8 @@ function App() {
 
         </RouterProvider>
         {/* <Intro></Intro> */}
+        {/* <ResponsiveDrawer/> */}
+        <Navbar/>
       </>
     </RouterProvider>
     // </Provider>
