@@ -36,7 +36,8 @@ function App() {
   // ]);
 
   const router = createBrowserRouter([
-    { path: '/', element: <Backlog></Backlog> },
+    { path: '/', element: <Intro></Intro> },
+    
     { path: '/calender', element: <CalendarComp></CalendarComp> },
 
     { path: "/members", element: <ResponsiveDrawer data={['Team Leaders', 'Members', 'Invite Members']}></ResponsiveDrawer> },
