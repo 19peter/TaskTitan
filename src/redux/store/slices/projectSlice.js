@@ -22,20 +22,34 @@ export const getProjects = createAsyncThunk("projects/getProjects", async () => 
     }
 });
 
-const ProjectSlice = createSlice({
-    name:"projects",
-    initialState:{projects:[]},
-    extraReducers:(builder)=>{
-        builder
-        .addCase(addProject.fulfilled,(state,action)=>{
-            state.projects.push(action.payload);
-            // console.log(state.projects);
-        })
+export const getProjectById = createAsyncThunk("projects/getProjectById",
+    async (projectId) => {
+        try {
 
-        .addCase(getProjects.fulfilled,(state,action)=>{
-            state.projects = action.payload;
-        })
+            const response = await axios.get(`http://localhost:8000/projects/${projectId}`);
+            return response.data;
+        }
+        catch (error) {
+            console.error('Error catching data:', error);
+            throw error;
+        }
+
+})
+
+const ProjectSlice = createSlice({
+    name: "projects",
+    initialState: { projects: [] },
+    extraReducers: (builder) => {
+        builder
+            .addCase(addProject.fulfilled, (state, action) => {
+                state.projects.push(action.payload);
+                // console.log(state.projects);
+            })
+
+            .addCase(getProjects.fulfilled, (state, action) => {
+                state.projects = action.payload;
+            })
     }
-    
+
 });
 export default ProjectSlice.reducer;

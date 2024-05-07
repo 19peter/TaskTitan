@@ -13,6 +13,8 @@ import { useEffect } from "react";
 import { setCurrentUser } from "../redux/store/slices/currentUserSlice.js";
 import ResponsiveDrawer from "../Components/Members/members.jsx";
 import Navbar from "../Components/NavBar/navbar.jsx";
+import SignIn from "../Components/Signin/signin.jsx";
+import Home from "../Components/Home/home.jsx";
 
 function App() {
   const dispatch = useDispatch();
@@ -39,9 +41,18 @@ function App() {
     { path: '/', element: <Backlog></Backlog> },
     { path: '/calender', element: <CalendarComp></CalendarComp> },
 
-    { path: "/members", element: <ResponsiveDrawer data={['Team Leaders', 'Members', 'Invite Members']}></ResponsiveDrawer> },
+    { path: "/collaborators", element: <ResponsiveDrawer data={['Collaborators', 'Invite Members']}></ResponsiveDrawer> },
 
-    { path: "/home", element: <ResponsiveDrawer data={['Projects', 'Dashboard', 'Calender']}></ResponsiveDrawer>  },
+    { path: "/members/:id", element: <ResponsiveDrawer data={['Board', 'Members', 'Dashhboard']}></ResponsiveDrawer>  },
+    { path: "/intro", element: <Intro></Intro> },
+    { path: "/members", element: <ResponsiveDrawer data={['Dashboard','Projects']}/> },
+
+    { path: "/board", element: <Boardpage></Boardpage> },
+    // { path: "/members/:id", element: <ResponsiveDrawer/> },
+
+
+    
+    
 
   ])
 
