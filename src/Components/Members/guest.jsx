@@ -1,6 +1,8 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 const Guest = () => {
+    // const cur_user = useSelector(state=>state.currentUser.currentUser);
     return (
         <div style={{textAlign:"left",marginLeft:"2%"}}>
             <h3 >Project members</h3>

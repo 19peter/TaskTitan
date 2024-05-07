@@ -13,6 +13,8 @@ import { useEffect } from "react";
 import { setCurrentUser } from "../redux/store/slices/currentUserSlice.js";
 import ResponsiveDrawer from "../Components/Members/members.jsx";
 import Navbar from "../Components/NavBar/navbar.jsx";
+import SignIn from "../Components/Signin/signin.jsx";
+import Home from "../Components/Home/home.jsx";
 
 function App() {
   const dispatch = useDispatch();
@@ -40,22 +42,30 @@ function App() {
     { path: "/calender", element: <CalendarComp></CalendarComp> },
 
     {
-      path: "/members",
+      path: "/collaborators",
       element: (
         <ResponsiveDrawer
-          data={["Team Leaders", "Members", "Invite Members"]}
+          data={["Collaborators", "Invite Members"]}
         ></ResponsiveDrawer>
       ),
     },
 
     {
-      path: "/home",
+      path: "/members/:id",
       element: (
         <ResponsiveDrawer
-          data={["Projects", "Dashboard", "Calender"]}
+          data={["Board", "Members", "Dashhboard"]}
         ></ResponsiveDrawer>
       ),
     },
+    { path: "/intro", element: <Intro></Intro> },
+    {
+      path: "/members",
+      element: <ResponsiveDrawer data={["Dashboard", "Projects"]} />,
+    },
+
+    { path: "/board", element: <Boardpage></Boardpage> },
+    // { path: "/members/:id", element: <ResponsiveDrawer/> },
   ]);
 
   return (
