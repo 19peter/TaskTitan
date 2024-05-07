@@ -18,13 +18,17 @@ import Guest from './guest'; // Import the Guest component
 import Home from '../Home/home';
 import Dashboard from '../Dashboard/dashboard';
 import CalendarComp from '../Calendar/CalendarComp';
-// import Leader from './leader';
+import { useParams } from 'react-router-dom';
+import Boardpage from '../../pages/Boardpage';
 
 const drawerWidth = 240;
 
 export default function ResponsiveDrawer({data}) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState('Inbox');
+
+  const {id} = useParams();
+  console.log(id);
 
   const handleDrawerClose = () => {
     setMobileOpen(false);
@@ -71,8 +75,12 @@ export default function ResponsiveDrawer({data}) {
         return <Dashboard/>
       case 'Calender':
         return <CalendarComp/>
-      case 'Members':
+      case 'Collaborators':
         return <Guest />;
+      case 'Board':
+        return <Boardpage/>
+      // case 'Members':
+      //     return <ResponsiveDrawer data={['Collaborators', 'Invite Members']}></ResponsiveDrawer>
     //   case 'Team Leaders':
     //     return <Leader/>  
       default:

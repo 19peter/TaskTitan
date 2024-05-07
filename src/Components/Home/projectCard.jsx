@@ -1,18 +1,19 @@
-import * as React from 'react';
+import React from 'react';
 import Card from '@mui/material/Card';
-import { CardActionArea, CardContent, CardMedia, Typography } from '@mui/material';
+import { CardActionArea, CardContent, Typography } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
-export default function ActionAreaCard({projectTitle}) {
+export default function ActionAreaCard({ projectTitle, id }) {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/members/${id}`);
+  };
+
   return (
-    <Card sx={{ width: 250, marginBottom: "1%" ,marginLeft:"2%"}}>
+    <Card onClick={handleClick} sx={{ width: 250, marginBottom: "1%", marginLeft: "2%" }}>
       <CardActionArea>
         <div style={{ backgroundColor: '#1565c0', height: 110 }}></div>
-        {/* <CardMedia
-          component="img"
-          height="110"
-          image="/blue.jpg"
-          alt="green iguana"
-        /> */}
         <CardContent>
           <Typography gutterBottom component="div">
             {projectTitle}

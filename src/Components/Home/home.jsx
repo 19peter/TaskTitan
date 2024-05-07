@@ -69,13 +69,13 @@ const Home = () => {
             <h3 style={{textAlign:"left",marginLeft:"2%"}}>Owned Projects</h3>
             <div style={{display:"flex",flexWrap:"wrap"}}>
                 {ownedProjects.map(project => (
-                    <ActionAreaCard projectTitle={project.title} key={project.id}/>
+                    <ActionAreaCard projectTitle={project.title} key={project.id} id={project.id}/>
                 ))}
             </div>
             <h3 style={{textAlign:"left",marginLeft:"2%"}}>Guest Projects</h3>
             <div style={{display:"flex",flexWrap:"wrap"}}>
                 {guestProjects.map(project=>(
-                    <ActionAreaCard projectTitle={project.title} key={project.id}/>
+                    <ActionAreaCard projectTitle={project.title} key={project.id} id={project.id}/>
                 ))}
             </div>
             <Button 

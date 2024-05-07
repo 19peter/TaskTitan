@@ -21,11 +21,15 @@ import { googleLogout, useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { getUserAction } from "../../redux/store/slices/isUserInDBSlice";
+import {
+  getUserAction,
+  getUserAction2,
+} from "../../redux/store/slices/isUserInDBSlice";
 import { setCurrentUser } from "../../redux/store/slices/currentUserSlice";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import CancelIcon from "@mui/icons-material/Cancel";
 import { useNavigate } from "react-router-dom";
+import isUserInDBSlice from "./../../redux/store/slices/isUserInDBSlice";
 
 // TODO remove, this demo shouldn't need to reset the theme.
 
@@ -36,6 +40,9 @@ export default function SignIn({ closeSignin }) {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [userEmail, setUserEmail] = useState("");
+  const UserSignin = useSelector((state) => state.isUserInDB.user);
+  console.log(UserSignin);
 
   const login = useGoogleLogin({
     onSuccess: (codeResponse) => {
@@ -76,16 +83,25 @@ export default function SignIn({ closeSignin }) {
           navigate("/board");
         })
         .catch((err) => console.log(err));
+    } else if (UserSignin) {
+      console.log(UserSignin);
+      localStorage.setItem("id", UserSignin.id);
+      localStorage.setItem("name", UserSignin.name);
+      localStorage.setItem("picture", UserSignin.picture);
+      localStorage.setItem("email", UserSignin.email);
+      dispatch(setCurrentUser(UserSignin));
+      navigate("/board");
     }
-  }, [user]);
+  }, [user, UserSignin]);
 
+  const [invalidEmail, setInvalidEmail] = useState(false);
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+    // console.log(userEmail);
+    dispatch(getUserAction2(userEmail));
+    console.log(UserSignin);
+    //false
+    setInvalidEmail(true);
   };
 
   return (
@@ -138,16 +154,25 @@ export default function SignIn({ closeSignin }) {
 
           <TextField
             margin="normal"
+            error={invalidEmail ? true : false}
             required
             id="email"
             label="Email Address"
             name="email"
             autoComplete="email"
             autoFocus
-            sx={{ width: "70%" }}
+            sx={{
+              width: "70%",
+              // border: invalidEmail ? "2px solid red" : "none",
+            }}
+            onChange={(e) => {
+              setUserEmail(e.target.value);
+            }}
+            value={userEmail}
           />
 
           <Button
+            onClick={handleSubmit}
             // type="submit"
             variant="contained"
             sx={{ mt: 3, mb: 2, width: "60%", backgroundColor: "#060F27" }}

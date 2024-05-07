@@ -2,7 +2,7 @@
 // import TimelinePge from "../pages/Project.jsx";
 import { Provider } from "react-redux";
 import store from "../redux/store/store.js";
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Boardpage from "./../pages/Boardpage";
 import Backlog from "../Components/Backlog/Backlog.jsx";
 import CalendarComp from "../Components/Calendar/CalendarComp.jsx";
@@ -13,6 +13,8 @@ import { useEffect } from "react";
 import { setCurrentUser } from "../redux/store/slices/currentUserSlice.js";
 import ResponsiveDrawer from "../Components/Members/members.jsx";
 import Navbar from "../Components/NavBar/navbar.jsx";
+import SignIn from "../Components/Signin/signin.jsx";
+import Home from "../Components/Home/home.jsx";
 
 function App() {
   const dispatch = useDispatch();
@@ -36,16 +38,35 @@ function App() {
   // ]);
 
   const router = createBrowserRouter([
-    { path: '/', element: <Intro></Intro> },
-    
-    { path: '/calender', element: <CalendarComp></CalendarComp> },
+    { path: "/", element: <Backlog></Backlog> },
+    { path: "/calender", element: <CalendarComp></CalendarComp> },
 
-    { path: "/members", element: <ResponsiveDrawer data={['Team Leaders', 'Members', 'Invite Members']}></ResponsiveDrawer> },
+    {
+      path: "/collaborators",
+      element: (
+        <ResponsiveDrawer
+          data={["Collaborators", "Invite Members"]}
+        ></ResponsiveDrawer>
+      ),
+    },
 
-    { path: "/home", element: <ResponsiveDrawer data={['Projects', 'Dashboard', 'Calender']}></ResponsiveDrawer>  },
+    {
+      path: "/members/:id",
+      element: (
+        <ResponsiveDrawer
+          data={["Board", "Members", "Dashhboard"]}
+        ></ResponsiveDrawer>
+      ),
+    },
+    { path: "/intro", element: <Intro></Intro> },
+    {
+      path: "/members",
+      element: <ResponsiveDrawer data={["Dashboard", "Projects"]} />,
+    },
 
-  ])
-
+    { path: "/board", element: <Boardpage></Boardpage> },
+    // { path: "/members/:id", element: <ResponsiveDrawer/> },
+  ]);
 
   return (
     // <Provider store={store}>
@@ -56,12 +77,10 @@ function App() {
         {/* <Backlog></Backlog>  */}
         {/* <CalendarComp></CalendarComp> */}
         {/* <ProjectPage></ProjectPage> */}
-        <RouterProvider router={router}>
-
-        </RouterProvider>
+        <RouterProvider router={router}></RouterProvider>
         {/* <Intro></Intro> */}
         {/* <ResponsiveDrawer/> */}
-        <Navbar/>
+        <Navbar />
       </>
     </RouterProvider>
     // </Provider>

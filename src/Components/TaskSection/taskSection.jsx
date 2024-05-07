@@ -24,7 +24,7 @@ const TaskSection = ({
   index,
 }) => {
   const currentUser = useSelector((state) => state.currentUser.currentUser);
-
+  console.log("in task sec current user is ", currentUser);
   let flag = true;
   let flagOpacity = 0.4;
 
