@@ -121,10 +121,10 @@ const Backlog = ({ id }) => {
                   </IconButton>
                 )}
               </StyledTableCell>
-              <StyledTableCell align="right">assignedTo</StyledTableCell>
-              <StyledTableCell align="right">status</StyledTableCell>
+              <StyledTableCell align="right">Assigned To</StyledTableCell>
+              <StyledTableCell align="right">Status</StyledTableCell>
               <StyledTableCell align="right">Level</StyledTableCell>
-              <StyledTableCell align="right">priority</StyledTableCell>
+              <StyledTableCell align="right">Priority</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
