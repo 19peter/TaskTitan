@@ -47,8 +47,11 @@ const DoughnutChart = ({ data }) => {
       chartInstance.data.labels = data.labels;
       chartInstance.data.datasets[0].data = data.values;
       chartInstance.update();
+      //  chartInstance.destroy();
+
     }
-  }, [data, chartInstance]);
+ 
+     }, [data, chartInstance]);
   return <canvas id="doughnutChart" />;
 };
 

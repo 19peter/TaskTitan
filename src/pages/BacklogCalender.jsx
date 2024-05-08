@@ -3,7 +3,7 @@ import Backlog from "../Components/Backlog/Backlog";
 import CalendarComp from "../Components/Calendar/CalendarComp";
 import { Grid } from "@mui/material";
 
-const ProjectPage = () => {
+const BacklogCalender = () => {
   return (
     <div>
       {/* <Backlog></Backlog> */}
@@ -19,4 +19,4 @@ const ProjectPage = () => {
   );
 };
 
-export default ProjectPage;
+export default BacklogCalender;

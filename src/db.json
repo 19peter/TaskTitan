@@ -34,6 +34,13 @@
       "email": "nouransayednasr@gmail.com",
       "picture": "https://lh3.googleusercontent.com/a/ACg8ocLmxDNwuea-g_8rCTSJAT7atXinkmEmxUYiT1A43dXwAyG0fQ=s96-c",
       "userProjects": []
+    },
+    {
+      "id": "109240513695962267084",
+      "name": "Yasmeen Mohy Elden",
+      "email": "mohyeldenyasmeen@gmail.com",
+      "picture": "https://lh3.googleusercontent.com/a/ACg8ocLNyafBv6dySnv8Xdj98yfDJ6VqgWDgldnof59s64u_M_52ow=s96-c",
+      "userProjects": []
     }
   ],
   "projects": [
@@ -104,8 +111,8 @@
           },
           "details": "Add Register Page",
           "id": "eda3904e-d379-4adb-b699-dc42b311b96d",
-          "startDate": "2024-04-30",
-          "endDate": "2024-05-04"
+          "startDate": "2024-05-13",
+          "endDate": "2024-05-18"
         },
         {
           "title": "Login",
@@ -158,6 +165,27 @@
       "title": "Examination System",
       "startDate": "2024-05-02",
       "endDate": "2024-05-12"
+    },
+    {
+      "id": "1a29185f-c3a2-4ea8-98ce-baaa3a7039b2",
+      "manager": {
+        "email": "mohyeldenyasmeen@gmail.com",
+        "id": "109240513695962267084"
+      },
+      "tasks": [],
+      "members": [
+        {
+          "email": "nouransayednasr@gmail.com",
+          "id": "113705067715860298092"
+        },
+        {
+          "email": "badr@gmail.com",
+          "id": "2"
+        }
+      ],
+      "title": "waslny",
+      "startDate": "2024-05-09",
+      "endDate": "2024-05-31"
     }
   ]
 }

@@ -15,6 +15,7 @@ export const addProject = createAsyncThunk("projects/addProject", async (newPpro
 export const getProjects = createAsyncThunk("projects/getProjects", async () => {
     try {
         const response = await axios.get('http://localhost:8000/projects');
+        console.log("from get proooojects"+response.data) 
         return response.data;
     } catch (error) {
         console.error('Error catching data:', error);
@@ -25,9 +26,10 @@ export const getProjects = createAsyncThunk("projects/getProjects", async () => 
 export const getProjectById = createAsyncThunk("projects/getProjectById",
     async (projectId) => {
         try {
-
             const response = await axios.get(`http://localhost:8000/projects/${projectId}`);
+            console.log("from get proooojects BY IDDDDD"+response.data) 
             return response.data;
+            
         }
         catch (error) {
             console.error('Error catching data:', error);
@@ -47,6 +49,9 @@ const ProjectSlice = createSlice({
             })
 
             .addCase(getProjects.fulfilled, (state, action) => {
+                state.projects = action.payload;
+            })
+            .addCase(getProjectById.fulfilled,(state, action) => {
                 state.projects = action.payload;
             })
     }

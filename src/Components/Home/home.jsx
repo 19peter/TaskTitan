@@ -4,6 +4,7 @@ import { Button, Dialog, DialogTitle, DialogContent, DialogActions, Backdrop } f
 import CreateProjectForm from './createProjectForm';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProjects } from '../../redux/store/slices/projectSlice';
+import  Dashboard  from "../Dashboard/dashboard"
 
 const Home = () => {
     // const [loggedInUser, setLoggedInUser] = useState(null);
@@ -66,6 +67,9 @@ const Home = () => {
 
     return (
         <div>
+
+
+    {/* <div style={{height:"35%"}}> <Dashboard></Dashboard> </div>             */}
             <h3 style={{textAlign:"left",marginLeft:"2%"}}>Owned Projects</h3>
             <div style={{display:"flex",flexWrap:"wrap"}}>
                 {ownedProjects.map(project => (
