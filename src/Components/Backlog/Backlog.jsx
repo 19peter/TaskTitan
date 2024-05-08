@@ -11,11 +11,15 @@ import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import { IconButton } from "@mui/material";
 import PopupForm from "./PopUpForm";
 import { useDispatch, useSelector } from "react-redux";
-import { DelteTaskAction, getBacklogAction } from "../../redux/store/slices/backlogSlice";
+import {
+  DelteTaskAction,
+  getBacklogAction,
+} from "../../redux/store/slices/backlogSlice";
 import AddIcon from "@mui/icons-material/Add";
 import PopAddTaskForm from "./PopAddTaskForm";
-import DeleteIcon from '@mui/icons-material/Delete';
+import DeleteIcon from "@mui/icons-material/Delete";
 import { getProjectById } from "../../redux/store/slices/projectSlice";
+import { getAllUsersAction } from "../../redux/store/slices/usersSlice";
 
 //#region Styling
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -39,41 +43,70 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
 //#endregion
 
-const Backlog = ({id}) => {
+const Backlog = ({ id }) => {
   // console.log(projectId);
 
   const tasks = useSelector((state) => state.backlog.backlog);
-  const currentProject = useSelector((state) => state.projects.project)
-  // const currentUser = 
+  const currentUser = useSelector((state) => state.currentUser.currentUser);
+  const allUsers = useSelector((state) => state.users.users);
 
+  const userObj = allUsers?.find((u) => u.id === currentUser.id);
+
+  // console.log(userObj);
   // console.log(tasks);
-  const dispatch = useDispatch();
 
+  // let isAuthourized = false;
+
+  const [isAuthourized, setIsAuthourized ] = useState(true);
+
+  useEffect(() => {
+    userObj?.userProjects?.forEach((m) => {
+      console.log(m);
+      console.log(id);
+  
+      if (m.projectId === id) {
+        if (m.role === "member") {
+          // isAuthourized = false;
+          setIsAuthourized(false);
+        }
+      }
+    });
+  }, [])
 
   
+
+  // console.log(isAuthourized);
+
+  const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(getBacklogAction(id));
-    dispatch(getProjectById(id))
+    dispatch(getAllUsersAction());
   }, [dispatch, id]);
-
 
   const [isAddFormOpened, setIsAddFormOpened] = useState(false);
   const handleAddButton = () => {
-    setIsAddFormOpened(true);
+    if (isAuthourized) {
+      setIsAddFormOpened(true);
+    }
   };
 
   const [isFormOpened, setIsFormOpened] = useState(false);
   const [taskToBeUpdated, setTaskToBeUpdated] = useState(null);
 
   const handleEditButton = (taskId) => {
-    setIsFormOpened(true);
-    setTaskToBeUpdated(tasks.find((task) => task.id === taskId));
+    if (isAuthourized) {
+      setIsFormOpened(true);
+      setTaskToBeUpdated(tasks.find((task) => task.id === taskId));
+    }
     // console.log(taskToBeUpdated);
   };
 
   const handleDeleteButton = (id) => {
-    dispatch(DelteTaskAction({projectId:id, deletedTaskId: id}))
-  }
+    if (isAuthourized) {
+      dispatch(DelteTaskAction({ projectId: id, deletedTaskId: id }));
+    }
+  };
 
   if (!tasks) return <div>Loading...</div>;
   return (
@@ -84,12 +117,14 @@ const Backlog = ({id}) => {
             <TableRow>
               <StyledTableCell>
                 Task Title
-                <IconButton
-                  onClick={handleAddButton}
-                  style={{ color: "white", marginX: "1rem" }}
-                >
-                  <AddIcon />
-                </IconButton>
+                {isAuthourized && (
+                  <IconButton
+                    onClick={handleAddButton}
+                    style={{ color: "white", marginX: "1rem" }}
+                  >
+                    <AddIcon />
+                  </IconButton>
+                )}
               </StyledTableCell>
               <StyledTableCell align="right">assignedTo</StyledTableCell>
               <StyledTableCell align="right">status</StyledTableCell>
@@ -101,20 +136,24 @@ const Backlog = ({id}) => {
             {tasks.map((task) => (
               <StyledTableRow key={task.id}>
                 <StyledTableCell component="th" scope="row">
-                  <IconButton
-                    onClick={() => {
-                      handleEditButton(task.id);
-                    }}
-                  >
-                    <EditOutlinedIcon></EditOutlinedIcon>
-                  </IconButton>
-                  <IconButton
-                    onClick={() => {
-                      handleDeleteButton(task.id);
-                    }}
-                  >
-                    <DeleteIcon></DeleteIcon>
-                  </IconButton>
+                  {isAuthourized && (
+                    <IconButton
+                      onClick={() => {
+                        handleEditButton(task.id);
+                      }}
+                    >
+                      <EditOutlinedIcon></EditOutlinedIcon>
+                    </IconButton>
+                  )}
+                  {isAuthourized && (
+                    <IconButton
+                      onClick={() => {
+                        handleDeleteButton(task.id);
+                      }}
+                    >
+                      <DeleteIcon></DeleteIcon>
+                    </IconButton>
+                  )}
                   {task.title}
                 </StyledTableCell>
                 <StyledTableCell align="right">

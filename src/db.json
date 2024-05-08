@@ -5,7 +5,15 @@
       "name": "Mokhtar Mostafa",
       "email": "mokhtarmostafa1526@gmail.com",
       "picture": "https://lh3.googleusercontent.com/a/ACg8ocL79KirYiU01voOig8FVLWo-3piytJDnyAfDpVROOUB6yftJO8=s96-c",
-      "userProjects": [],
+      "userProjects": [
+        {
+          "projectId": "1",
+          "assignedTasks": [
+            ""
+          ],
+          "role": "member"
+        }
+      ],
       "invitations": [
         {
           "projectId": "1",
@@ -93,8 +101,8 @@
           "id": "113705067715860298092"
         },
         {
-          "email": "badr@gmail.com",
-          "id": "2"
+          "email": "mokhtarmostafa1526@gmail.com",
+          "id": "114450078144869306460"
         }
       ],
       "title": "Event Reservation",
