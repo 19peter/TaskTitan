@@ -21,7 +21,8 @@ const InviteMember = () => {
   const projectName = "Event Reservation";
 
   const dispatch = useDispatch();
-  let invitedUser = {};
+  // let invitedUser = {};
+  const [invitedUser, setInvitedUser] = useState({});
 
   const users = useSelector((state) => state.users.users);
   //   console.log(users);
@@ -33,10 +34,20 @@ const InviteMember = () => {
   useEffect(() => {
     dispatch(getAllUsersAction());
   }, []);
+
+  const handlechange = (e, newValue) => {
+    // setUserEmail(e.target.value);
+    console.log(newValue);
+    // invitedUser = { ...newValue };
+    setInvitedUser({ ...newValue });
+    console.log(invitedUser);
+  };
+
   const handleSubmit = (event) => {
     console.log(role);
     event.preventDefault();
     console.log(invitedUser);
+
     invitedUser.invitations = [
       ...invitedUser.invitations,
       {
@@ -48,11 +59,7 @@ const InviteMember = () => {
 
     dispatch(setUserNotification(invitedUser));
   };
-  const handlechange = (e, newValue) => {
-    // setUserEmail(e.target.value);
-    console.log(newValue);
-    invitedUser = { ...newValue };
-  };
+
   return (
     <div>
       <Autocomplete

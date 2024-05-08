@@ -5,24 +5,18 @@
       "name": "Mokhtar Mostafa",
       "email": "mokhtarmostafa1526@gmail.com",
       "picture": "https://lh3.googleusercontent.com/a/ACg8ocL79KirYiU01voOig8FVLWo-3piytJDnyAfDpVROOUB6yftJO8=s96-c",
-      "userProjects": [],
+      "userProjects": [
+        {
+          "role": "Member",
+          "projectId": "1",
+          "assignedTasks": []
+        }
+      ],
       "invitations": [
         {
-          "projectId": "1",
-          "projectName": "Event Reservation"
-        },
-        {
-          "projectId": "1",
-          "projectName": "Event Reservation"
-        },
-        {
-          "projectId": "1",
-          "projectName": "Event Reservation"
-        },
-        {
-          "projectId": "1",
+          "projectId": "2",
           "projectName": "Event Reservation",
-          "role": "Leader"
+          "role": "Member"
         }
       ]
     },
@@ -88,6 +82,10 @@
         {
           "email": "badr@gmail.com",
           "id": "2"
+        },
+        {
+          "email": "mokhtarmostafa1526@gmail.com",
+          "id": "114450078144869306460"
         }
       ],
       "title": "Event Reservation",

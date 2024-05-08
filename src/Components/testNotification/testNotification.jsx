@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import { getUserInvitation } from "../../redux/store/slices/usersSlice";
 import { useSelector } from "react-redux";
 import { getProjectById } from "../../redux/store/slices/projectSlice";
+import { updateUserProjects } from "../../redux/store/slices/currentUserSlice";
 
 export default function TestNotification() {
   let id = "114450078144869306460";
@@ -15,11 +16,19 @@ export default function TestNotification() {
 
   console.log(invitations);
   const dispatch = useDispatch();
+
   React.useEffect(() => {
     dispatch(getUserInvitation(id));
   }, []);
 
-  const handleClickAccept = (projectId) => {
+  const handleClickAccept = ({ projectId, role }) => {
+    console.log(projectId);
+    console.log(role);
+    let obj = {
+      userId: id,
+      project: { role: role, projectId: projectId, assignedTasks: [] },
+    };
+    dispatch(updateUserProjects(obj));
     //todo
   };
   if (invitations)
@@ -33,7 +42,11 @@ export default function TestNotification() {
               <IconButton
                 aria-label="comment"
                 onClick={() => {
-                  handleClickAccept(invitation.projectId);
+                  console.log(invitation.role);
+                  handleClickAccept({
+                    projectId: invitation.projectId,
+                    role: invitation.role,
+                  });
                 }}
               >
                 <CommentIcon />
