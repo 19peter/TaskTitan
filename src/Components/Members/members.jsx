@@ -18,16 +18,16 @@ const Members = ({ id }) => {
   return (
     <div>
       <div style={{ textAlign: "left", marginLeft: "2%" }}>
-        <h3>Project members</h3>
-        <p>Project members can view their board and update their tasks status.</p>
+        <h3 style={{color:"white"}}>Project members</h3>
+        <p style={{color:"#9e9e9e",marginBottom:"2%"}}>Project members can view their board and update their tasks status.</p>
         <hr />
-        <h4>Members:</h4>
+        <h4 style={{color:"white",marginTop:"2%"}}>Members:</h4>
         {members.map((m) => (
-          <div key={uuid()}>{m.email}</div>
+          <div key={uuid()} style={{color:"#9e9e9e", marginBottom:"2%"}}>{m.email}</div>
         ))}
         <hr />
-        <h3>Project Manager</h3>
-        <h4>{manager.email}</h4>
+        <h3 style={{color:"white",marginTop:"2%"}}>Project Manager</h3>
+        <h4 style={{color:"#9e9e9e"}}>{manager.email}</h4>
       </div>
     </div>
   );

@@ -57,8 +57,16 @@ const BarData = {
 
 <div style={{ width: "95%", height: "50%", display:"flex", margin:"2%", justifyContent:"space-evenly"}}>
         {" "}
-      <div style={{width:"25%" , margin:"2%"}}> <h1>Doughnut Chart </h1>  <DoughnutChart data={DoughnutData} /> </div>
-      <div style={{width:"50%",margin:"2%"}}> <h1>Bar Chart </h1> <BarChart data={BarData} /> </div>
+      <div style={{width:"25%" , margin:"2%"}}> 
+      <h3 style={{color:"white"}}>Project Analysis </h3> 
+       <DoughnutChart data={DoughnutData} /> 
+      <p style={{color:"#9e9e9e",marginTop:"1%",textAlign:"center"}}>Represents the status of the tasks in the project</p>
+       </div>
+      <div style={{width:"50%",margin:"2%"}}>
+         <h3 style={{color:"white"}}>Tasks Bar Chart </h3> 
+         <BarChart data={BarData} />
+         <p style={{color:"#9e9e9e", marginTop:"1%",textAlign:"center"}}>Represnts the number of tasks in the project</p>
+          </div>
       </div>
             
         </div>

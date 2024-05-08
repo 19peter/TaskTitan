@@ -137,7 +137,7 @@
         },
         {
           "title": "Dashboard",
-          "status": "Backlog",
+          "status": "Done",
           "level": "intermediate",
           "priority": "high",
           "assignedTo": {
@@ -436,6 +436,21 @@
       "endDate": "2026-02-07",
       "name": "Nada",
       "backgroundColor": "#1de9b6"
+    },
+    {
+      "id": "e3f3aa4d-d247-4fd0-9345-38a2d182871b",
+      "manager": {
+        "email": "nouransayednasr@gmail.com",
+        "id": "113705067715860298092",
+        "name": "Heba"
+      },
+      "tasks": [],
+      "members": [],
+      "title": "Pinterest",
+      "startDate": "2026-05-05",
+      "endDate": "2026-08-05",
+      "name": "Heba",
+      "backgroundColor": "#880e4f"
     }
   ]
 }
