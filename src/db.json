@@ -8,20 +8,10 @@
       "userProjects": [
         {
           "projectId": "1",
-          "assignedTasks": [""],
+          "assignedTasks": [
+            ""
+          ],
           "role": "leader"
-        }
-      ],
-      "invitations": [
-        {
-          "role": "Member",
-          "projectId": "1",
-          "assignedTasks": []
-        },
-        {
-          "role": "Member",
-          "projectId": "1",
-          "assignedTasks": []
         }
       ],
       "invitations": []
@@ -213,7 +203,7 @@
         },
         {
           "title": "tsssstMokh",
-          "status": "In Progress",
+          "status": "Todo",
           "level": "easy",
           "priority": "medium",
           "assignedTo": {
