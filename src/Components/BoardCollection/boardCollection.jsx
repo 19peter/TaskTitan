@@ -66,11 +66,12 @@ const BoardCollection = ({ id }) => {
   return (
     <DragDropContext onDragEnd={handleDragEnd}>
       <Stack
-        height={"90vh"}
+        className="stack"
+        height={"100%"}
         direction={"row"}
         spacing={5}
         padding={"2vw"}
-        sx={{ overflowX: "scroll" }}
+        sx={{ overflowX: "scroll", }}
       >
         {/* backlog section static */}
         {/* <BoardSection backlog={backlog}></BoardSection> */}

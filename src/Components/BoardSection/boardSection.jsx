@@ -27,6 +27,9 @@ const BoardSection = ({ name, taskCollection, id }) => {
         variant="h6"
         marginBottom={"7px"}
         textAlign={"center"}
+        display={'flex'}
+        alignItems={'center'}
+        justifyContent={'center'}
       >
         {name}
       </Typography>
