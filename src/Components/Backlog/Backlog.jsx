@@ -61,21 +61,16 @@ const Backlog = ({ id }) => {
 
   useEffect(() => {
     userObj?.userProjects?.forEach((m) => {
-      console.log(m);
-      console.log(id);
-  
       if (m.projectId === id) {
         if (m.role === "member") {
-          // isAuthourized = false;
           setIsAuthourized(false);
         }
       }
     });
-  }, [id, userObj])
+  }, [userObj, id])
 
   
 
-  // console.log(isAuthourized);
 
   const dispatch = useDispatch();
 
