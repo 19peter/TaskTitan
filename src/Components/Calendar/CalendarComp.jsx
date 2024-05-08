@@ -30,7 +30,6 @@ const CalendarComp = () => {
   useEffect(() => {
     dispatch(getEventsWithDates("1"));
     dispatch(getBacklogAction("1"))
-    
   }, [dispatch]);
 
 
