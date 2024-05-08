@@ -5,21 +5,48 @@
       "name": "Mokhtar Mostafa",
       "email": "mokhtarmostafa1526@gmail.com",
       "picture": "https://lh3.googleusercontent.com/a/ACg8ocL79KirYiU01voOig8FVLWo-3piytJDnyAfDpVROOUB6yftJO8=s96-c",
-      "userProjects": []
+      "userProjects": [],
+      "invitations": [
+        {
+          "projectId": "1",
+          "projectName": "Event Reservation"
+        },
+        {
+          "projectId": "1",
+          "projectName": "Event Reservation"
+        },
+        {
+          "projectId": "1",
+          "projectName": "Event Reservation"
+        },
+        {
+          "projectId": "1",
+          "projectName": "Event Reservation",
+          "role": "Leader"
+        }
+      ]
     },
     {
       "id": "109552298439343528489",
       "name": "Mokhtar Mostafa Mokhtar",
       "email": "mokhtarmostafa1311@gmail.com",
       "picture": "https://lh3.googleusercontent.com/a/ACg8ocKyrpMKW_FDR9ddD4GgMP3yiQHXLuSNf0TAWR0LTG71yES0A8A=s96-c",
-      "userProjects": []
+      "userProjects": [],
+      "invitations": [
+        {
+          "projectId": "1",
+          "projectName": "Event Reservation",
+          "role": "Leader"
+        }
+      ]
     },
     {
       "id": "107111098656219910391",
       "name": "mokhtar mostafa",
       "email": "mikhashadow@gmail.com",
       "picture": "https://lh3.googleusercontent.com/a/ACg8ocIpOywxyF4Ml0jP16pEmMxByILyd_xNcdaM0-u_53qITkGEBvE=s96-c",
-      "userProjects": []
+      "userProjects": [],
+      "invitations": []
     },
     {
       "id": "112730736456781467110",
@@ -34,14 +61,16 @@
       "name": "Nouran Sayed Nasr",
       "email": "nouransayednasr@gmail.com",
       "picture": "https://lh3.googleusercontent.com/a/ACg8ocLmxDNwuea-g_8rCTSJAT7atXinkmEmxUYiT1A43dXwAyG0fQ=s96-c",
-      "userProjects": []
+      "userProjects": [],
+      "invitations": []
     },
     {
       "id": "105176122730447230763",
       "name": "Hassan Walid",
       "email": "hassanwalid401@gmail.com",
       "picture": "https://lh3.googleusercontent.com/a/ACg8ocJWUxi8c17VMpO8cfr4Hcj7sHMxDQNBuizb3obnKP-wG8Gy2Q=s96-c",
-      "userProjects": []
+      "userProjects": [],
+      "invitations": []
     }
   ],
   "projects": [

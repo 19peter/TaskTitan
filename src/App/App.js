@@ -15,6 +15,7 @@ import ResponsiveDrawer from "../Components/Members/members.jsx";
 import Navbar from "../Components/NavBar/navbar.jsx";
 import SignIn from "../Components/Signin/signin.jsx";
 import Home from "../Components/Home/home.jsx";
+import TestNotification from "../Components/testNotification/testNotification.jsx";
 
 function App() {
   const dispatch = useDispatch();
@@ -65,6 +66,8 @@ function App() {
     },
 
     { path: "/board", element: <Boardpage></Boardpage> },
+    { path: "/test", element: <TestNotification /> },
+
     // { path: "/members/:id", element: <ResponsiveDrawer/> },
   ]);
 
