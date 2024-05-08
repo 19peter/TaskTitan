@@ -11,7 +11,7 @@
           "assignedTasks": [
             ""
           ],
-          "role": "member"
+          "role": "admin"
         }
       ],
       "invitations": [
@@ -143,8 +143,8 @@
             "email": "nouransayednasr@gmail.com"
           },
           "id": "3",
-          "startDate": "2024-05-07",
-          "endDate": "2024-05-11"
+          "startDate": "2024-05-20",
+          "endDate": "2024-05-26"
         },
         {
           "title": "Register",
