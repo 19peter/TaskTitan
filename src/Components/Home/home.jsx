@@ -11,7 +11,8 @@ const Home = () => {
     // const [userProjects, setUserProjects] = useState([]);
     const [open, setOpen] = useState(false); //modal state
     const dispatch = useDispatch();
-    const allProjects = useSelector(state=>state.project.projects)
+    const allProjects = useSelector(state=>state.projects.projects)
+    console.log(allProjects);
     const cur_user = useSelector(state=>state.currentUser.currentUser);
 
     useEffect(() => {
@@ -34,11 +35,11 @@ const Home = () => {
     //     return { email: 'peter@gmail.com', id: '1' };
     // };
 
-    // const fetchProjectsData = async () => {
-    //     const res = await fetch("http://localhost:8000/projects");
-    //     const projectsJson = await res.json();
-    //     return projectsJson;
-    // };
+    const fetchProjectsData = async () => {
+        const res = await fetch("http://localhost:8000/projects");
+        const projectsJson = await res.json();
+        return projectsJson;
+    };
 
     const filterOwnedProjects = (projects, user) => {
         if (!user) return [];

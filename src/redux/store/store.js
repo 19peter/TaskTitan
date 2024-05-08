@@ -6,6 +6,7 @@ import isUserInDBSlice from "./slices/isUserInDBSlice";
 import currentUserSlice from "./slices/currentUserSlice";
 import projectReducer from "./slices/projectSlice";
 import allUsersSlice from "./slices/usersSlice";
+import projectSlice from "./slices/projectSlice";
 
 const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ const store = configureStore({
     isUserInDB: isUserInDBSlice,
     currentUser: currentUserSlice,
     users: allUsersSlice,
+    projects:projectSlice
   },
 });
 

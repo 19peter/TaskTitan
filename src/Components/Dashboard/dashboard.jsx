@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 
 const Dashboard = () => {
   // const [projects, setProjects] = useState(null);
-  const projects = useSelector(state=>state.project.projects);
+  const projects = useSelector(state=>state.projects.projects);
   const cur_user = useSelector(state=>state.currentUser.currentUser);
   const [proName, setProName] = useState([]);
   const [tasksPerPro, setTasksPerPro] = useState([]);
