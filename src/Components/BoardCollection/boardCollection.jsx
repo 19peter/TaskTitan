@@ -8,7 +8,9 @@ import {
   updateTaskStatusAction,
 } from "../../redux/store/slices/backlogSlice";
 import { DragDropContext } from "react-beautiful-dnd";
-const BoardCollection = () => {
+
+const BoardCollection = ({ id }) => {
+  console.log(id);
   const Tasks = useSelector((state) => state.backlog.backlog);
 
   const backlogTasks = Tasks.filter(
@@ -24,7 +26,7 @@ const BoardCollection = () => {
 
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getBacklogAction(1)); //id of project
+    dispatch(getBacklogAction(id)); //id of project
   }, []);
 
   const handleDragEnd = (result) => {

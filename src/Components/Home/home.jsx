@@ -19,7 +19,6 @@ const Home = () => {
   const [open, setOpen] = useState(false); //modal state
   const dispatch = useDispatch();
   const allProjects = useSelector((state) => state.projects.projects);
-  console.log(allProjects);
   const cur_user = useSelector((state) => state.currentUser.currentUser);
 
   useEffect(() => {
@@ -74,7 +73,7 @@ const Home = () => {
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
       <div>
-      <h3 style={{marginTop:"3%", marginLeft:"2%"}}>Projects Analysis</h3>
+        <h3 style={{ marginTop: "3%", marginLeft: "2%" }}>Projects Analysis</h3>
 
         <Dashboard></Dashboard>
       </div>
