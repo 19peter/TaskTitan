@@ -71,44 +71,46 @@ const Home = () => {
   };
 
   return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
+    <div className="global-background" style={{ display: "flex", flexDirection: "column" }}>
       <div>
-        <h3 style={{ marginTop: "3%", marginLeft: "2%" }}>Projects Analysis</h3>
+        <h2 style={{ marginTop: "3%", marginLeft: "2%", fontFamily: "Roboto, sans-serif",color:"white" }}>Projects Analysis</h2>
 
         <Dashboard></Dashboard>
       </div>
       <div>
         {/* <div style={{height:"35%"}}> <Dashboard></Dashboard> </div>             */}
-        <h3 style={{ textAlign: "left", marginLeft: "2%" }}>Owned Projects</h3>
-        <div style={{ display: "flex", flexWrap: "wrap" }}>
+        <h2 style={{ textAlign: "left", marginLeft: "2%",fontFamily: "Roboto, sans-serif",color:"white"  }}>Owned Projects</h2>
+        <div style={{ display: "flex", flexWrap: "wrap",marginTop:"1%" }}>
           {ownedProjects.map((project) => (
             <ActionAreaCard
               projectTitle={project.title}
               key={project.id}
               id={project.id}
+              backgroundColor ={project.backgroundColor}
             />
           ))}
         </div>
-        <h3 style={{ textAlign: "left", marginLeft: "2%" }}>Guest Projects</h3>
-        <div style={{ display: "flex", flexWrap: "wrap" }}>
+        <h2 style={{ textAlign: "left", marginLeft: "2%", fontFamily: "Roboto, sans-serif",color:"white"  }}>Guest Projects</h2>
+        <div style={{ display: "flex", flexWrap: "wrap",marginTop:"1%" }}>
           {guestProjects.map((project) => (
             <ActionAreaCard
               projectTitle={project.title}
               key={project.id}
               id={project.id}
+              backgroundColor ={project.backgroundColor}
             />
           ))}
         </div>
         <Button
           onClick={handleCreateNewProject}
           sx={{
-            color: "white",
-            backgroundColor: "#1565c0",
+            color: "#66fcf1",
+            backgroundColor: "black",
             position: "fixed",
             bottom: "20px",
             right: "20px",
             "&:hover": {
-              backgroundColor: "#0d47a1",
+              backgroundColor: "#0b0c10",
             },
           }}
         >
