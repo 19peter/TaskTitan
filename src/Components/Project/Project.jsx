@@ -165,7 +165,7 @@
 //     </Box>
 //   );
 // }
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -185,7 +185,7 @@ import Guest from "./guest"; // Import the Guest component
 import Home from "../Home/home";
 import Dashboard from "../Dashboard/dashboard";
 import CalendarComp from "../Calendar/CalendarComp";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Boardpage from "../../pages/Boardpage";
 import Backlog from "../Backlog/Backlog";
 import Members from "../Members/members";
@@ -204,10 +204,14 @@ const drawerWidth = 240;
 export default function Project({ data }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState("Inbox");
-
+  const currentUser = useSelector((state) => state.currentUser.currentUser);
   const { id } = useParams();
+  const navigate = useNavigate();
   console.log(id);
 
+  useEffect(() => {
+    if (!currentUser) navigate("/");
+  }, []);
   const handleDrawerClose = () => {
     setMobileOpen(false);
   };

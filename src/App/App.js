@@ -61,7 +61,10 @@ function App() {
         { path: "/board", element: <Boardpage /> },
         { path: "/dashboard", element: <Dashboard /> },
         { path: "/members", element: <Members /> },
-        { path: "/backlogCalender", element: <BacklogCalender /> },
+        {
+          path: "/backlogCalender",
+          element: <BacklogCalender />,
+        },
         { path: "/InviteMember", element: <InviteMember></InviteMember> },
         { path: "/testNotify", element: <TestNotification></TestNotification> },
       ],
