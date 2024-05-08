@@ -245,17 +245,17 @@ export default function Project({data}) {
       case 'Dashboard':
         return <ProjectDashboard id={id}/>
       case 'Calender':
-        return <CalendarComp/>
+        return <CalendarComp id={id}/>
       case 'Collaborators':
         return <Members id={id}/>;
       case 'Board':
         return <Boardpage/>
       case 'Backlog':
-        return <Backlog/>
-      // case 'BacklogCalender':
-      //   return <BacklogCalender/>
-      case "InviteMember":
-          return <InviteMember id={id}></InviteMember>;
+        return <Backlog id={id}/>
+      case 'BacklogCalender':
+        return <BacklogCalender/>
+      case "Invite Members":
+          return <InviteMember></InviteMember>;
       // case 'Members':
       //     return <ResponsiveDrawer data={['Collaborators', 'Invite Members']}></ResponsiveDrawer>
     //   case 'Team Leaders':

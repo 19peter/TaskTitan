@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM from 'react-dom'
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
@@ -15,10 +15,14 @@ import Select from "@mui/material/Select";
 import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuid } from "uuid"
 import { AddTaskAction } from "../../redux/store/slices/backlogSlice";
+import { getProjectById } from "../../redux/store/slices/projectSlice";
 
-const PopAddTaskForm = ({ setIsAddFormOpened }) => {
+const PopAddTaskForm = ({ id, setIsAddFormOpened }) => {
 
   const tasks = useSelector((state) => state.backlog.backlog);
+  const currentProject = useSelector((state) => state.projects.project);
+  let emails = currentProject?.members.map((e) => e.email);
+
 
   const [open, setOpen] = useState(true);
   const [doesTitleExist, setDoesTitleExist] = useState(false);
@@ -27,12 +31,17 @@ const PopAddTaskForm = ({ setIsAddFormOpened }) => {
 
   const dispatch = useDispatch();
 
+
+  useEffect(() => {
+    dispatch(getProjectById(id))
+  }, [dispatch, id])
+
   const [formData, setFormData] = useState({
     title: "",
     status: "Backlog",
     level: "",
     priority: "",
-    assignedTo: {email: ""},
+    assignedTo: { email: "" },
     details: ""
   });
 
@@ -60,8 +69,8 @@ const PopAddTaskForm = ({ setIsAddFormOpened }) => {
     });
 
     if (!exists) {
-      formData.id = uuid()
-      dispatch(AddTaskAction({ projectId: "1", AddedTask: formData }))
+      formData.id = tasks.length + 1;
+      dispatch(AddTaskAction({ projectId: id, AddedTask: formData }))
       handleClose();
     }
   };
@@ -87,15 +96,7 @@ const PopAddTaskForm = ({ setIsAddFormOpened }) => {
           }}>
             This title already exists!. Please Enter a unique title
           </div>}
-          <TextField
-            margin="dense"
-            label="Email"
-            type="email"
-            name="assignedTo"
-            value={formData.assignedTo.email}
-            onChange={handleChange}
-            fullWidth
-          />
+
 
           <TextField
             margin="dense"
@@ -106,6 +107,26 @@ const PopAddTaskForm = ({ setIsAddFormOpened }) => {
             onChange={handleChange}
             fullWidth
           />
+
+
+          <Box sx={{ minWidth: 60, marginY: "1rem" }}>
+            <FormControl fullWidth>
+              <InputLabel >Email</InputLabel>
+              <Select
+                labelId={"status-label-"}
+                id={"status-select-"}
+                name="assignedTo"
+                value={formData.assignedTo.email}
+                onChange={handleChange}
+              >
+                {emails?.map((e) =>
+                  <MenuItem key={e} value={e}>{e}</MenuItem>
+                )}
+                {/* <MenuItem value="intermediate">intermediate</MenuItem>
+                <MenuItem value="difficult">Difficult</MenuItem> */}
+              </Select>
+            </FormControl>
+          </Box>
 
           <Box sx={{ minWidth: 60, marginY: "1rem" }}>
             <FormControl fullWidth>

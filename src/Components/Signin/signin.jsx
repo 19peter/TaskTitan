@@ -90,7 +90,7 @@ export default function SignIn({ closeSignin }) {
       localStorage.setItem("picture", UserSignin.picture);
       localStorage.setItem("email", UserSignin.email);
       dispatch(setCurrentUser(UserSignin));
-      navigate("/board");
+      navigate("/home");
     }
   }, [user, UserSignin]);
 

@@ -11,11 +11,12 @@ import {
   getTasksWithDates,
   updateTaskAction,
 } from "../../redux/store/slices/backlogSlice";
+import { getAllUsersAction } from "../../redux/store/slices/usersSlice";
 import { useSelector } from "react-redux";
 import { getEventsWithDates } from "../../redux/store/slices/eventsWithDates";
 import FullScreenDialog from "./DetailsDialog";
 
-const CalendarComp = () => {
+const CalendarComp = ({id}) => {
 
   const [allEvents, setAllEvents] = useState([]);
   const [info, setInfo] = useState(null);
@@ -27,11 +28,27 @@ const CalendarComp = () => {
   const tsks = useSelector((state) => state.eventsWithDates.eventsWithDates)
   const AllTasks = useSelector((state) => state.backlog.backlog)
 
+  const currentUser = useSelector((state) => state.currentUser.currentUser);
+  const allUsers = useSelector((state) => state.users.users);
+  const userObj = allUsers?.find((u) => u.id === currentUser.id);
+  const [isAuthourized, setIsAuthourized ] = useState(true);
+
   useEffect(() => {
-    dispatch(getEventsWithDates("1"));
-    dispatch(getBacklogAction("1"))
-    
-  }, [dispatch]);
+    userObj?.userProjects?.forEach((m) => {
+      if (m.projectId === id) {
+        if (m.role === "member") {
+          setIsAuthourized(false);
+        }
+      }
+    });
+  }, [userObj, id])
+
+
+  useEffect(() => {
+    dispatch(getEventsWithDates(id));
+    dispatch(getBacklogAction(id));
+    dispatch(getAllUsersAction());
+  }, [dispatch, id]);
 
 
   useEffect(() => {
@@ -52,8 +69,10 @@ const CalendarComp = () => {
   // }, [event])
 
   let selectHandler = function (info) {
-    setIsDialogOpened(true);
-    setInfo(info);
+    if (isAuthourized) {
+      setIsDialogOpened(true);
+      setInfo(info);
+    }
 
   };
 
@@ -65,7 +84,7 @@ const CalendarComp = () => {
   const UpdateTaskDate = (task) => {
     dispatch(
       UpdateTaskDateAction({
-        projectId: "1",
+        projectId: id,
         taskId: task.id,
         startDate: info.startStr,
         endDate: info.endStr,
@@ -76,7 +95,8 @@ const CalendarComp = () => {
   return (
     <div>
       {isDialogOpened === true && (
-        <FormDialog
+        <FormDialog 
+          id={id}
           info={info}
           setAllEvents={setAllEvents}
           setIsDialogOpened={setIsDialogOpened}

@@ -5,7 +5,15 @@
       "name": "Mokhtar Mostafa",
       "email": "mokhtarmostafa1526@gmail.com",
       "picture": "https://lh3.googleusercontent.com/a/ACg8ocL79KirYiU01voOig8FVLWo-3piytJDnyAfDpVROOUB6yftJO8=s96-c",
-      "userProjects": [],
+      "userProjects": [
+        {
+          "projectId": "1",
+          "assignedTasks": [
+            ""
+          ],
+          "role": "leader"
+        }
+      ],
       "invitations": [
         {
           "projectId": "1",
@@ -71,6 +79,13 @@
       "picture": "https://lh3.googleusercontent.com/a/ACg8ocJWUxi8c17VMpO8cfr4Hcj7sHMxDQNBuizb3obnKP-wG8Gy2Q=s96-c",
       "userProjects": [],
       "invitations": []
+    },
+    {
+      "id": "113118824854000057259",
+      "name": "Ahmed Badr",
+      "email": "ahmed.hussiba@gmail.com",
+      "picture": "https://lh3.googleusercontent.com/a/ACg8ocJzBNDRF4CqsQ1ODaC9HRDXdAO3t6uFMl03ERXqZGHLjYLjPJgp=s96-c",
+      "userProjects": []
     },
     {
       "id": "109240513695962267084",
@@ -239,11 +254,84 @@
         "name": "mokhtar mostafa",
         "id": "114450078144869306460"
       },
-      "tasks": [],
+      "tasks": [
+        {
+          "title": "tassk",
+          "status": "Backlog",
+          "level": "intermediate",
+          "priority": "high",
+          "assignedTo": {
+            "email": "Badr@gmail.com"
+          },
+          "details": "asd",
+          "id": "7a62b08d-fbdf-4d0c-ac9d-a84d6ce3be37",
+          "startDate": "2024-04-29",
+          "endDate": "2024-05-03"
+        },
+        {
+          "title": "asd",
+          "status": "Backlog",
+          "level": "intermediate",
+          "priority": "medium",
+          "assignedTo": {
+            "email": "peter@gmail.com"
+          },
+          "details": "asd",
+          "id": "f53b7b98-8ea2-455e-aa78-4bee21377da4"
+        },
+        {
+          "title": "teeest",
+          "status": "Backlog",
+          "level": "intermediate",
+          "priority": "medium",
+          "assignedTo": {
+            "email": "asd@gmail.com"
+          },
+          "details": "asd",
+          "id": 3
+        }
+      ],
       "members": [],
       "title": "mokhtar test",
       "startDate": "2024-05-03",
       "endDate": "2024-05-27"
+    },
+    {
+      "id": "de52f466-7ee7-4302-8a68-751c8cf6c089",
+      "manager": {
+        "email": "mokhtarmostafa1526@gmail.com",
+        "id": "114450078144869306460"
+      },
+      "tasks": [
+        {
+          "title": "Login",
+          "status": "Backlog",
+          "level": "intermediate",
+          "priority": "high",
+          "assignedTo": {
+            "email": "peter@gmail.com"
+          },
+          "details": "asd",
+          "id": "33656a44-5029-4e6f-aa30-bd460e974e2d"
+        },
+        {
+          "title": "UI",
+          "status": "Backlog",
+          "level": "easy",
+          "priority": "high",
+          "assignedTo": {
+            "email": "Badr@gmail.com"
+          },
+          "details": "asd",
+          "id": "ed7a1580-af4d-4094-a06e-725c2db3dea6",
+          "startDate": "2024-04-30",
+          "endDate": "2024-05-03"
+        }
+      ],
+      "members": [],
+      "title": "TaskTitan",
+      "startDate": "2024-05-14",
+      "endDate": "2024-05-24"
     },
     {
       "id": "16aef28a-958c-4467-85a9-24da216e9ae9",
