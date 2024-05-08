@@ -200,7 +200,7 @@
         },
         {
           "title": "tsssstMokh",
-          "status": "Backlog",
+          "status": "Done",
           "level": "easy",
           "priority": "medium",
           "assignedTo": {
@@ -210,7 +210,7 @@
           "id": "7"
         },
         {
-          "title": "dasd",
+          "title": "test id",
           "status": "Backlog",
           "level": "",
           "priority": "",
@@ -218,18 +218,7 @@
             "email": ""
           },
           "details": "",
-          "id": 7
-        },
-        {
-          "title": "dawwad",
-          "status": "Backlog",
-          "level": "",
-          "priority": "",
-          "assignedTo": {
-            "email": ""
-          },
-          "details": "",
-          "id": 8
+          "id": "8"
         }
       ],
       "startDate": "date",
