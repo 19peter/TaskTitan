@@ -106,7 +106,10 @@ const Home = () => {
             />
           ))}
         </div>
-        <Button
+
+         <button onClick={handleCreateNewProject} className="create-button">Create New Project</button> 
+
+        {/* <Button
           onClick={handleCreateNewProject}
           sx={{
             color: "#66fcf1",
@@ -120,7 +123,7 @@ const Home = () => {
           }}
         >
           Create New Project
-        </Button>
+        </Button> */}
 
           <Dialog open={open} onClose={handleClose}>
             <DialogTitle>Create New Project</DialogTitle>
