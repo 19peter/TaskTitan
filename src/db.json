@@ -7,6 +7,13 @@
       "picture": "https://lh3.googleusercontent.com/a/ACg8ocL79KirYiU01voOig8FVLWo-3piytJDnyAfDpVROOUB6yftJO8=s96-c",
       "userProjects": [
         {
+          "projectId": "1",
+          "assignedTasks": [""],
+          "role": "leader"
+        }
+      ],
+      "invitations": [
+        {
           "role": "Member",
           "projectId": "1",
           "assignedTasks": []
@@ -96,14 +103,18 @@
     {
       "id": "1",
       "manager": {
-        "email": "peter@gmail.com",
-        "id": "1",
-        "name": "peter"
+        "email": "mohyeldenyasmeen@gmail.com",
+        "id": "109240513695962267084",
+        "name": "Yasmeen Mohy Elden"
       },
       "members": [
         {
           "email": "nouransayednasr@gmail.com",
           "id": "113705067715860298092"
+        },
+        {
+          "email": "mohyeldenyasmeen@gmail.com",
+          "id": "109240513695962267084"
         },
         {
           "email": "badr@gmail.com",
@@ -237,6 +248,7 @@
       "id": "c7ebe41d-7d7e-4e63-ba0b-477843593954",
       "manager": {
         "email": "nouransayednasr@gmail.com",
+        "name": "Nouran Sayed Nasr",
         "id": "113705067715860298092"
       },
       "tasks": [],
@@ -249,6 +261,7 @@
       "id": "1a29185f-c3a2-4ea8-98ce-baaa3a7039b2",
       "manager": {
         "email": "mohyeldenyasmeen@gmail.com",
+        "name": "Yasmeen Mohy Elden",
         "id": "109240513695962267084"
       },
       "tasks": [],
@@ -270,9 +283,46 @@
       "id": "fae6c423-85fe-42fd-b2f4-756831aa6988",
       "manager": {
         "email": "mokhtarmostafa1526@gmail.com",
+        "name": "mokhtar mostafa",
         "id": "114450078144869306460"
       },
-      "tasks": [],
+      "tasks": [
+        {
+          "title": "tassk",
+          "status": "Backlog",
+          "level": "intermediate",
+          "priority": "high",
+          "assignedTo": {
+            "email": "Badr@gmail.com"
+          },
+          "details": "asd",
+          "id": "7a62b08d-fbdf-4d0c-ac9d-a84d6ce3be37",
+          "startDate": "2024-04-29",
+          "endDate": "2024-05-03"
+        },
+        {
+          "title": "asd",
+          "status": "Backlog",
+          "level": "intermediate",
+          "priority": "medium",
+          "assignedTo": {
+            "email": "peter@gmail.com"
+          },
+          "details": "asd",
+          "id": "f53b7b98-8ea2-455e-aa78-4bee21377da4"
+        },
+        {
+          "title": "teeest",
+          "status": "Backlog",
+          "level": "intermediate",
+          "priority": "medium",
+          "assignedTo": {
+            "email": "asd@gmail.com"
+          },
+          "details": "asd",
+          "id": 3
+        }
+      ],
       "members": [],
       "title": "mokhtar test",
       "startDate": "2024-05-03",

@@ -14,7 +14,7 @@ import Select from "@mui/material/Select";
 import { useDispatch, useSelector } from "react-redux";
 import { updateTaskAction } from "../../redux/store/slices/backlogSlice";
 
-const PopupForm = ({ setIsFormOpened, taskToBeUpdated }) => {
+const PopupForm = ({id, setIsFormOpened, taskToBeUpdated }) => {
 
   const tasks = useSelector((state) => state.backlog.backlog);
   const dispatch = useDispatch()
@@ -24,7 +24,7 @@ const PopupForm = ({ setIsFormOpened, taskToBeUpdated }) => {
   let exists = false;
 
 
-  console.log(taskToBeUpdated);
+  // console.log(taskToBeUpdated);
 
   const [formData, setFormData] = useState({
     id: taskToBeUpdated.id,
@@ -62,7 +62,7 @@ const PopupForm = ({ setIsFormOpened, taskToBeUpdated }) => {
     });
 
     if (!exists) {
-      dispatch(updateTaskAction({ projectId: 1, taskId: taskToBeUpdated.id, updatedTask: formData }));
+      dispatch(updateTaskAction({ projectId: id, taskId: taskToBeUpdated.id, updatedTask: formData }));
       handleClose();
     }
   };

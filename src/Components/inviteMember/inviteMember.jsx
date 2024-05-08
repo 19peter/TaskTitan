@@ -48,6 +48,7 @@ const InviteMember = ({ id }) => {
   };
 
   const handleSubmit = (event) => {
+    console.log("pro", project);
     console.log(role);
     event.preventDefault();
     console.log(invitedUser);

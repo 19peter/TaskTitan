@@ -191,7 +191,7 @@ import Backlog from "../Backlog/Backlog";
 import Members from "../Members/members";
 import BacklogCalender from "../../pages/BacklogCalender";
 import InviteMember from "../inviteMember/inviteMember";
-
+import ProjectDashboard from "../Dashboard/project_dashboard";
 const drawerWidth = 240;
 
 export default function Project({ data }) {
@@ -215,9 +215,9 @@ export default function Project({ data }) {
   };
 
   const drawer = (
-    <div>
-      <Toolbar />
-      <Divider />
+    <div style={{ color: "white" }}>
+      {/* <Toolbar />
+      <Divider /> */}
       <List>
         {data.map((text, index) => (
           <ListItem
@@ -228,7 +228,7 @@ export default function Project({ data }) {
           >
             <ListItemButton>
               <ListItemIcon>
-                <InboxIcon />
+                <InboxIcon style={{ color: "white" }} />
               </ListItemIcon>
               <ListItemText primary={text} />
             </ListItemButton>
@@ -266,78 +266,100 @@ export default function Project({ data }) {
   };
 
   return (
-    <Box sx={{ display: "flex" }}>
-      <CssBaseline />
-      <AppBar
-        position="fixed"
+    // <Box sx={{ display: 'flex'}} style={{ height: "100%"}}>
+    /* <CssBaseline />
+    <AppBar
+      position="fixed"
+      sx={{
+        width: { sm: `calc(100% - ${drawerWidth}px)` },
+        mt: { lg: '100px'},
+        ml: { sm: `${drawerWidth}px` },
+        backgroundColor: " rgba(0, 0, 0, 0.485)",
+        
+      }}
+    > */
+    /* <Toolbar>
+      <IconButton
+        color="inherit"
+        aria-label="open drawer"
+        edge="start"
+        onClick={handleDrawerToggle}
+        sx={{ mr: 2, display: { sm: 'none' } }}
+      >
+        <MenuIcon />
+      </IconButton>
+      <Typography variant="h6" noWrap component="div">
+        Collaborators
+      </Typography>
+    </Toolbar> */
+    /* </AppBar> */
+
+    /* <Box
+      component="nav"
+      sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
+      aria-label="mailbox folders"
+    >
+      <Drawer
+        variant="temporary"
+        open={mobileOpen}
+        onClose={handleDrawerClose}
+        ModalProps={{
+          keepMounted: true, // Better open performance on mobile.
+        }}
         sx={{
-          width: { sm: `calc(100% - ${drawerWidth}px)` },
-          ml: { sm: `${drawerWidth}px` },
-          backgroundColor: " rgba(0, 0, 0, 0.485)",
+          display: { xs: 'block', sm: 'none' },
+          '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+        }}
+        
+      >
+        {drawer}
+      </Drawer>
+
+
+      <Drawer
+        variant="permanent"
+        sx={{
+          display: { xs: 'none', sm: 'block' },
+          '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+        }}
+        open
+      >
+        {drawer}
+      </Drawer>
+    </Box> */
+
+    /* </Box> */
+
+    <div style={{ display: "flex", height: "100%" }}>
+      <div
+        style={{
+          width: "fit-content",
+          height: "100vh",
+          backgroundColor: "#253745",
         }}
       >
-        {/* <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' } }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            Collaborators
-          </Typography>
-        </Toolbar> */}
-      </AppBar>
-      <Box
-        component="nav"
-        sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
-        aria-label="mailbox folders"
+        {drawer}
+      </div>
+
+      <div
+        style={{
+          height: "90vh",
+          width: "100%",
+          margin: "2vw",
+          overflowY: "auto",
+        }}
       >
-        <Drawer
-          variant="temporary"
-          open={mobileOpen}
-          onClose={handleDrawerClose}
-          ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
-          }}
-          sx={{
-            display: { xs: "block", sm: "none" },
-            "& .MuiDrawer-paper": {
-              boxSizing: "border-box",
-              width: drawerWidth,
-            },
-          }}
-        >
-          {drawer}
-        </Drawer>
-        <Drawer
-          variant="permanent"
-          sx={{
-            display: { xs: "none", sm: "block" },
-            "& .MuiDrawer-paper": {
-              boxSizing: "border-box",
-              width: drawerWidth,
-            },
-          }}
-          open
-        >
-          {drawer}
-        </Drawer>
-      </Box>
-      <Box
+        {renderComponent()}
+      </div>
+
+      {/* <Box
         component="main"
-        sx={{
-          flexGrow: 1,
-          p: 3,
-          width: { sm: `calc(100% - ${drawerWidth}px)` },
-        }}
+        sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
+
       >
         <Toolbar />
         {renderComponent()}
-      </Box>
-    </Box>
+      </Box> */}
+    </div>
   );
 }

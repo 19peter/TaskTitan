@@ -61,7 +61,7 @@ const Home = () => {
 
   const ownedProjects = filterOwnedProjects(allProjects, cur_user);
   const guestProjects = filterGuestProjects(allProjects, cur_user);
-  console.log(cur_user);
+
   const handleCreateNewProject = () => {
     setOpen(true);
   };
@@ -71,57 +71,64 @@ const Home = () => {
   };
 
   return (
-    <div>
-      {/* <div style={{height:"35%"}}> <Dashboard></Dashboard> </div>             */}
-      <h3 style={{ textAlign: "left", marginLeft: "2%" }}>Owned Projects</h3>
-      <div style={{ display: "flex", flexWrap: "wrap" }}>
-        {ownedProjects.map((project) => (
-          <ActionAreaCard
-            projectTitle={project.title}
-            key={project.id}
-            id={project.id}
-          />
-        ))}
-      </div>
-      <h3 style={{ textAlign: "left", marginLeft: "2%" }}>Guest Projects</h3>
-      <div style={{ display: "flex", flexWrap: "wrap" }}>
-        {guestProjects.map((project) => (
-          <ActionAreaCard
-            projectTitle={project.title}
-            key={project.id}
-            id={project.id}
-          />
-        ))}
-      </div>
-      <Button
-        onClick={handleCreateNewProject}
-        sx={{
-          color: "white",
-          backgroundColor: "#1565c0",
-          position: "fixed",
-          bottom: "20px",
-          right: "20px",
-          "&:hover": {
-            backgroundColor: "#0d47a1",
-          },
-        }}
-      >
-        Create New Project
-      </Button>
+    <div style={{ display: "flex", flexDirection: "column" }}>
+      <div>
+        <h3 style={{ marginTop: "3%", marginLeft: "2%" }}>Projects Analysis</h3>
 
-      <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Create New Project</DialogTitle>
-        <DialogContent>
-          <CreateProjectForm />
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose}>Close</Button>
-        </DialogActions>
-      </Dialog>
-      <Backdrop
-        open={open}
-        sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
-      />
+        <Dashboard></Dashboard>
+      </div>
+      <div>
+        {/* <div style={{height:"35%"}}> <Dashboard></Dashboard> </div>             */}
+        <h3 style={{ textAlign: "left", marginLeft: "2%" }}>Owned Projects</h3>
+        <div style={{ display: "flex", flexWrap: "wrap" }}>
+          {ownedProjects.map((project) => (
+            <ActionAreaCard
+              projectTitle={project.title}
+              key={project.id}
+              id={project.id}
+            />
+          ))}
+        </div>
+        <h3 style={{ textAlign: "left", marginLeft: "2%" }}>Guest Projects</h3>
+        <div style={{ display: "flex", flexWrap: "wrap" }}>
+          {guestProjects.map((project) => (
+            <ActionAreaCard
+              projectTitle={project.title}
+              key={project.id}
+              id={project.id}
+            />
+          ))}
+        </div>
+        <Button
+          onClick={handleCreateNewProject}
+          sx={{
+            color: "white",
+            backgroundColor: "#1565c0",
+            position: "fixed",
+            bottom: "20px",
+            right: "20px",
+            "&:hover": {
+              backgroundColor: "#0d47a1",
+            },
+          }}
+        >
+          Create New Project
+        </Button>
+
+        <Dialog open={open} onClose={handleClose}>
+          <DialogTitle>Create New Project</DialogTitle>
+          <DialogContent>
+            <CreateProjectForm />
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleClose}>Close</Button>
+          </DialogActions>
+        </Dialog>
+        <Backdrop
+          open={open}
+          sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        />
+      </div>
     </div>
   );
 };
