@@ -14,6 +14,7 @@ import { orange } from "@mui/material/colors";
 import { Draggable } from "react-beautiful-dnd";
 import { useSelector } from "react-redux";
 
+
 const TaskSection = ({
   id,
   title,
@@ -50,7 +51,7 @@ const TaskSection = ({
           isDragging={snapshot.isDragging}
           width={"80%"}
           height={"fit-content"}
-          p={"20px"}
+          p={"0.5vw 0.5vw"}
           display={"flex"}
           flexDirection={"column"}
           bgcolor={"white"}
@@ -58,7 +59,7 @@ const TaskSection = ({
           margin={"10px 0"}
           sx={{ opacity: flagOpacity }}
         >
-          <Typography textAlign={"left"} variant={"body1"}>
+          <Typography sx={{textIndent:"10px"}} textAlign={"left"} variant={"body1"} fontFamily={"cursive"}>
             {title}
           </Typography>
           <Stack direction={"row"} justifyContent={"end"}>

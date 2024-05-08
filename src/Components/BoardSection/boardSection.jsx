@@ -10,7 +10,7 @@ const BoardSection = ({ name, taskCollection, id }) => {
       border={"solid #66fcf1 1px"}
       bgcolor={"#0b0c10"}
       direction={"column"}
-      sx={{ minWidth: "250px" }}
+      sx={{ minWidth: "350px" }}
       alignItems={"center"}
       height={"80%"}
     >
@@ -21,15 +21,13 @@ const BoardSection = ({ name, taskCollection, id }) => {
         position={"relative"}
         top={"0"}
         borderBottom={"solid #66fcf1 1px"}
-
         color={"#c5c6c7"}
-        paddingTop={"3%"}
         variant="h6"
         marginBottom={"7px"}
-        textAlign={"center"}
-        display={'flex'}
-        alignItems={'center'}
-        justifyContent={'center'}
+        display={"flex"}
+        alignItems={"center"}
+        justifyContent={"center"}
+        fontFamily={"cursive"}
       >
         {name}
       </Typography>
