@@ -67,19 +67,13 @@ export default function SignIn({ closeSignin }) {
           }
         )
         .then((res) => {
-          // console.log(res.data);
-          const userData = {
-            id: res.data.id,
-            name: res.data.name,
-            email: res.data.email,
-            picture: res.data.picture,
-          };
-          dispatch(setCurrentUser(userData));
+          console.log(res.data.id);
+          dispatch(getUserAction(res.data));
+          dispatch(setCurrentUser(UserSignin));
           localStorage.setItem("id", res.data.id);
           localStorage.setItem("name", res.data.name);
           localStorage.setItem("picture", res.data.picture);
           localStorage.setItem("email", res.data.email);
-          dispatch(getUserAction(res.data));
           navigate("/home");
         })
         .catch((err) => console.log(err));
@@ -89,8 +83,9 @@ export default function SignIn({ closeSignin }) {
       localStorage.setItem("name", UserSignin.name);
       localStorage.setItem("picture", UserSignin.picture);
       localStorage.setItem("email", UserSignin.email);
+
       dispatch(setCurrentUser(UserSignin));
-      navigate("/board");
+      navigate("/home");
     }
   }, [user, UserSignin]);
 

@@ -1,8 +1,8 @@
 import React from "react";
 import BoardCollection from "../Components/BoardCollection/boardCollection";
 
-const Boardpage = () => {
-  return <BoardCollection></BoardCollection>;
+const Boardpage = ({ id }) => {
+  return <BoardCollection id={id}></BoardCollection>;
 };
 
 export default Boardpage;

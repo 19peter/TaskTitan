@@ -10,15 +10,14 @@
           "role": "Member",
           "projectId": "1",
           "assignedTasks": []
+        },
+        {
+          "role": "Member",
+          "projectId": "1",
+          "assignedTasks": []
         }
       ],
-      "invitations": [
-        {
-          "projectId": "2",
-          "projectName": "Event Reservation",
-          "role": "Member"
-        }
-      ]
+      "invitations": []
     },
     {
       "id": "109552298439343528489",
@@ -47,7 +46,13 @@
       "name": "hassan walid",
       "email": "hassan.walid77@gmail.com",
       "picture": "https://lh3.googleusercontent.com/a/ACg8ocJ0IMbCQbNcHpI9Ii1pVa1umtP3fv_PmIiFGQDW9AKDlTlo7A=s96-c",
-      "userProjects": [],
+      "userProjects": [
+        {
+          "role": "Member",
+          "projectId": "1",
+          "assignedTasks": []
+        }
+      ],
       "invitations": []
     },
     {
@@ -65,6 +70,26 @@
       "picture": "https://lh3.googleusercontent.com/a/ACg8ocJWUxi8c17VMpO8cfr4Hcj7sHMxDQNBuizb3obnKP-wG8Gy2Q=s96-c",
       "userProjects": [],
       "invitations": []
+    },
+    {
+      "id": "4c3e",
+      "userProjects": []
+    },
+    {
+      "id": "2f32",
+      "userProjects": []
+    },
+    {
+      "id": "b807",
+      "userProjects": []
+    },
+    {
+      "id": "0f86",
+      "userProjects": []
+    },
+    {
+      "id": "07f2",
+      "userProjects": []
     }
   ],
   "projects": [
@@ -72,7 +97,8 @@
       "id": "1",
       "manager": {
         "email": "peter@gmail.com",
-        "id": "1"
+        "id": "1",
+        "name": "peter"
       },
       "members": [
         {
@@ -82,6 +108,14 @@
         {
           "email": "badr@gmail.com",
           "id": "2"
+        },
+        {
+          "email": "mokhtarmostafa1526@gmail.com",
+          "id": "114450078144869306460"
+        },
+        {
+          "email": "mokhtarmostafa1526@gmail.com",
+          "id": "114450078144869306460"
         },
         {
           "email": "mokhtarmostafa1526@gmail.com",
@@ -105,7 +139,7 @@
         },
         {
           "title": "Payement",
-          "status": "Todo",
+          "status": "In Progress",
           "level": "intermediate",
           "priority": "high",
           "assignedTo": {
@@ -138,7 +172,7 @@
             "email": "Badr@gmail.com"
           },
           "details": "Add Register Page",
-          "id": "eda3904e-d379-4adb-b699-dc42b311b96d",
+          "id": "4",
           "startDate": "2024-05-13",
           "endDate": "2024-05-18"
         },
@@ -151,20 +185,31 @@
             "email": "badr@gmail.com"
           },
           "details": "add login ",
-          "id": "e1440279-c93f-4b57-a138-9f4c5b3ed8c8",
+          "id": "5",
           "startDate": "2024-04-30",
           "endDate": "2024-05-03"
         },
         {
           "title": "tsssst",
-          "status": "Backlog",
+          "status": "In Progress",
           "level": "easy",
           "priority": "medium",
           "assignedTo": {
             "email": "peter@gmail.com"
           },
           "details": "asd",
-          "id": "44b396e5-0075-40b0-80f7-e5a82d74b2c3"
+          "id": "6"
+        },
+        {
+          "title": "tsssstMokh",
+          "status": "In Progress",
+          "level": "easy",
+          "priority": "medium",
+          "assignedTo": {
+            "email": "mokhtarmostafa1526@gmail.com"
+          },
+          "details": "asd",
+          "id": "7"
         }
       ],
       "startDate": "date",
@@ -174,10 +219,16 @@
       "id": "ca4bf85b-867b-4b65-8ebd-92da68b37d02",
       "manager": {
         "email": "nouransayednasr@gmail.com",
-        "id": "113705067715860298092"
+        "id": "113705067715860298092",
+        "name": "nouran"
       },
       "tasks": [],
-      "members": [],
+      "members": [
+        {
+          "email": "hassan.walid77@gmail.com",
+          "id": "112730736456781467110"
+        }
+      ],
       "title": "Blood Donation",
       "startDate": "2024-06-01",
       "endDate": "2024-06-25"
@@ -226,6 +277,24 @@
       "title": "mokhtar test",
       "startDate": "2024-05-03",
       "endDate": "2024-05-27"
+    },
+    {
+      "id": "45cc7168-5c17-4d1a-8d10-37610f8539d3",
+      "manager": {
+        "email": "hassan.walid77@gmail.com",
+        "id": "112730736456781467110",
+        "name": "nouran"
+      },
+      "tasks": [],
+      "members": [
+        {
+          "email": "mokhtarmostafa1526@gmail.com",
+          "id": "114450078144869306460"
+        }
+      ],
+      "title": "sssss",
+      "startDate": "",
+      "endDate": ""
     }
   ]
 }

@@ -16,9 +16,12 @@ import {
   setUserNotification,
 } from "../../redux/store/slices/usersSlice";
 
-const InviteMember = () => {
+import { getProjectById } from "../../redux/store/slices/projectSlice";
+const InviteMember = ({ id }) => {
+  console.log(id);
   const projectId = "1";
   const projectName = "Event Reservation";
+  const project = useSelector((state) => state.projects.project);
 
   const dispatch = useDispatch();
   // let invitedUser = {};
@@ -33,6 +36,7 @@ const InviteMember = () => {
   };
   useEffect(() => {
     dispatch(getAllUsersAction());
+    dispatch(getProjectById(id));
   }, []);
 
   const handlechange = (e, newValue) => {
@@ -51,8 +55,9 @@ const InviteMember = () => {
     invitedUser.invitations = [
       ...invitedUser.invitations,
       {
-        projectId: projectId,
-        projectName: projectName,
+        projectId: project.id,
+        projectName: project.title,
+        ProjectManger: project.manager.name,
         role: role,
       },
     ];

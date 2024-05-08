@@ -8,6 +8,7 @@ export const getUserAction = createAsyncThunk("users/getUser", async (user) => {
     email: user.email,
     picture: user.picture,
   };
+  console.log(user.id);
   const res = await axios.get("http://localhost:8000/users/" + user.id);
   return res.data;
 });
@@ -29,12 +30,10 @@ const isUserInDBSlice = createSlice({
   initialState: { user: null },
   extraReducers: (builder) => {
     builder.addCase(getUserAction.fulfilled, (state, action) => {
-      state.backlog = action.payload;
+      state.user = action.payload;
     });
     builder.addCase(getUserAction.rejected, (state, action) => {
-      console.log(newUser);
       newUser = { ...newUser, userProjects: [] };
-      console.log(newUser);
       axios.post("http://localhost:8000/users/", newUser).then(() => {
         console.log("added successfully");
       });

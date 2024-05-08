@@ -2,7 +2,7 @@
 // import TimelinePge from "../pages/Project.jsx";
 import { Provider } from "react-redux";
 import store from "../redux/store/store.js";
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Boardpage from "./../pages/Boardpage";
 import Backlog from "../Components/Backlog/Backlog.jsx";
 import CalendarComp from "../Components/Calendar/CalendarComp.jsx";
@@ -15,54 +15,59 @@ import Project from "../Components/Project/Project.jsx";
 import Navbar from "../Components/NavBar/navbar.jsx";
 import SignIn from "../Components/Signin/signin.jsx";
 import Home from "../Components/Home/home.jsx";
-import Dashboard from "../Components/Dashboard/dashboard.jsx"
-import Members from "../Components/Members/members.jsx"
-
+import Dashboard from "../Components/Dashboard/dashboard.jsx";
+import Members from "../Components/Members/members.jsx";
+import InviteMember from "../Components/inviteMember/inviteMember.jsx";
+import TestNotification from "../Components/testNotification/testNotification.jsx";
+import axios from "axios";
+import NotFound from "../Components/NotFound/NotFound.jsx";
 function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (localStorage.getItem("id")) {
-      dispatch(
-        setCurrentUser({
-          id: localStorage.getItem("id"),
-          name: localStorage.getItem("name"),
-          picture: localStorage.getItem("picture"),
-          email: localStorage.getItem("email"),
-        })
-      );
+    let userId = localStorage.getItem("id");
+    if (userId) {
+      axios.get("http://localhost:8000/users/" + userId).then((res) => {
+        dispatch(setCurrentUser(res.data));
+      });
     }
   }, []);
 
-  // const router = createBrowserRouter([
-  //   { path: "/board", element: <Boardpage></Boardpage> },
-  //   { path: "/", element: <Intro></Intro> },
-  // ]);
-
   const router = createBrowserRouter([
-    // { path: '/', element: <Backlog></Backlog> },
-    // { path: '/calender', element: <CalendarComp></CalendarComp> },
-    // { path: "/collaborators", element: <ResponsiveDrawer data={['Collaborators', 'Invite Members']}></ResponsiveDrawer> },
-    // { path: "/members/:id", element: <ResponsiveDrawer data={['Board', 'Members', 'Dashhboard']}></ResponsiveDrawer>  },
-    // { path: "/intro", element: <Intro></Intro> },
-    // { path: "/members", element: <ResponsiveDrawer data={['Dashboard','Projects']}/> },
-    // { path: "/board", element: <Boardpage></Boardpage> },
-    // { path: "/members/:id", element: <ResponsiveDrawer /> },
-    { path: "/", element: <Intro/> },
-    { path: "/signin", element: <SignIn/> },
-    { element:<Navbar/>,children:[
-      { path: "/home", element: <Home/> },
-      { path: "/project/:id", element: <Project data={['Board', 'Collaborators', 'Dashboard','Backlog' , 'Calender','BacklogCalender']}/> },
-      { path: "/backlog", element: <Backlog/> },
-      { path: "/calender", element: <CalendarComp/> },
-      { path: "/board", element: <Boardpage/> },
-      { path: "/dashboard", element: <Dashboard/> },
-      {path:"/members", element:<Members/>},
-      {path:"/backlogCalender", element:<BacklogCalender/>},
-      
-    ]},
-  ])
-
+    { path: "/", element: <Intro /> },
+    { path: "/signin", element: <SignIn /> },
+    {
+      element: <Navbar />,
+      children: [
+        { path: "/home", element: <Home /> },
+        {
+          path: "/project/:id",
+          element: (
+            <Project
+              data={[
+                "Board",
+                "Collaborators",
+                "Dashboard",
+                "Backlog",
+                "Calender",
+                "BacklogCalender",
+                "InviteMember",
+              ]}
+            />
+          ),
+        },
+        { path: "/backlog", element: <Backlog /> },
+        { path: "/calender", element: <CalendarComp /> },
+        { path: "/board", element: <Boardpage /> },
+        { path: "/dashboard", element: <Dashboard /> },
+        { path: "/members", element: <Members /> },
+        { path: "/backlogCalender", element: <BacklogCalender /> },
+        { path: "/InviteMember", element: <InviteMember></InviteMember> },
+        { path: "/testNotify", element: <TestNotification></TestNotification> },
+      ],
+    },
+    { path: "*", element: <NotFound></NotFound> },
+  ]);
 
   return (
     // <Provider store={store}>
@@ -73,9 +78,7 @@ function App() {
         {/* <Backlog></Backlog>  */}
         {/* <CalendarComp></CalendarComp> */}
         {/* <ProjectPage></ProjectPage> */}
-        <RouterProvider router={router}>
-        
-        </RouterProvider>
+        <RouterProvider router={router}></RouterProvider>
         {/* <Intro></Intro> */}
         {/* <ResponsiveDrawer/> */}
         {/* <Navbar/> */}
