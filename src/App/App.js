@@ -1,4 +1,4 @@
-// import "./App.css";
+import "./App.css";
 // import TimelinePge from "../pages/Project.jsx";
 import { Provider } from "react-redux";
 import store from "../redux/store/store.js";
