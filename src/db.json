@@ -92,6 +92,7 @@
   "projects": [
     {
       "id": "1",
+      "backgroundColor": "#45a29e",
       "manager": {
         "email": "mohyeldenyasmeen@gmail.com",
         "id": "109240513695962267084",
@@ -125,19 +126,6 @@
       ],
       "title": "Event Reservation",
       "tasks": [
-        {
-          "title": "MUI",
-          "status": "Todo",
-          "level": "difficult",
-          "priority": "medium",
-          "assignedTo": {
-            "name": "Mokhtar Mostafa",
-            "email": "Badr@gmail.com"
-          },
-          "id": "1",
-          "startDate": "2024-05-27",
-          "endDate": "2024-05-30"
-        },
         {
           "title": "Payement",
           "status": "In Progress",
@@ -203,7 +191,7 @@
         },
         {
           "title": "tsssstMokh",
-          "status": "Todo",
+          "status": "Backlog",
           "level": "easy",
           "priority": "medium",
           "assignedTo": {
@@ -218,6 +206,7 @@
     },
     {
       "id": "ca4bf85b-867b-4b65-8ebd-92da68b37d02",
+      "backgroundColor": "#4db6ac",
       "manager": {
         "email": "nouransayednasr@gmail.com",
         "id": "113705067715860298092",
@@ -236,6 +225,7 @@
     },
     {
       "id": "c7ebe41d-7d7e-4e63-ba0b-477843593954",
+      "backgroundColor": "#1de9b6",
       "manager": {
         "email": "nouransayednasr@gmail.com",
         "name": "Nouran Sayed Nasr",
@@ -249,6 +239,7 @@
     },
     {
       "id": "1a29185f-c3a2-4ea8-98ce-baaa3a7039b2",
+      "backgroundColor": "#c2185b",
       "manager": {
         "email": "mohyeldenyasmeen@gmail.com",
         "name": "Yasmeen Mohy Elden",
@@ -271,6 +262,7 @@
     },
     {
       "id": "fae6c423-85fe-42fd-b2f4-756831aa6988",
+      "backgroundColor": "#8e24aa",
       "manager": {
         "email": "mokhtarmostafa1526@gmail.com",
         "name": "mokhtar mostafa",
@@ -320,6 +312,7 @@
     },
     {
       "id": "45cc7168-5c17-4d1a-8d10-37610f8539d3",
+      "backgroundColor": "#9575cd",
       "manager": {
         "email": "hassan.walid77@gmail.com",
         "id": "112730736456781467110",
@@ -335,6 +328,111 @@
       "title": "sssss",
       "startDate": "",
       "endDate": ""
+    },
+    {
+      "id": "0468a6b7-69cb-422b-86f2-153b8ea21b0c",
+      "backgroundColor": "#33691e",
+      "manager": {
+        "email": "nouransayednasr@gmail.com",
+        "id": "113705067715860298092",
+        "name": "Ahmed"
+      },
+      "tasks": [],
+      "members": [],
+      "title": "Talabat",
+      "startDate": "2024-06-02",
+      "endDate": "2024-07-02",
+      "name": "Ahmed"
+    },
+    {
+      "id": "94ac29b3-e828-4637-b81f-84609f3dcfab",
+      "backgroundColor": "#45a29e",
+      "manager": {
+        "email": "nouransayednasr@gmail.com",
+        "id": "113705067715860298092",
+        "name": "Mohammed"
+      },
+      "tasks": [],
+      "members": [],
+      "title": "Movies Project",
+      "startDate": "2024-10-05",
+      "endDate": "2024-11-05",
+      "name": "Mohammed"
+    },
+    {
+      "id": "68d75af9-cfd3-49bf-8c6f-3b93037aea00",
+      "backgroundColor": "#33691e",
+      "manager": {
+        "email": "nouransayednasr@gmail.com",
+        "id": "113705067715860298092",
+        "name": "Aly"
+      },
+      "tasks": [],
+      "members": [],
+      "title": "clinic",
+      "startDate": "2024-08-05",
+      "endDate": "2024-10-12",
+      "name": "Aly"
+    },
+    {
+      "id": "a6dabd5e-5d8c-4fd3-840d-f1859377c471",
+      "backgroundColor": "#8e24aa",
+      "manager": {
+        "email": "nouransayednasr@gmail.com",
+        "id": "113705067715860298092",
+        "name": "Laila"
+      },
+      "tasks": [],
+      "members": [],
+      "title": "shopApp",
+      "startDate": "2025-02-11",
+      "endDate": "2025-03-11",
+      "name": "Laila"
+    },
+    {
+      "id": "763fa08e-8be3-490e-a110-f57ce7abe108",
+      "backgroundColor": "#45a29e",
+      "manager": {
+        "email": "nouransayednasr@gmail.com",
+        "id": "113705067715860298092",
+        "name": "Seif"
+      },
+      "tasks": [],
+      "members": [],
+      "title": "Spotify",
+      "startDate": "2025-01-04",
+      "endDate": "2025-05-05",
+      "name": "Seif"
+    },
+    {
+      "id": "2b5514e0-0aa9-46d5-81d8-c4499887b595",
+      "manager": {
+        "email": "nouransayednasr@gmail.com",
+        "id": "113705067715860298092",
+        "name": "Nada"
+      },
+      "tasks": [],
+      "members": [],
+      "title": "Weather",
+      "startDate": "2026-02-05",
+      "endDate": "2026-02-07",
+      "name": "Nada",
+      "backgroundColor": "#1de9b6"
+    },
+    {
+      "id": "e3f3aa4d-d247-4fd0-9345-38a2d182871b",
+      "manager": {
+        "email": "nouransayednasr@gmail.com",
+        "id": "113705067715860298092",
+        "name": "Heba"
+      },
+      "tasks": [],
+      "members": [],
+      "title": "Pinterest",
+      "startDate": "2026-05-05",
+      "endDate": "2026-08-05",
+      "name": "Heba",
+      "backgroundColor": "#880e4f"
     }
   ]
 }

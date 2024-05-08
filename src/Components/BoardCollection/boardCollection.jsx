@@ -81,12 +81,12 @@ const BoardCollection = ({ id }) => {
           id="1"
         ></BoardSection>
         <BoardSection
-          name={"ToDo"}
+          name={"To Do"}
           taskCollection={toDoTasks}
           id="2"
         ></BoardSection>
         <BoardSection
-          name={"InProgress"}
+          name={"In Progress"}
           taskCollection={InProgressTasks}
           id="3"
         ></BoardSection>

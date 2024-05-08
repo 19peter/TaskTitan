@@ -75,57 +75,55 @@ const Home = () => {
     setOpen(false);
   };
 
-  if (cur_user)
-    return (
-      <div style={{ display: "flex", flexDirection: "column" }}>
-        <div>
-          <h3 style={{ marginTop: "3%", marginLeft: "2%" }}>
-            Projects Analysis
-          </h3>
+  return (
+    <div className="global-background" style={{ display: "flex", flexDirection: "column" }}>
+      <div>
+        <h2 style={{ marginTop: "3%", marginLeft: "2%", fontFamily: "Roboto, sans-serif",color:"white" }}>Projects Analysis</h2>
 
-          <Dashboard></Dashboard>
+        <Dashboard></Dashboard>
+      </div>
+      <div>
+        {/* <div style={{height:"35%"}}> <Dashboard></Dashboard> </div>             */}
+        <h2 style={{ textAlign: "left", marginLeft: "2%",fontFamily: "Roboto, sans-serif",color:"white"  }}>Owned Projects</h2>
+        <div style={{ display: "flex", flexWrap: "wrap",marginTop:"1%" }}>
+          {ownedProjects.map((project) => (
+            <ActionAreaCard
+              projectTitle={project.title}
+              key={project.id}
+              id={project.id}
+              backgroundColor ={project.backgroundColor}
+            />
+          ))}
         </div>
-        <div>
-          {/* <div style={{height:"35%"}}> <Dashboard></Dashboard> </div>             */}
-          <h3 style={{ textAlign: "left", marginLeft: "2%" }}>
-            Owned Projects
-          </h3>
-          <div style={{ display: "flex", flexWrap: "wrap" }}>
-            {ownedProjects.map((project) => (
-              <ActionAreaCard
-                projectTitle={project.title}
-                key={project.id}
-                id={project.id}
-              />
-            ))}
-          </div>
-          <h3 style={{ textAlign: "left", marginLeft: "2%" }}>
-            Guest Projects
-          </h3>
-          <div style={{ display: "flex", flexWrap: "wrap" }}>
-            {guestProjects.map((project) => (
-              <ActionAreaCard
-                projectTitle={project.title}
-                key={project.id}
-                id={project.id}
-              />
-            ))}
-          </div>
-          <Button
-            onClick={handleCreateNewProject}
-            sx={{
-              color: "white",
-              backgroundColor: "#1565c0",
-              position: "fixed",
-              bottom: "20px",
-              right: "20px",
-              "&:hover": {
-                backgroundColor: "#0d47a1",
-              },
-            }}
-          >
-            Create New Project
-          </Button>
+        <h2 style={{ textAlign: "left", marginLeft: "2%", fontFamily: "Roboto, sans-serif",color:"white"  }}>Guest Projects</h2>
+        <div style={{ display: "flex", flexWrap: "wrap",marginTop:"1%" }}>
+          {guestProjects.map((project) => (
+            <ActionAreaCard
+              projectTitle={project.title}
+              key={project.id}
+              id={project.id}
+              backgroundColor ={project.backgroundColor}
+            />
+          ))}
+        </div>
+
+         <button onClick={handleCreateNewProject} className="create-button">Create New Project</button> 
+
+        {/* <Button
+          onClick={handleCreateNewProject}
+          sx={{
+            color: "#66fcf1",
+            backgroundColor: "black",
+            position: "fixed",
+            bottom: "20px",
+            right: "20px",
+            "&:hover": {
+              backgroundColor: "#0b0c10",
+            },
+          }}
+        >
+          Create New Project
+        </Button> */}
 
           <Dialog open={open} onClose={handleClose}>
             <DialogTitle>Create New Project</DialogTitle>
