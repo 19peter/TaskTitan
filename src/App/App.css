@@ -1,5 +1,29 @@
-/* @import url("https://fonts.googleapis.com/css2?family=Coming+Soon&display=swap"); */
-@import url("https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap");
+html::-webkit-scrollbar {
+  width: 10px;
+}
+
+html::-webkit-scrollbar-track {
+  background-color: black;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: #4e4e4e;
+  border-radius: 20px;
+}
+
+.project::-webkit-scrollbar {
+  width: 10px;
+}
+
+.project::-webkit-scrollbar-track {
+  background-color: black;
+}
+
+.project::-webkit-scrollbar-thumb {
+  background: #4e4e4e;
+  border-radius: 20px;
+}
+
 .global-background {
   /* background-color: #323137; */
   /* background-color: #434449; */
@@ -133,6 +157,27 @@ body {
   /* background: rgb(37,55,69); */
   /* background: linear-gradient(180deg, rgba(37,55,69,1) 32%, rgba(74,92,106,1) 75%); */
   /* background: linear-gradient(90deg, rgba(37,55,69,1) 32%, rgba(74,92,106,1) 75%); */
+}
+
+.stack {
+  overflow-x: auto;
+}
+
+.stack::-webkit-scrollbar {
+  height: 10px;
+}
+
+.stack::-webkit-scrollbar-track {
+  background-color: black;
+}
+
+.stack::-webkit-scrollbar-thumb:horizontal {
+  background: #4e4e4e;
+  border-radius: 20px;
+}
+
+.stack::-webkit-scrollbar-thumb:hover {
+  /* background: black; */
 }
 
 /* .App {

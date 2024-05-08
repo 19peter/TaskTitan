@@ -69,7 +69,7 @@ const PopAddTaskForm = ({ id, setIsAddFormOpened }) => {
     });
 
     if (!exists) {
-      formData.id = tasks.length + 1;
+      formData.id = tasks.length + 1 +'';
       dispatch(AddTaskAction({ projectId: id, AddedTask: formData }))
       handleClose();
     }

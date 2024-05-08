@@ -1,3 +1,4 @@
+import '../../App/App.css'
 import React, { useEffect, useState } from "react";
 import { styled } from "@mui/material/styles";
 import Table from "@mui/material/Table";
@@ -106,7 +107,7 @@ const Backlog = ({ id }) => {
   if (!tasks) return <div>Loading...</div>;
   return (
     <div>
-      <TableContainer component={Paper}>
+      <TableContainer component={Paper} >
         <Table sx={{ minWidth: 700 }} aria-label="customized table">
           <TableHead>
             <TableRow>
@@ -121,10 +122,10 @@ const Backlog = ({ id }) => {
                   </IconButton>
                 )}
               </StyledTableCell>
-              <StyledTableCell align="right">assignedTo</StyledTableCell>
-              <StyledTableCell align="right">status</StyledTableCell>
+              <StyledTableCell align="right">Assigned To</StyledTableCell>
+              <StyledTableCell align="right">Status</StyledTableCell>
               <StyledTableCell align="right">Level</StyledTableCell>
-              <StyledTableCell align="right">priority</StyledTableCell>
+              <StyledTableCell align="right">Priority</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
