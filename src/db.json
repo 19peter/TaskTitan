@@ -127,19 +127,6 @@
       "title": "Event Reservation",
       "tasks": [
         {
-          "title": "MUI",
-          "status": "Todo",
-          "level": "difficult",
-          "priority": "medium",
-          "assignedTo": {
-            "name": "Mokhtar Mostafa",
-            "email": "Badr@gmail.com"
-          },
-          "id": "1",
-          "startDate": "2024-05-27",
-          "endDate": "2024-05-30"
-        },
-        {
           "title": "Payement",
           "status": "In Progress",
           "level": "intermediate",
@@ -204,7 +191,7 @@
         },
         {
           "title": "tsssstMokh",
-          "status": "Todo",
+          "status": "Backlog",
           "level": "easy",
           "priority": "medium",
           "assignedTo": {

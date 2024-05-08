@@ -7,24 +7,26 @@ const BoardSection = ({ name, taskCollection, id }) => {
   return (
     <Stack
       borderRadius={"13px"}
-      bgcolor={"#1F2833"}
+      border={"solid #66fcf1 1px"}
+      bgcolor={"#0b0c10"}
       direction={"column"}
-      sx={{ minWidth: "300px" }}
+      sx={{ minWidth: "250px" }}
       alignItems={"center"}
+      height={"80%"}
     >
       <Typography
         borderRadius={"13px 13px 0 0"}
         width={"100%"}
-        height={"10%"}
+        height={"8%"}
         position={"relative"}
         top={"0"}
-        bgcolor={"#0b0c10"}
-        color={"#45a29e"}
+        borderBottom={"solid #66fcf1 1px"}
+
+        color={"#c5c6c7"}
         paddingTop={"3%"}
         variant="h6"
         marginBottom={"7px"}
         textAlign={"center"}
-        fontWeight={"bold"}
       >
         {name}
       </Typography>
@@ -35,7 +37,7 @@ const BoardSection = ({ name, taskCollection, id }) => {
             className="tasksState"
             direction="column"
             width="100%"
-            bgcolor={"#1F2833"}
+            bgcolor={"#0b0c10"}
             alignItems={"center"}
             borderRadius={"13px"}
             height={"87%"}
