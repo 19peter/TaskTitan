@@ -218,7 +218,7 @@ export default function Project({ data }) {
           overflowY: "auto",
           border: "1px solid transparent",
           borderRadius: "20px",
-          backgroundColor: "#323137",
+          backgroundColor: "#15171f",
           padding: '1vw',
         }}
       >

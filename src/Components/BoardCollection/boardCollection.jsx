@@ -54,11 +54,6 @@ const BoardCollection = ({ id }) => {
           break;
         default:
       }
-      // if(destination.droppableId == 2)
-      //   {
-      //     let params ={projectId:1,taskId:draggableId,newStatus:"toDo"}
-      //   }
-
       dispatch(updateTaskStatusAction(params));
     }
   };
@@ -66,14 +61,12 @@ const BoardCollection = ({ id }) => {
   return (
     <DragDropContext onDragEnd={handleDragEnd}>
       <Stack
-        height={"90vh"}
+        height={"100%"}
         direction={"row"}
         spacing={5}
         padding={"2vw"}
         sx={{ overflowX: "scroll" }}
       >
-        {/* backlog section static */}
-        {/* <BoardSection backlog={backlog}></BoardSection> */}
 
         <BoardSection
           name={"Backlog"}
