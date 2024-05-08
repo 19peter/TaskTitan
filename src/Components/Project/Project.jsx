@@ -349,11 +349,15 @@ export default function Project({ data }) {
         </div>
 
         <div
+        className="noSlider"
           style={{
             height: "90vh",
             width: "100%",
             margin: "2vw",
             overflowY: "auto",
+            backgroundColor:"#15171f",
+            border:"1px solid transparent",
+            borderRadius: "20px",
           }}
         >
           {renderComponent()}
