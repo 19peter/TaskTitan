@@ -14,12 +14,22 @@
   height: 100vh;
   color: white;
 }
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    /* transform: translateY(-20px); */
+    transform: scale(0.7);
+  }
 
-.test {
-  color: red;
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
+
 .title {
   font-size: 4rem;
   font-weight: 700;
   color: #d8eaec;
+  animation: fadeIn 3s ease-in-out;
 }

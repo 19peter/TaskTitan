@@ -2,6 +2,10 @@ import { Badge, Button, Grid, Stack } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import landing from "../../images/landing.jpg";
 import landing4 from "../../images/landing4.png";
+import landing5 from "../../images/test.gif";
+
+import landing6 from "../../images/dazzle-task-management.gif";
+
 import classes from "./intro.module.css";
 import Backdrop from "@mui/material/Backdrop";
 import SignIn from "../Signin/signin";
@@ -36,9 +40,11 @@ const Intro = () => {
 
   return (
     <>
-      <Grid container height={"100vh"} bgcolor={"#060F27"}>
+      <Grid container height={"100vh"} bgcolor={"black"}>
         <Grid item md={6} margin={"auto"}>
-          <h1 className={classes.title}>Welcome to TaskTitan</h1>
+          <h1 className={classes.title}>
+            Welcome to <span style={{ color: "#66FCF1" }}>TaskTitan</span>
+          </h1>
           <Button
             onClick={handleOpen}
             variant="contained"
@@ -48,7 +54,13 @@ const Intro = () => {
           </Button>
         </Grid>
         <Grid item md={6}>
-          <img src={landing4} alt="img" width={"100%"} height={"100%"} />
+          <img
+            src={landing5}
+            alt="img"
+            width={"60%"}
+            height={"60%"}
+            style={{ marginTop: "10%", marginLeft: "20%" }}
+          />
         </Grid>
       </Grid>
       <Backdrop
