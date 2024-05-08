@@ -11,6 +11,7 @@ import {
   getTasksWithDates,
   updateTaskAction,
 } from "../../redux/store/slices/backlogSlice";
+import { getAllUsersAction } from "../../redux/store/slices/usersSlice";
 import { useSelector } from "react-redux";
 import { getEventsWithDates } from "../../redux/store/slices/eventsWithDates";
 import FullScreenDialog from "./DetailsDialog";
@@ -27,9 +28,26 @@ const CalendarComp = ({id}) => {
   const tsks = useSelector((state) => state.eventsWithDates.eventsWithDates)
   const AllTasks = useSelector((state) => state.backlog.backlog)
 
+  const currentUser = useSelector((state) => state.currentUser.currentUser);
+  const allUsers = useSelector((state) => state.users.users);
+  const userObj = allUsers?.find((u) => u.id === currentUser.id);
+  const [isAuthourized, setIsAuthourized ] = useState(true);
+
+  useEffect(() => {
+    userObj?.userProjects?.forEach((m) => {
+      if (m.projectId === id) {
+        if (m.role === "member") {
+          setIsAuthourized(false);
+        }
+      }
+    });
+  }, [userObj, id])
+
+
   useEffect(() => {
     dispatch(getEventsWithDates(id));
-    dispatch(getBacklogAction(id))
+    dispatch(getBacklogAction(id));
+    dispatch(getAllUsersAction());
   }, [dispatch, id]);
 
 
@@ -51,8 +69,10 @@ const CalendarComp = ({id}) => {
   // }, [event])
 
   let selectHandler = function (info) {
-    setIsDialogOpened(true);
-    setInfo(info);
+    if (isAuthourized) {
+      setIsDialogOpened(true);
+      setInfo(info);
+    }
 
   };
 
