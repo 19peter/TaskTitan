@@ -42,7 +42,9 @@ const Dashboard = () => {
             doneCount++;
           }
         });
-      });
+      }
+    
+    );
 
       setProName(names);
       setTasksPerPro(len);
@@ -69,15 +71,15 @@ const Dashboard = () => {
     values: tasksPerPro
   };
 
+  const DoughnutData = {
+    labels: ["ToDo", "In Progress", "Done"],
+    values: [todo, inProgress, done]
+  };
   const LineData = {
     labels: proName,
     values: numOfMem
   };
 
-  const DoughnutData = {
-    labels: ["ToDo", "In Progress", "Done"],
-    values: [todo, inProgress, done]
-  };
   return (
     <div
       style={{
@@ -87,17 +89,18 @@ const Dashboard = () => {
         alignItems: "center",
       }}
     >
-      <div style={{ width: "95%", height: "50%", display:"flex", margin:"2%", justifyContent:"space-evenly"}}>
+      <div style={{ width: "95%", height: "50%", display:"flex", margin:"1%", justifyContent:"space-evenly"}}>
         {" "}
-      <div style={{width:"25%" , margin:"2%"}}> <h1>Doughnut Chart </h1>  <DoughnutChart data={DoughnutData} /> </div>
-      <div style={{width:"50%",margin:"2%"}}> <h1>Bar Chart </h1> <BarChart data={BarData} /> </div>
+        
+      <div style={{width:"15%" , margin:"2%", marginTop:"0px"}}> <DoughnutChart data={DoughnutData} /> </div>
+      <div style={{width:"30%",margin:"2%",marginTop:"0px"}}>  <BarChart data={BarData} /> </div>
       </div>
-      <div style={{ width: "50%",margin:"2%"}}>
+      {/* <div style={{ width: "50%",margin:"2%"}}>
         {" "}
         <h1>Line Chart </h1> 
         <LineChart data={LineData} />
       </div>
-    
+     */}
       {/* <div style={{ width: "50%", height: "50%" }}>
         {" "}
         <DoughnutChart data={DoughnutData} />

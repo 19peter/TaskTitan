@@ -71,19 +71,31 @@
       "picture": "https://lh3.googleusercontent.com/a/ACg8ocJWUxi8c17VMpO8cfr4Hcj7sHMxDQNBuizb3obnKP-wG8Gy2Q=s96-c",
       "userProjects": [],
       "invitations": []
+    },
+    {
+      "id": "109240513695962267084",
+      "name": "Yasmeen Mohy Elden",
+      "email": "mohyeldenyasmeen@gmail.com",
+      "picture": "https://lh3.googleusercontent.com/a/ACg8ocLNyafBv6dySnv8Xdj98yfDJ6VqgWDgldnof59s64u_M_52ow=s96-c",
+      "userProjects": []
     }
   ],
   "projects": [
     {
       "id": "1",
       "manager": {
-        "email": "peter@gmail.com",
-        "id": "1"
+        "email": "mohyeldenyasmeen@gmail.com",
+        "id": "109240513695962267084",
+        "name": "Yasmeen Mohy Elden"
       },
       "members": [
         {
           "email": "nouransayednasr@gmail.com",
           "id": "113705067715860298092"
+        },
+        {
+          "email": "mohyeldenyasmeen@gmail.com",
+          "id": "109240513695962267084"
         },
         {
           "email": "badr@gmail.com",
@@ -176,6 +188,7 @@
       "id": "ca4bf85b-867b-4b65-8ebd-92da68b37d02",
       "manager": {
         "email": "nouransayednasr@gmail.com",
+        "name": "Nouran Sayed Nasr",
         "id": "113705067715860298092"
       },
       "tasks": [],
@@ -188,6 +201,7 @@
       "id": "c7ebe41d-7d7e-4e63-ba0b-477843593954",
       "manager": {
         "email": "nouransayednasr@gmail.com",
+        "name": "Nouran Sayed Nasr",
         "id": "113705067715860298092"
       },
       "tasks": [],
@@ -200,6 +214,7 @@
       "id": "1a29185f-c3a2-4ea8-98ce-baaa3a7039b2",
       "manager": {
         "email": "mohyeldenyasmeen@gmail.com",
+        "name": "Yasmeen Mohy Elden",
         "id": "109240513695962267084"
       },
       "tasks": [],
@@ -221,6 +236,7 @@
       "id": "fae6c423-85fe-42fd-b2f4-756831aa6988",
       "manager": {
         "email": "mokhtarmostafa1526@gmail.com",
+        "name": "mokhtar mostafa",
         "id": "114450078144869306460"
       },
       "tasks": [],
@@ -228,6 +244,20 @@
       "title": "mokhtar test",
       "startDate": "2024-05-03",
       "endDate": "2024-05-27"
+    },
+    {
+      "id": "16aef28a-958c-4467-85a9-24da216e9ae9",
+      "manager": {
+        "email": "mohyeldenyasmeen@gmail.com",
+        "id": "109240513695962267084",
+        "name": "Yasmeen Mohy Elden"
+      },
+      "tasks": [],
+      "members": [],
+      "title": "Artivo",
+      "startDate": "2024-05-08",
+      "endDate": "2024-06-18",
+      "name": "Yasmeen Mohy Elden"
     }
   ]
 }

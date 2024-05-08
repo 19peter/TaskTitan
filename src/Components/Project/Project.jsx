@@ -191,7 +191,7 @@ import Backlog from '../Backlog/Backlog'
 import Members  from '../Members/members';
 import BacklogCalender from '../../pages/BacklogCalender'
 import InviteMember from "../inviteMember/inviteMember";
-
+import ProjectDashboard from "../Dashboard/project_dashboard"
 const drawerWidth = 240;
 
 export default function Project({data}) {
@@ -243,7 +243,7 @@ export default function Project({data}) {
       case 'Projects':
         return <Home/>
       case 'Dashboard':
-        return <Dashboard/>
+        return <ProjectDashboard id={id}/>
       case 'Calender':
         return <CalendarComp/>
       case 'Collaborators':
@@ -252,10 +252,10 @@ export default function Project({data}) {
         return <Boardpage/>
       case 'Backlog':
         return <Backlog/>
-      case 'BacklogCalender':
-        return <BacklogCalender/>
-      case "Invite Members":
-          return <InviteMember></InviteMember>;
+      // case 'BacklogCalender':
+      //   return <BacklogCalender/>
+      case "InviteMember":
+          return <InviteMember id={id}></InviteMember>;
       // case 'Members':
       //     return <ResponsiveDrawer data={['Collaborators', 'Invite Members']}></ResponsiveDrawer>
     //   case 'Team Leaders':

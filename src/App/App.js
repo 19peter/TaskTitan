@@ -17,7 +17,9 @@ import SignIn from "../Components/Signin/signin.jsx";
 import Home from "../Components/Home/home.jsx";
 import Dashboard from "../Components/Dashboard/dashboard.jsx"
 import Members from "../Components/Members/members.jsx"
-
+import TestNotification from "../Components/testNotification/testNotification.jsx"
+import InviteMember from "../Components/inviteMember/inviteMember.jsx"
+import ProjectDashboard from "../Components/Dashboard/project_dashboard.jsx"
 function App() {
   const dispatch = useDispatch();
 
@@ -49,16 +51,19 @@ function App() {
     // { path: "/board", element: <Boardpage></Boardpage> },
     // { path: "/members/:id", element: <ResponsiveDrawer /> },
     { path: "/", element: <Intro/> },
+    {path:"/TestNotification",element:<TestNotification></TestNotification>},
     { path: "/signin", element: <SignIn/> },
     { element:<Navbar/>,children:[
       { path: "/home", element: <Home/> },
-      { path: "/project/:id", element: <Project data={['Board', 'Collaborators', 'Dashboard','Backlog' , 'Calender','BacklogCalender']}/> },
+      {path:"/InviteMember", element:<InviteMember></InviteMember>},
+      { path: "/project/:id", element: <Project data={['Board', 'Collaborators', 'Dashboard','Backlog' , 'Calender','InviteMember']}/> },
       { path: "/backlog", element: <Backlog/> },
       { path: "/calender", element: <CalendarComp/> },
       { path: "/board", element: <Boardpage/> },
       { path: "/dashboard", element: <Dashboard/> },
       {path:"/members", element:<Members/>},
       {path:"/backlogCalender", element:<BacklogCalender/>},
+      {path:"/prodashboard",element:<ProjectDashboard></ProjectDashboard>}
       
     ]},
   ])
