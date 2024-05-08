@@ -15,6 +15,7 @@ import { DelteTaskAction, getBacklogAction } from "../../redux/store/slices/back
 import AddIcon from "@mui/icons-material/Add";
 import PopAddTaskForm from "./PopAddTaskForm";
 import DeleteIcon from '@mui/icons-material/Delete';
+import { getProjectById } from "../../redux/store/slices/projectSlice";
 
 //#region Styling
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -38,16 +39,22 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
 //#endregion
 
-const Backlog = () => {
+const Backlog = ({id}) => {
+  // console.log(projectId);
+
   const tasks = useSelector((state) => state.backlog.backlog);
+  const currentProject = useSelector((state) => state.projects.project)
+  // const currentUser = 
+
   // console.log(tasks);
   const dispatch = useDispatch();
 
 
   
   useEffect(() => {
-    dispatch(getBacklogAction(1));
-  }, [dispatch]);
+    dispatch(getBacklogAction(id));
+    dispatch(getProjectById(id))
+  }, [dispatch, id]);
 
 
   const [isAddFormOpened, setIsAddFormOpened] = useState(false);
@@ -65,7 +72,7 @@ const Backlog = () => {
   };
 
   const handleDeleteButton = (id) => {
-    dispatch(DelteTaskAction({projectId:"1", deletedTaskId: id}))
+    dispatch(DelteTaskAction({projectId:id, deletedTaskId: id}))
   }
 
   if (!tasks) return <div>Loading...</div>;
@@ -123,12 +130,14 @@ const Backlog = () => {
       </TableContainer>
       {isFormOpened && (
         <PopupForm
+          id={id}
           setIsFormOpened={setIsFormOpened}
           taskToBeUpdated={taskToBeUpdated}
         ></PopupForm>
       )}
       {isAddFormOpened && (
         <PopAddTaskForm
+          id={id}
           setIsAddFormOpened={setIsAddFormOpened}
           // fireDispatch={fireDispatch}
         ></PopAddTaskForm>
