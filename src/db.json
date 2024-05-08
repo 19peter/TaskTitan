@@ -112,12 +112,8 @@
           "id": "2"
         },
         {
-          "email": "mokhtarmostafa1526@gmail.com",
-          "id": "114450078144869306460"
-        },
-        {
-          "email": "mokhtarmostafa1526@gmail.com",
-          "id": "114450078144869306460"
+          "email": "hassan.walid77@gmail.com",
+          "id": "112730736456781467110"
         },
         {
           "email": "mokhtarmostafa1526@gmail.com",
@@ -141,7 +137,7 @@
         },
         {
           "title": "Payement",
-          "status": "In Progress",
+          "status": "Todo",
           "level": "intermediate",
           "priority": "high",
           "assignedTo": {
@@ -154,7 +150,7 @@
         },
         {
           "title": "Dashboard",
-          "status": "Backlog",
+          "status": "Done",
           "level": "intermediate",
           "priority": "high",
           "assignedTo": {
@@ -212,6 +208,28 @@
           },
           "details": "asd",
           "id": "7"
+        },
+        {
+          "title": "dasd",
+          "status": "Backlog",
+          "level": "",
+          "priority": "",
+          "assignedTo": {
+            "email": ""
+          },
+          "details": "",
+          "id": 7
+        },
+        {
+          "title": "dawwad",
+          "status": "Backlog",
+          "level": "",
+          "priority": "",
+          "assignedTo": {
+            "email": ""
+          },
+          "details": "",
+          "id": 8
         }
       ],
       "startDate": "date",
@@ -431,6 +449,21 @@
       "endDate": "2026-02-07",
       "name": "Nada",
       "backgroundColor": "#1de9b6"
+    },
+    {
+      "id": "e3f3aa4d-d247-4fd0-9345-38a2d182871b",
+      "manager": {
+        "email": "nouransayednasr@gmail.com",
+        "id": "113705067715860298092",
+        "name": "Heba"
+      },
+      "tasks": [],
+      "members": [],
+      "title": "Pinterest",
+      "startDate": "2026-05-05",
+      "endDate": "2026-08-05",
+      "name": "Heba",
+      "backgroundColor": "#880e4f"
     }
   ]
 }

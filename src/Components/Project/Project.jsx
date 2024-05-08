@@ -197,7 +197,7 @@ export default function Project({ data }) {
   };
 
   return (
-    <div style={{ display: 'flex', height: "100%", overflowY: 'hidden' }}>
+    <div style={{ display: 'flex', height: "100%" }}>
 
       <div style={{
         width: "fit-content",
@@ -212,12 +212,14 @@ export default function Project({ data }) {
 
       <div
         style={{
-          height: "90vh",
+          // maxHeight: "90vh",
+          minHeight: "fit-content",
+          height: "100vh",
           width: "100%",
-          margin: "2vw",
+          // margin: "2vw",
           overflowY: "auto",
           border: "1px solid transparent",
-          borderRadius: "20px",
+          // borderRadius: "20px",
           backgroundColor: "#15171f",
           padding: '1vw',
         }}

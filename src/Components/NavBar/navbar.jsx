@@ -57,7 +57,7 @@ const Navbar = () => {
         <AppBar position="static" style={{ backgroundColor: "#0b0c10" }}>
           <Container maxWidth="xl">
             <Toolbar disableGutters>
-              <ChecklistIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+              <ChecklistIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} style={{marginLeft: "20px" , color: "rgba(255, 99, 132, 1)"}} />
               {/* <StickyNote2Icon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
               <Typography
                 variant="h6"
@@ -73,6 +73,8 @@ const Navbar = () => {
                   color: 'inherit',
                   textDecoration: 'none',
                 }}
+
+                
               >
                 TaskTitan
               </Typography>
@@ -178,32 +180,3 @@ const Navbar = () => {
 export default Navbar;
 
 
-
-
-{/* <Tooltip title="Open settings">
-                  <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                    <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-                  </IconButton>
-                </Tooltip>
-                <Menu
-                  sx={{ mt: '45px' }}
-                  id="menu-appbar"
-                  anchorEl={anchorElUser}
-                  anchorOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
-                  }}
-                  keepMounted
-                  transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
-                  }}
-                  open={Boolean(anchorElUser)}
-                  onClose={handleCloseUserMenu}
-                >
-                  {settings.map((setting) => (
-                    <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                      <Typography textAlign="center">{setting}</Typography>
-                    </MenuItem>
-                  ))}
-                </Menu> */}

@@ -61,11 +61,12 @@ const BoardCollection = ({ id }) => {
   return (
     <DragDropContext onDragEnd={handleDragEnd}>
       <Stack
+        className="stack"
         height={"100%"}
         direction={"row"}
         spacing={5}
         padding={"2vw"}
-        sx={{ overflowX: "scroll" }}
+        sx={{ overflowX: "scroll", }}
       >
 
         <BoardSection
