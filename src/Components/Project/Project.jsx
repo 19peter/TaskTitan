@@ -274,21 +274,20 @@ export default function Project({data}) {
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
           backgroundColor: " rgba(0, 0, 0, 0.485)",
-          
         }}
-      >
+        >
         {/* <Toolbar>
           <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' } }}
+          color="inherit"
+          aria-label="open drawer"
+          edge="start"
+          onClick={handleDrawerToggle}
+          sx={{ mr: 2, display: { sm: 'none' } }}
           >
-            <MenuIcon />
+          <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Collaborators
+          Collaborators
           </Typography>
         </Toolbar> */}
       </AppBar>
@@ -296,9 +295,10 @@ export default function Project({data}) {
         component="nav"
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
         aria-label="mailbox folders"
-      >
+        >
         <Drawer
           variant="temporary"
+          
           open={mobileOpen}
           onClose={handleDrawerClose}
           ModalProps={{
@@ -308,7 +308,7 @@ export default function Project({data}) {
             display: { xs: 'block', sm: 'none' },
             '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
           }}
-        >
+          >
           {drawer}
         </Drawer>
         <Drawer
@@ -318,14 +318,14 @@ export default function Project({data}) {
             '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
           }}
           open
-        >
+          >
           {drawer}
         </Drawer>
       </Box>
       <Box
         component="main"
         sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
-      >
+        >
         <Toolbar />
         {renderComponent()}
       </Box>
