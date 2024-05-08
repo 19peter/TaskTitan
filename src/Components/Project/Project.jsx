@@ -192,6 +192,13 @@ import Members from "../Members/members";
 import BacklogCalender from "../../pages/BacklogCalender";
 import InviteMember from "../inviteMember/inviteMember";
 import ProjectDashboard from "../Dashboard/project_dashboard";
+import BoardIcon from '@mui/icons-material/Dashboard';
+import DashboardIcon from '@mui/icons-material/Leaderboard';
+import PeopleIcon from '@mui/icons-material/People';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered';
+import ForwardToInboxIcon from '@mui/icons-material/ForwardToInbox';
+
 const drawerWidth = 240;
 
 export default function Project({ data }) {
@@ -218,7 +225,7 @@ export default function Project({ data }) {
     <div style={{ color: "white" }}>
       {/* <Toolbar />
       <Divider /> */}
-      <List>
+      {/* <List>
         {data.map((text, index) => (
           <ListItem
             key={text}
@@ -228,12 +235,98 @@ export default function Project({ data }) {
           >
             <ListItemButton>
               <ListItemIcon>
-                <InboxIcon style={{color: '#66fcf1'}} />
+                <InboxIcon style={{ color: '#66fcf1' }} />
               </ListItemIcon>
               <ListItemText primary={text} />
             </ListItemButton>
           </ListItem>
         ))}
+      </List> */}
+
+
+      <List>
+        <ListItem
+          // key={'board'}
+          onClick={() => handleItemClick('Board')}
+          selected={selectedItem === 'Board'}
+        >
+          <ListItemButton>
+            <ListItemIcon>
+              <BoardIcon style={{ color: '#66fcf1' }} />
+            </ListItemIcon>
+            <ListItemText primary={'Board'} />
+          </ListItemButton>
+        </ListItem>
+
+        <ListItem
+          // key={'board'}
+          onClick={() => handleItemClick('Collaborators')}
+          selected={selectedItem === 'Collaborators'}
+        >
+          <ListItemButton>
+            <ListItemIcon>
+              <PeopleIcon style={{ color: '#66fcf1' }} />
+            </ListItemIcon>
+            <ListItemText primary={'Collaborators'} />
+          </ListItemButton>
+        </ListItem>
+
+        <ListItem
+          // key={'board'}
+          onClick={() => handleItemClick('Dashboard')}
+          selected={selectedItem === 'Dashboard'}
+        >
+          <ListItemButton>
+            <ListItemIcon>
+              <DashboardIcon style={{ color: '#66fcf1' }} />
+            </ListItemIcon>
+            <ListItemText primary={'Dashboard'} />
+          </ListItemButton>
+        </ListItem>
+
+
+        <ListItem
+          // key={'board'}
+          onClick={() => handleItemClick('Calender')}
+          selected={selectedItem === 'Calender'}
+        >
+          <ListItemButton>
+            <ListItemIcon>
+              <CalendarMonthIcon style={{ color: '#66fcf1' }} />
+            </ListItemIcon>
+            <ListItemText primary={'Calender'} />
+          </ListItemButton>
+        </ListItem>
+
+
+
+        <ListItem
+          // key={'board'}
+          onClick={() => handleItemClick('Backlog')}
+          selected={selectedItem === 'Backlog'}
+        >
+          <ListItemButton>
+            <ListItemIcon>
+              <FormatListNumberedIcon style={{ color: '#66fcf1' }} />
+            </ListItemIcon>
+            <ListItemText primary={'Backlog'} />
+          </ListItemButton>
+        </ListItem>
+
+
+        <ListItem
+          // key={'board'}
+          onClick={() => handleItemClick('InviteMember')}
+          selected={selectedItem === 'InviteMember'}
+        >
+          <ListItemButton>
+            <ListItemIcon>
+              <ForwardToInboxIcon style={{ color: '#66fcf1' }} />
+            </ListItemIcon>
+            <ListItemText primary={'InviteMember'} />
+          </ListItemButton>
+        </ListItem>
+
       </List>
     </div>
   );
@@ -243,7 +336,7 @@ export default function Project({ data }) {
       case "Projects":
         return <Home />;
       case "Dashboard":
-        return <Dashboard />;
+        return <ProjectDashboard />;
       case "Calender":
         return <CalendarComp id={id} />;
       case "Collaborators":
@@ -261,78 +354,21 @@ export default function Project({ data }) {
       //   case 'Team Leaders':
       //     return <Leader/>
       default:
-        return null;
+        return <Boardpage id={id}></Boardpage>;
     }
   };
 
   return (
-    // <Box sx={{ display: 'flex'}} style={{ height: "100%"}}>
-    /* <CssBaseline />
-    <AppBar
-      position="fixed"
-      sx={{
-        width: { sm: `calc(100% - ${drawerWidth}px)` },
-        mt: { lg: '100px'},
-        ml: { sm: `${drawerWidth}px` },
-        backgroundColor: " rgba(0, 0, 0, 0.485)",
-        
-      }}
-    > */
-    /* <Toolbar>
-      <IconButton
-        color="inherit"
-        aria-label="open drawer"
-        edge="start"
-        onClick={handleDrawerToggle}
-        sx={{ mr: 2, display: { sm: 'none' } }}
-      >
-        <MenuIcon />
-      </IconButton>
-      <Typography variant="h6" noWrap component="div">
-        Collaborators
-      </Typography>
-    </Toolbar> */
-    /* </AppBar> */
+    <div style={{ display: 'flex', height: "100%", overflowY: 'hidden' }}>
 
-    /* <Box
-      component="nav"
-      sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
-      aria-label="mailbox folders"
-    >
-      <Drawer
-        variant="temporary"
-        open={mobileOpen}
-        onClose={handleDrawerClose}
-        ModalProps={{
-          keepMounted: true, // Better open performance on mobile.
-        }}
-        sx={{
-          display: { xs: 'block', sm: 'none' },
-          '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-        }}
-        
-      >
-        {drawer}
-      </Drawer>
-
-
-      <Drawer
-        variant="permanent"
-        sx={{
-          display: { xs: 'none', sm: 'block' },
-          '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-        }}
-        open
-      >
-        {drawer}
-      </Drawer>
-    </Box> */
-
-    /* </Box> */
-
-    <div style={{ display: 'flex', height: "100%" }}>
-
-      <div style={{ width: "fit-content", padding: "1vw",  height: "100vh", backgroundColor: '#0b0c10' }}>
+      <div style={{
+        width: "fit-content",
+        padding: "1vw",
+        height: "100vh",
+        backgroundColor: '#0b0c10',
+        // border: "1px solid black",
+        boxShadow: "3px 0 3px -2px black"
+      }}>
         {drawer}
       </div>
 
@@ -342,19 +378,14 @@ export default function Project({ data }) {
           width: "100%",
           margin: "2vw",
           overflowY: "auto",
+          border: "1px solid transparent",
+          borderRadius: "20px",
+          backgroundColor: "#323137",
+          padding: '1vw',
         }}
       >
         {renderComponent()}
       </div>
-
-      {/* <Box
-        component="main"
-        sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
-
-      >
-        <Toolbar />
-        {renderComponent()}
-      </Box> */}
     </div>
   );
 }

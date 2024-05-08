@@ -8,20 +8,10 @@
       "userProjects": [
         {
           "projectId": "1",
-          "assignedTasks": [""],
-          "role": "leader"
-        }
-      ],
-      "invitations": [
-        {
-          "role": "Member",
-          "projectId": "1",
-          "assignedTasks": []
-        },
-        {
-          "role": "Member",
-          "projectId": "1",
-          "assignedTasks": []
+          "assignedTasks": [
+            ""
+          ],
+          "role": "Manager"
         }
       ],
       "invitations": []
@@ -136,19 +126,6 @@
       "title": "Event Reservation",
       "tasks": [
         {
-          "title": "MUI",
-          "status": "Todo",
-          "level": "difficult",
-          "priority": "medium",
-          "assignedTo": {
-            "name": "Mokhtar Mostafa",
-            "email": "Badr@gmail.com"
-          },
-          "id": "1",
-          "startDate": "2024-05-27",
-          "endDate": "2024-05-30"
-        },
-        {
           "title": "Payement",
           "status": "In Progress",
           "level": "intermediate",
@@ -213,7 +190,7 @@
         },
         {
           "title": "tsssstMokh",
-          "status": "In Progress",
+          "status": "Backlog",
           "level": "easy",
           "priority": "medium",
           "assignedTo": {
