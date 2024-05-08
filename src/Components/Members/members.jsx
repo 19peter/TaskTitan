@@ -1,168 +1,47 @@
-import React, { useState } from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import CssBaseline from "@mui/material/CssBaseline";
-import Divider from "@mui/material/Divider";
-import Drawer from "@mui/material/Drawer";
-import IconButton from "@mui/material/IconButton";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import MenuIcon from "@mui/icons-material/Menu";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import Guest from "./guest"; // Import the Guest component
-import Home from "../Home/home";
-import Dashboard from "../Dashboard/dashboard";
-import CalendarComp from "../Calendar/CalendarComp";
-import { useParams } from "react-router-dom";
-import Boardpage from "../../pages/Boardpage";
-import InviteMember from "../inviteMember/inviteMember";
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { getProjects } from '../../redux/store/slices/projectSlice';
+import {v4 as uuid} from "uuid";
+const Members = ({id}) => {
+    const project = useSelector(state => state.projects.projects);
+    // let member=[]
+    // let manager={}
+    
 
-const drawerWidth = 240;
+    const dispatch= useDispatch()
+    useEffect(()=>{
+        dispatch(getProjects())
 
-export default function ResponsiveDrawer({ data }) {
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [selectedItem, setSelectedItem] = useState("Inbox");
+    },[])
 
-  const { id } = useParams();
-  console.log(id);
+   
+        const filteredProject=project.filter((p)=>p.id.toString()===id.toString())
+        if (!filteredProject) return <div>Loading</div>;
+        // member=filteredProject[0].members;
+        // manager=filteredProject[0].manager;
+        const {members,manager} = filteredProject[0]
+   
+    
 
-  const handleDrawerClose = () => {
-    setMobileOpen(false);
-  };
+   
+    
 
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
-
-  const handleItemClick = (text) => {
-    setSelectedItem(text);
-    setMobileOpen(false); // Close drawer when an item is clicked
-  };
-
-  const drawer = (
-    <div>
-      <Toolbar />
-      <Divider />
-      <List>
-        {data.map((text, index) => (
-          <ListItem
-            key={text}
-            button
-            onClick={() => handleItemClick(text)}
-            selected={selectedItem === text}
-          >
-            <ListItemButton>
-              <ListItemIcon>
-                <InboxIcon />
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-    </div>
-  );
-
-  const renderComponent = () => {
-    switch (selectedItem) {
-      case "Projects":
-        return <Home />;
-      case "Dashboard":
-        return <Dashboard />;
-      case "Calender":
-        return <CalendarComp />;
-      case "Collaborators":
-        return <Guest />;
-      case "Board":
-        return <Boardpage />;
-      case "Invite Members":
-        return <InviteMember></InviteMember>;
-      // case 'Members':
-      //     return <ResponsiveDrawer data={['Collaborators', 'Invite Members']}></ResponsiveDrawer>
-      //   case 'Team Leaders':
-      //     return <Leader/>
-      default:
-        return null;
-    }
-  };
-
-  return (
-    <Box sx={{ display: "flex" }}>
-      <CssBaseline />
-      <AppBar
-        position="fixed"
-        sx={{
-          width: { sm: `calc(100% - ${drawerWidth}px)` },
-          ml: { sm: `${drawerWidth}px` },
-        }}
-      >
-        {/* <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' } }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            Collaborators
-          </Typography>
-        </Toolbar> */}
-      </AppBar>
-      <Box
-        component="nav"
-        sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
-        aria-label="mailbox folders"
-      >
-        <Drawer
-          variant="temporary"
-          open={mobileOpen}
-          onClose={handleDrawerClose}
-          ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
-          }}
-          sx={{
-            display: { xs: "block", sm: "none" },
-            "& .MuiDrawer-paper": {
-              boxSizing: "border-box",
-              width: drawerWidth,
-            },
-          }}
-        >
-          {drawer}
-        </Drawer>
-        <Drawer
-          variant="permanent"
-          sx={{
-            display: { xs: "none", sm: "block" },
-            "& .MuiDrawer-paper": {
-              boxSizing: "border-box",
-              width: drawerWidth,
-            },
-          }}
-          open
-        >
-          {drawer}
-        </Drawer>
-      </Box>
-      <Box
-        component="main"
-        sx={{
-          flexGrow: 1,
-          p: 3,
-          width: { sm: `calc(100% - ${drawerWidth}px)` },
-        }}
-      >
-        <Toolbar />
-        {renderComponent()}
-      </Box>
-    </Box>
-  );
+    if(! manager ) return <div>Loading</div>
+    return (
+        <div>
+             <div style={{textAlign:"left",marginLeft:"2%"}}>
+            <h3 >Project members</h3>
+            <p>Project members can view their board and update their tasks status.</p>
+            <hr></hr>
+            <h4>Members:</h4>
+            {members.map((m)=><div key={uuid()}>{m.email} </div>)}
+            <hr></hr>
+            <h3>Project Manager</h3>
+            <h4>{manager.email} </h4>
+        </div>
+        </div>
+    );
 }
+
+export default Members;

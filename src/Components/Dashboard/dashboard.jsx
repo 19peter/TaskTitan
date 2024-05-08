@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 
 const Dashboard = () => {
   // const [projects, setProjects] = useState(null);
-  const projects = useSelector(state=>state.project.projects);
+  const projects = useSelector(state=>state.projects.projects);
   const cur_user = useSelector(state=>state.currentUser.currentUser);
   const [proName, setProName] = useState([]);
   const [tasksPerPro, setTasksPerPro] = useState([]);
@@ -18,20 +18,11 @@ const Dashboard = () => {
   const [inProgress, setInProgress] = useState(0);
   const [done, setDone] = useState(0);
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await axios.get("http://localhost:8000/projects");
-  //       // setProjects(response.data);
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
-  //   fetchData();
-  // }, []);
-
+  
   useEffect(() => {
     const userProjects = filterProjects(projects,cur_user);
+    console.log(projects)
+    console.log(projects)
     if (userProjects) {
       const names = userProjects.map(project => project.title);
       const len = userProjects.map(project => project.tasks.length);
@@ -64,6 +55,7 @@ const Dashboard = () => {
 
   const filterProjects = (projects, user) => {
     if (!user) return [];
+    console.log(projects)
     return projects.filter((project) => 
         project.manager.email === user.email ||
         project.members.some(member => member.email === user.email)

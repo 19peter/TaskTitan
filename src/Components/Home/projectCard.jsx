@@ -7,7 +7,7 @@ export default function ActionAreaCard({ projectTitle, id }) {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(`/members/${id}`);
+    navigate(`/project/${id}`);
   };
 
   return (
