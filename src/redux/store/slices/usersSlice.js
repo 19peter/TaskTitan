@@ -19,8 +19,9 @@ export const setUserNotification = createAsyncThunk(
 export const getUserInvitation = createAsyncThunk(
   "users/getUserInvitation",
   async (id) => {
+    console.log("user invitation");
     const res = await axios.get("http://localhost:8000/users/" + id);
-
+    console.log(res.data.invitations);
     return res.data.invitations;
   }
 );

@@ -30,7 +30,7 @@ const Intro = () => {
         })
       );
       // navigate("/test");
-      navigate("/board");
+      navigate("/home");
     }
   }, []);
 

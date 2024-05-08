@@ -165,38 +165,38 @@
 //     </Box>
 //   );
 // }
-import React, { useState } from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import CssBaseline from '@mui/material/CssBaseline';
-import Divider from '@mui/material/Divider';
-import Drawer from '@mui/material/Drawer';
-import IconButton from '@mui/material/IconButton';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import MenuIcon from '@mui/icons-material/Menu';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Guest from './guest'; // Import the Guest component
-import Home from '../Home/home';
-import Dashboard from '../Dashboard/dashboard';
-import CalendarComp from '../Calendar/CalendarComp';
-import { useParams } from 'react-router-dom';
-import Boardpage from '../../pages/Boardpage';
-import Backlog from '../Backlog/Backlog'
-import Members from '../Members/members';
-import BacklogCalender from '../../pages/BacklogCalender'
+import React, { useState } from "react";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import CssBaseline from "@mui/material/CssBaseline";
+import Divider from "@mui/material/Divider";
+import Drawer from "@mui/material/Drawer";
+import IconButton from "@mui/material/IconButton";
+import InboxIcon from "@mui/icons-material/MoveToInbox";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import MenuIcon from "@mui/icons-material/Menu";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import Guest from "./guest"; // Import the Guest component
+import Home from "../Home/home";
+import Dashboard from "../Dashboard/dashboard";
+import CalendarComp from "../Calendar/CalendarComp";
+import { useParams } from "react-router-dom";
+import Boardpage from "../../pages/Boardpage";
+import Backlog from "../Backlog/Backlog";
+import Members from "../Members/members";
+import BacklogCalender from "../../pages/BacklogCalender";
 import InviteMember from "../inviteMember/inviteMember";
-import ProjectDashboard from "../Dashboard/project_dashboard"
+import ProjectDashboard from "../Dashboard/project_dashboard";
 const drawerWidth = 240;
 
 export default function Project({ data }) {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [selectedItem, setSelectedItem] = useState('Inbox');
+  const [selectedItem, setSelectedItem] = useState("Inbox");
 
   const { id } = useParams();
   console.log(id);
@@ -215,7 +215,7 @@ export default function Project({ data }) {
   };
 
   const drawer = (
-    <div style={{color: "white"}}>
+    <div style={{ color: "white" }}>
       {/* <Toolbar />
       <Divider /> */}
       <List>
@@ -240,33 +240,32 @@ export default function Project({ data }) {
 
   const renderComponent = () => {
     switch (selectedItem) {
-      case 'Projects':
-        return <Home />
-      case 'Dashboard':
-        return <Dashboard />
-      case 'Calender':
-        return <CalendarComp id={id} />
-      case 'Collaborators':
+      case "Projects":
+        return <Home />;
+      case "Dashboard":
+        return <Dashboard />;
+      case "Calender":
+        return <CalendarComp id={id} />;
+      case "Collaborators":
         return <Members id={id} />;
-      case 'Board':
-        return <Boardpage />
-      case 'Backlog':
-        return <Backlog id={id} />
-      case 'BacklogCalender':
-        return <BacklogCalender />
-      case "Invite Members":
-        return <InviteMember></InviteMember>;
+      case "Board":
+        return <Boardpage id={id} />;
+      case "Backlog":
+        return <Backlog id={id} />;
+      case "BacklogCalender":
+        return <BacklogCalender />;
+      case "InviteMember":
+        return <InviteMember id={id}></InviteMember>;
       // case 'Members':
       //     return <ResponsiveDrawer data={['Collaborators', 'Invite Members']}></ResponsiveDrawer>
       //   case 'Team Leaders':
-      //     return <Leader/>  
+      //     return <Leader/>
       default:
         return null;
     }
   };
 
   return (
-
     // <Box sx={{ display: 'flex'}} style={{ height: "100%"}}>
     /* <CssBaseline />
     <AppBar
@@ -329,7 +328,6 @@ export default function Project({ data }) {
       </Drawer>
     </Box> */
 
-
     /* </Box> */
 
     <div style={{ display: 'flex', height: "100%" }}>
@@ -338,9 +336,15 @@ export default function Project({ data }) {
         {drawer}
       </div>
 
-      <div style={{ height: "90vh", width: '100%', margin: '2vw', overflowY: 'auto' }} >
+      <div
+        style={{
+          height: "90vh",
+          width: "100%",
+          margin: "2vw",
+          overflowY: "auto",
+        }}
+      >
         {renderComponent()}
-
       </div>
 
       {/* <Box
@@ -351,8 +355,6 @@ export default function Project({ data }) {
         <Toolbar />
         {renderComponent()}
       </Box> */}
-
     </div>
-
   );
 }

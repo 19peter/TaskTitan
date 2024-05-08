@@ -15,17 +15,17 @@ import {
   getAllUsersAction,
   setUserNotification,
 } from "../../redux/store/slices/usersSlice";
-import { getProjectById } from "../../redux/store/slices/projectSlice";
 
-const InviteMember = ({id}) => {
+import { getProjectById } from "../../redux/store/slices/projectSlice";
+const InviteMember = ({ id }) => {
   console.log(id);
-  const project = useSelector(state=>state.projects.project)
-  
   const projectId = "1";
   const projectName = "Event Reservation";
+  const project = useSelector((state) => state.projects.project);
 
   const dispatch = useDispatch();
-  let invitedUser = {};
+  // let invitedUser = {};
+  const [invitedUser, setInvitedUser] = useState({});
 
   const users = useSelector((state) => state.users.users);
   //   console.log(users);
@@ -36,29 +36,36 @@ const InviteMember = ({id}) => {
   };
   useEffect(() => {
     dispatch(getAllUsersAction());
-    dispatch(getProjectById(id))
+    dispatch(getProjectById(id));
   }, []);
+
+  const handlechange = (e, newValue) => {
+    // setUserEmail(e.target.value);
+    console.log(newValue);
+    // invitedUser = { ...newValue };
+    setInvitedUser({ ...newValue });
+    console.log(invitedUser);
+  };
+
   const handleSubmit = (event) => {
-    console.log("pro",project);
+    console.log("pro", project);
     console.log(role);
     event.preventDefault();
     console.log(invitedUser);
+
     invitedUser.invitations = [
       ...invitedUser.invitations,
       {
-        projectId: projectId,
-        projectName: projectName,
+        projectId: project.id,
+        projectName: project.title,
+        ProjectManger: project.manager.name,
         role: role,
       },
     ];
 
     dispatch(setUserNotification(invitedUser));
   };
-  const handlechange = (e, newValue) => {
-    // setUserEmail(e.target.value);
-    console.log(newValue);
-    invitedUser = { ...newValue };
-  };
+
   return (
     <div>
       <Autocomplete
