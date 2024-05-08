@@ -12,6 +12,7 @@ import CreateProjectForm from "./createProjectForm";
 import { useDispatch, useSelector } from "react-redux";
 import { getProjects } from "../../redux/store/slices/projectSlice";
 import Dashboard from "../Dashboard/dashboard";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   // const [loggedInUser, setLoggedInUser] = useState(null);
@@ -20,6 +21,7 @@ const Home = () => {
   const dispatch = useDispatch();
   const allProjects = useSelector((state) => state.projects.projects);
   const cur_user = useSelector((state) => state.currentUser.currentUser);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -35,6 +37,9 @@ const Home = () => {
       }
     };
     fetchData();
+    if (!cur_user) {
+      navigate("/");
+    }
   }, [dispatch]);
 
   // const fetchLoggedInUserData = async () => {
@@ -117,22 +122,22 @@ const Home = () => {
           Create New Project
         </Button>
 
-        <Dialog open={open} onClose={handleClose}>
-          <DialogTitle>Create New Project</DialogTitle>
-          <DialogContent>
-            <CreateProjectForm />
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={handleClose}>Close</Button>
-          </DialogActions>
-        </Dialog>
-        <Backdrop
-          open={open}
-          sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
-        />
+          <Dialog open={open} onClose={handleClose}>
+            <DialogTitle>Create New Project</DialogTitle>
+            <DialogContent>
+              <CreateProjectForm />
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={handleClose}>Close</Button>
+            </DialogActions>
+          </Dialog>
+          <Backdrop
+            open={open}
+            sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
+          />
+        </div>
       </div>
-    </div>
-  );
+    );
 };
 
 export default Home;

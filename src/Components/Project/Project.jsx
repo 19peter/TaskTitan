@@ -165,7 +165,7 @@
 //     </Box>
 //   );
 // }
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -185,22 +185,27 @@ import Guest from "./guest"; // Import the Guest component
 import Home from "../Home/home";
 import Dashboard from "../Dashboard/dashboard";
 import CalendarComp from "../Calendar/CalendarComp";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Boardpage from "../../pages/Boardpage";
 import Backlog from "../Backlog/Backlog";
 import Members from "../Members/members";
 import BacklogCalender from "../../pages/BacklogCalender";
 import InviteMember from "../inviteMember/inviteMember";
 import ProjectDashboard from "../Dashboard/project_dashboard";
+import { useSelector } from "react-redux";
 const drawerWidth = 240;
 
 export default function Project({ data }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState("Inbox");
-
+  const currentUser = useSelector((state) => state.currentUser.currentUser);
   const { id } = useParams();
+  const navigate = useNavigate();
   console.log(id);
 
+  useEffect(() => {
+    if (!currentUser) navigate("/");
+  }, []);
   const handleDrawerClose = () => {
     setMobileOpen(false);
   };
@@ -228,7 +233,7 @@ export default function Project({ data }) {
           >
             <ListItemButton>
               <ListItemIcon>
-                <InboxIcon style={{color: '#66fcf1'}} />
+                <InboxIcon style={{ color: "#66fcf1" }} />
               </ListItemIcon>
               <ListItemText primary={text} />
             </ListItemButton>
@@ -265,9 +270,10 @@ export default function Project({ data }) {
     }
   };
 
-  return (
-    // <Box sx={{ display: 'flex'}} style={{ height: "100%"}}>
-    /* <CssBaseline />
+  if (currentUser)
+    return (
+      // <Box sx={{ display: 'flex'}} style={{ height: "100%"}}>
+      /* <CssBaseline />
     <AppBar
       position="fixed"
       sx={{
@@ -278,7 +284,7 @@ export default function Project({ data }) {
         
       }}
     > */
-    /* <Toolbar>
+      /* <Toolbar>
       <IconButton
         color="inherit"
         aria-label="open drawer"
@@ -292,9 +298,9 @@ export default function Project({ data }) {
         Collaborators
       </Typography>
     </Toolbar> */
-    /* </AppBar> */
+      /* </AppBar> */
 
-    /* <Box
+      /* <Box
       component="nav"
       sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
       aria-label="mailbox folders"
@@ -328,26 +334,32 @@ export default function Project({ data }) {
       </Drawer>
     </Box> */
 
-    /* </Box> */
+      /* </Box> */
 
-    <div style={{ display: 'flex', height: "100%" }}>
+      <div style={{ display: "flex", height: "100%" }}>
+        <div
+          style={{
+            width: "fit-content",
+            padding: "1vw",
+            height: "100vh",
+            backgroundColor: "#0b0c10",
+          }}
+        >
+          {drawer}
+        </div>
 
-      <div style={{ width: "fit-content", padding: "1vw",  height: "100vh", backgroundColor: '#0b0c10' }}>
-        {drawer}
-      </div>
+        <div
+          style={{
+            height: "90vh",
+            width: "100%",
+            margin: "2vw",
+            overflowY: "auto",
+          }}
+        >
+          {renderComponent()}
+        </div>
 
-      <div
-        style={{
-          height: "90vh",
-          width: "100%",
-          margin: "2vw",
-          overflowY: "auto",
-        }}
-      >
-        {renderComponent()}
-      </div>
-
-      {/* <Box
+        {/* <Box
         component="main"
         sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
 
@@ -355,6 +367,6 @@ export default function Project({ data }) {
         <Toolbar />
         {renderComponent()}
       </Box> */}
-    </div>
-  );
+      </div>
+    );
 }

@@ -30,34 +30,37 @@ const BoardCollection = ({ id }) => {
   }, []);
 
   const handleDragEnd = (result) => {
-    const { destination, source, draggableId } = result;
-    if (source.droppableId == destination.droppableId) return;
-    let params = {};
-    switch (destination.droppableId) {
-      case "1":
-        params = { projectId: 1, taskId: draggableId, newStatus: "Backlog" };
-        break;
-      case "2":
-        params = { projectId: 1, taskId: draggableId, newStatus: "Todo" };
-        break;
-      case "3":
-        params = {
-          projectId: 1,
-          taskId: draggableId,
-          newStatus: "In Progress",
-        };
-        break;
-      case "4":
-        params = { projectId: 1, taskId: draggableId, newStatus: "Done" };
-        break;
-      default:
-    }
-    // if(destination.droppableId == 2)
-    //   {
-    //     let params ={projectId:1,taskId:draggableId,newStatus:"toDo"}
-    //   }
+    if (result.destination) {
+      const { destination, source, draggableId } = result;
+      if (source.droppableId == destination.droppableId || !destination) return;
 
-    dispatch(updateTaskStatusAction(params));
+      let params = {};
+      switch (destination.droppableId) {
+        case "1":
+          params = { projectId: 1, taskId: draggableId, newStatus: "Backlog" };
+          break;
+        case "2":
+          params = { projectId: 1, taskId: draggableId, newStatus: "Todo" };
+          break;
+        case "3":
+          params = {
+            projectId: 1,
+            taskId: draggableId,
+            newStatus: "In Progress",
+          };
+          break;
+        case "4":
+          params = { projectId: 1, taskId: draggableId, newStatus: "Done" };
+          break;
+        default:
+      }
+      // if(destination.droppableId == 2)
+      //   {
+      //     let params ={projectId:1,taskId:draggableId,newStatus:"toDo"}
+      //   }
+
+      dispatch(updateTaskStatusAction(params));
+    }
   };
 
   return (

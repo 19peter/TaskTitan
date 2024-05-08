@@ -24,7 +24,6 @@ const TaskSection = ({
   index,
 }) => {
   const currentUser = useSelector((state) => state.currentUser.currentUser);
-  console.log("in task sec current user is ", currentUser);
   let flag = true;
   let flagOpacity = 0.4;
 
@@ -50,7 +49,7 @@ const TaskSection = ({
           ref={provided.innerRef}
           isDragging={snapshot.isDragging}
           width={"80%"}
-          height={"10%"}
+          height={"fit-content"}
           p={"20px"}
           display={"flex"}
           flexDirection={"column"}
