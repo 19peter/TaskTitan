@@ -141,7 +141,7 @@
         },
         {
           "title": "Dashboard",
-          "status": "Backlog",
+          "status": "Done",
           "level": "intermediate",
           "priority": "high",
           "assignedTo": {
