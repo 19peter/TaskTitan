@@ -211,6 +211,7 @@ export default function Project({ data }) {
       </div>
 
       <div
+        className="project"
         style={{
           // maxHeight: "90vh",
           minHeight: "fit-content",

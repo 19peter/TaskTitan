@@ -1,3 +1,4 @@
+import '../../App/App.css'
 import React, { useEffect, useState } from "react";
 import { styled } from "@mui/material/styles";
 import Table from "@mui/material/Table";
@@ -106,7 +107,7 @@ const Backlog = ({ id }) => {
   if (!tasks) return <div>Loading...</div>;
   return (
     <div>
-      <TableContainer component={Paper}>
+      <TableContainer component={Paper} >
         <Table sx={{ minWidth: 700 }} aria-label="customized table">
           <TableHead>
             <TableRow>
