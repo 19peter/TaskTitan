@@ -228,7 +228,7 @@ export default function Project({ data }) {
           >
             <ListItemButton>
               <ListItemIcon>
-                <InboxIcon style={{color: 'white'}} />
+                <InboxIcon style={{color: '#66fcf1'}} />
               </ListItemIcon>
               <ListItemText primary={text} />
             </ListItemButton>
@@ -334,7 +334,7 @@ export default function Project({ data }) {
 
     <div style={{ display: 'flex', height: "100%" }}>
 
-      <div style={{ width: "fit-content", height: "100vh", backgroundColor: '#253745' }}>
+      <div style={{ width: "fit-content", padding: "1vw",  height: "100vh", backgroundColor: '#0b0c10' }}>
         {drawer}
       </div>
 

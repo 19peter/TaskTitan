@@ -1,7 +1,8 @@
 body {
-  background: rgb(37,55,69);
+  background-color: white;
+  /* background: rgb(37,55,69); */
 /* background: linear-gradient(180deg, rgba(37,55,69,1) 32%, rgba(74,92,106,1) 75%); */
-background: linear-gradient(90deg, rgba(37,55,69,1) 32%, rgba(74,92,106,1) 75%);
+/* background: linear-gradient(90deg, rgba(37,55,69,1) 32%, rgba(74,92,106,1) 75%); */
 }
 
 /* .App {

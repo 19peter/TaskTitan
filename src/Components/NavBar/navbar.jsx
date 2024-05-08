@@ -16,7 +16,7 @@ const Navbar = () => {
               alt="Logo"
             /> */}
 
-            <h1 style={{color:'white'}}>TaskTitan</h1>
+            <h1 style={{color:'#66fcf1' , fontSize: '2rem'}}>TaskTitan</h1>
             <nav className="navbar">
               {/* <Link to="/home">Home</Link> */}
               {/* <Link to="/about">About</Link> */}

@@ -56,7 +56,8 @@ const CalendarComp = ({id}) => {
       return {
         start: t.startDate,
         end: t.endDate,
-        title: t.title
+        title: t.title,
+        color: "#45a29e"
       }
     })))
   }, [tsks])
@@ -111,6 +112,7 @@ const CalendarComp = ({id}) => {
           start: "today prev,next",
           center: "title",
           end: "dayGridMonth,timeGridWeek,timeGridDay",
+          
         }}
         events={allEvents}
         // height={"50vh"}

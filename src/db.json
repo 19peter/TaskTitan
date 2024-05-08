@@ -356,7 +356,9 @@
             "email": "peter@gmail.com"
           },
           "details": "asd",
-          "id": "33656a44-5029-4e6f-aa30-bd460e974e2d"
+          "id": "33656a44-5029-4e6f-aa30-bd460e974e2d",
+          "startDate": "2024-05-07",
+          "endDate": "2024-05-11"
         },
         {
           "title": "UI",
