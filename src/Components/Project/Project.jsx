@@ -245,13 +245,13 @@ export default function Project({ data }) {
       case "Dashboard":
         return <Dashboard />;
       case "Calender":
-        return <CalendarComp />;
+        return <CalendarComp id={id} />;
       case "Collaborators":
         return <Members id={id} />;
       case "Board":
         return <Boardpage id={id} />;
       case "Backlog":
-        return <Backlog />;
+        return <Backlog id={id} />;
       case "BacklogCalender":
         return <BacklogCalender />;
       case "InviteMember":
