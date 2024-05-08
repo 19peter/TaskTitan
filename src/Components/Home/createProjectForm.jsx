@@ -14,7 +14,8 @@ const CreateProjectForm = () => {
     const [formData, setFormData] = useState({
         title: '',
         startDate: '',
-        endDate: ''
+        endDate: '',
+        name:''
     });
 
     const handleChange = (event) => {
@@ -31,11 +32,13 @@ const CreateProjectForm = () => {
         const id = uuid();
         const userId = cur_user.id;
         const email = cur_user.email;
+
+        
         
 
         const projectData = {
             id: id,
-            manager: { email: email, id:userId },
+            manager: { email: email, id:userId ,name:formData.name},
             tasks:[],
             members:[],
             ...formData
@@ -46,7 +49,8 @@ const CreateProjectForm = () => {
         setFormData({
             title: '',
             startDate: '',
-            endDate: ''
+            endDate: '',
+            name:''
         });
     };
 
@@ -60,6 +64,15 @@ const CreateProjectForm = () => {
                             label="Title"
                             name="title"
                             value={formData.title}
+                            onChange={handleChange}
+                        />
+                    </Grid>
+                    <Grid item xs={12}>
+                        <TextField
+                            fullWidth
+                            label="Manager Name"
+                            name="name"
+                            value={formData.name}
                             onChange={handleChange}
                         />
                     </Grid>

@@ -191,7 +191,7 @@ import Backlog from '../Backlog/Backlog'
 import Members from '../Members/members';
 import BacklogCalender from '../../pages/BacklogCalender'
 import InviteMember from "../inviteMember/inviteMember";
-
+import ProjectDashboard from "../Dashboard/project_dashboard"
 const drawerWidth = 240;
 
 export default function Project({ data }) {

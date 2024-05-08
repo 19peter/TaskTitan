@@ -11,12 +11,16 @@ import { getProjectById } from "../../redux/store/slices/projectSlice";
 
 export default function TestNotification() {
   let id = "114450078144869306460";
+  const cur_user = useSelector(state=>state.currentUser.currentUser);
+console.log(cur_user);
   const invitations = useSelector((state) => state.users.userInvitations);
 
   console.log(invitations);
   const dispatch = useDispatch();
   React.useEffect(() => {
     dispatch(getUserInvitation(id));
+
+
   }, []);
 
   const handleClickAccept = (projectId) => {
