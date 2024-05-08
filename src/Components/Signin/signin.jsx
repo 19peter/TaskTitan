@@ -108,7 +108,7 @@ export default function SignIn({ closeSignin }) {
         item
         xs={false}
         sm={4}
-        md={4}
+        md={5}
         sx={{
           backgroundImage: `url(${img})`,
           backgroundRepeat: "no-repeat",
@@ -125,7 +125,7 @@ export default function SignIn({ closeSignin }) {
         item
         xs={12}
         sm={8}
-        md={8}
+        md={7}
         component={Paper}
         elevation={6}
         square

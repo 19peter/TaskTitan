@@ -29,7 +29,8 @@
 
 .title {
   font-size: 4rem;
-  font-weight: 700;
+  font-weight: 200;
   color: #d8eaec;
   animation: fadeIn 3s ease-in-out;
+  font-family: "Poetsen One", sans-serif;
 }
