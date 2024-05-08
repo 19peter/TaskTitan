@@ -28,6 +28,7 @@ body {
     justify-content: space-between;
     align-items: center;
     backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.485);
     border-bottom: 2px solid rgba(255, 255, 255, .2);
 }
 .header::before {

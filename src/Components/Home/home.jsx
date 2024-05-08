@@ -4,13 +4,15 @@ import { Button, Dialog, DialogTitle, DialogContent, DialogActions, Backdrop } f
 import CreateProjectForm from './createProjectForm';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProjects } from '../../redux/store/slices/projectSlice';
+import  Dashboard  from "../Dashboard/dashboard"
 
 const Home = () => {
     // const [loggedInUser, setLoggedInUser] = useState(null);
     // const [userProjects, setUserProjects] = useState([]);
     const [open, setOpen] = useState(false); //modal state
     const dispatch = useDispatch();
-    const allProjects = useSelector(state=>state.project.projects)
+    const allProjects = useSelector(state=>state.projects.projects)
+    console.log(allProjects);
     const cur_user = useSelector(state=>state.currentUser.currentUser);
 
     useEffect(() => {
@@ -33,11 +35,11 @@ const Home = () => {
     //     return { email: 'peter@gmail.com', id: '1' };
     // };
 
-    // const fetchProjectsData = async () => {
-    //     const res = await fetch("http://localhost:8000/projects");
-    //     const projectsJson = await res.json();
-    //     return projectsJson;
-    // };
+    const fetchProjectsData = async () => {
+        const res = await fetch("http://localhost:8000/projects");
+        const projectsJson = await res.json();
+        return projectsJson;
+    };
 
     const filterOwnedProjects = (projects, user) => {
         if (!user) return [];
@@ -66,6 +68,9 @@ const Home = () => {
 
     return (
         <div>
+
+
+    {/* <div style={{height:"35%"}}> <Dashboard></Dashboard> </div>             */}
             <h3 style={{textAlign:"left",marginLeft:"2%"}}>Owned Projects</h3>
             <div style={{display:"flex",flexWrap:"wrap"}}>
                 {ownedProjects.map(project => (

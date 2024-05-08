@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM from 'react-dom'
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
@@ -15,10 +15,12 @@ import Select from "@mui/material/Select";
 import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuid } from "uuid"
 import { AddTaskAction } from "../../redux/store/slices/backlogSlice";
+import { getProjectById } from "../../redux/store/slices/projectSlice";
 
-const PopAddTaskForm = ({ setIsAddFormOpened }) => {
+const PopAddTaskForm = ({id, setIsAddFormOpened }) => {
 
   const tasks = useSelector((state) => state.backlog.backlog);
+  // console.log(tasks);
 
   const [open, setOpen] = useState(true);
   const [doesTitleExist, setDoesTitleExist] = useState(false);
@@ -26,6 +28,7 @@ const PopAddTaskForm = ({ setIsAddFormOpened }) => {
   let exists = false;
 
   const dispatch = useDispatch();
+
 
   const [formData, setFormData] = useState({
     title: "",
@@ -60,8 +63,8 @@ const PopAddTaskForm = ({ setIsAddFormOpened }) => {
     });
 
     if (!exists) {
-      formData.id = uuid()
-      dispatch(AddTaskAction({ projectId: "1", AddedTask: formData }))
+      formData.id = tasks.length +1;
+      dispatch(AddTaskAction({ projectId: id, AddedTask: formData }))
       handleClose();
     }
   };

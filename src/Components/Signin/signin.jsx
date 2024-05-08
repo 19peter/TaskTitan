@@ -80,7 +80,7 @@ export default function SignIn({ closeSignin }) {
           localStorage.setItem("picture", res.data.picture);
           localStorage.setItem("email", res.data.email);
           dispatch(getUserAction(res.data));
-          navigate("/board");
+          navigate("/home");
         })
         .catch((err) => console.log(err));
     } else if (UserSignin) {
@@ -90,7 +90,7 @@ export default function SignIn({ closeSignin }) {
       localStorage.setItem("picture", UserSignin.picture);
       localStorage.setItem("email", UserSignin.email);
       dispatch(setCurrentUser(UserSignin));
-      navigate("/board");
+      navigate("/home");
     }
   }, [user, UserSignin]);
 

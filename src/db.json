@@ -5,21 +5,56 @@
       "name": "Mokhtar Mostafa",
       "email": "mokhtarmostafa1526@gmail.com",
       "picture": "https://lh3.googleusercontent.com/a/ACg8ocL79KirYiU01voOig8FVLWo-3piytJDnyAfDpVROOUB6yftJO8=s96-c",
-      "userProjects": []
+      "userProjects": [
+        {
+          "projectId": "1",
+          "assignedTasks": [
+            ""
+          ],
+          "role": "member"
+        }
+      ],
+      "invitations": [
+        {
+          "projectId": "1",
+          "projectName": "Event Reservation"
+        },
+        {
+          "projectId": "1",
+          "projectName": "Event Reservation"
+        },
+        {
+          "projectId": "1",
+          "projectName": "Event Reservation"
+        },
+        {
+          "projectId": "1",
+          "projectName": "Event Reservation",
+          "role": "Leader"
+        }
+      ]
     },
     {
       "id": "109552298439343528489",
       "name": "Mokhtar Mostafa Mokhtar",
       "email": "mokhtarmostafa1311@gmail.com",
       "picture": "https://lh3.googleusercontent.com/a/ACg8ocKyrpMKW_FDR9ddD4GgMP3yiQHXLuSNf0TAWR0LTG71yES0A8A=s96-c",
-      "userProjects": []
+      "userProjects": [],
+      "invitations": [
+        {
+          "projectId": "1",
+          "projectName": "Event Reservation",
+          "role": "Leader"
+        }
+      ]
     },
     {
       "id": "107111098656219910391",
       "name": "mokhtar mostafa",
       "email": "mikhashadow@gmail.com",
       "picture": "https://lh3.googleusercontent.com/a/ACg8ocIpOywxyF4Ml0jP16pEmMxByILyd_xNcdaM0-u_53qITkGEBvE=s96-c",
-      "userProjects": []
+      "userProjects": [],
+      "invitations": []
     },
     {
       "id": "112730736456781467110",
@@ -34,13 +69,22 @@
       "name": "Nouran Sayed Nasr",
       "email": "nouransayednasr@gmail.com",
       "picture": "https://lh3.googleusercontent.com/a/ACg8ocLmxDNwuea-g_8rCTSJAT7atXinkmEmxUYiT1A43dXwAyG0fQ=s96-c",
-      "userProjects": []
+      "userProjects": [],
+      "invitations": []
     },
     {
       "id": "105176122730447230763",
       "name": "Hassan Walid",
       "email": "hassanwalid401@gmail.com",
       "picture": "https://lh3.googleusercontent.com/a/ACg8ocJWUxi8c17VMpO8cfr4Hcj7sHMxDQNBuizb3obnKP-wG8Gy2Q=s96-c",
+      "userProjects": [],
+      "invitations": []
+    },
+    {
+      "id": "113118824854000057259",
+      "name": "Ahmed Badr",
+      "email": "ahmed.hussiba@gmail.com",
+      "picture": "https://lh3.googleusercontent.com/a/ACg8ocJzBNDRF4CqsQ1ODaC9HRDXdAO3t6uFMl03ERXqZGHLjYLjPJgp=s96-c",
       "userProjects": []
     }
   ],
@@ -57,8 +101,8 @@
           "id": "113705067715860298092"
         },
         {
-          "email": "badr@gmail.com",
-          "id": "2"
+          "email": "mokhtarmostafa1526@gmail.com",
+          "id": "114450078144869306460"
         }
       ],
       "title": "Event Reservation",
@@ -112,8 +156,8 @@
           },
           "details": "Add Register Page",
           "id": "eda3904e-d379-4adb-b699-dc42b311b96d",
-          "startDate": "2024-04-30",
-          "endDate": "2024-05-04"
+          "startDate": "2024-05-13",
+          "endDate": "2024-05-18"
         },
         {
           "title": "Login",
@@ -166,6 +210,112 @@
       "title": "Examination System",
       "startDate": "2024-05-02",
       "endDate": "2024-05-12"
+    },
+    {
+      "id": "1a29185f-c3a2-4ea8-98ce-baaa3a7039b2",
+      "manager": {
+        "email": "mohyeldenyasmeen@gmail.com",
+        "id": "109240513695962267084"
+      },
+      "tasks": [],
+      "members": [
+        {
+          "email": "nouransayednasr@gmail.com",
+          "id": "113705067715860298092"
+        },
+        {
+          "email": "badr@gmail.com",
+          "id": "2"
+        }
+      ],
+      "title": "waslny",
+      "startDate": "2024-05-09",
+      "endDate": "2024-05-31"
+    },
+    {
+      "id": "fae6c423-85fe-42fd-b2f4-756831aa6988",
+      "manager": {
+        "email": "mokhtarmostafa1526@gmail.com",
+        "id": "114450078144869306460"
+      },
+      "tasks": [
+        {
+          "title": "tassk",
+          "status": "Backlog",
+          "level": "intermediate",
+          "priority": "high",
+          "assignedTo": {
+            "email": "Badr@gmail.com"
+          },
+          "details": "asd",
+          "id": "7a62b08d-fbdf-4d0c-ac9d-a84d6ce3be37",
+          "startDate": "2024-04-29",
+          "endDate": "2024-05-03"
+        },
+        {
+          "title": "asd",
+          "status": "Backlog",
+          "level": "intermediate",
+          "priority": "medium",
+          "assignedTo": {
+            "email": "peter@gmail.com"
+          },
+          "details": "asd",
+          "id": "f53b7b98-8ea2-455e-aa78-4bee21377da4"
+        },
+        {
+          "title": "teeest",
+          "status": "Backlog",
+          "level": "intermediate",
+          "priority": "medium",
+          "assignedTo": {
+            "email": "asd@gmail.com"
+          },
+          "details": "asd",
+          "id": 3
+        }
+      ],
+      "members": [],
+      "title": "mokhtar test",
+      "startDate": "2024-05-03",
+      "endDate": "2024-05-27"
+    },
+    {
+      "id": "de52f466-7ee7-4302-8a68-751c8cf6c089",
+      "manager": {
+        "email": "mokhtarmostafa1526@gmail.com",
+        "id": "114450078144869306460"
+      },
+      "tasks": [
+        {
+          "title": "Login",
+          "status": "Backlog",
+          "level": "intermediate",
+          "priority": "high",
+          "assignedTo": {
+            "email": "peter@gmail.com"
+          },
+          "details": "asd",
+          "id": "33656a44-5029-4e6f-aa30-bd460e974e2d"
+        },
+        {
+          "title": "UI",
+          "status": "Backlog",
+          "level": "easy",
+          "priority": "high",
+          "assignedTo": {
+            "email": "Badr@gmail.com"
+          },
+          "details": "asd",
+          "id": "ed7a1580-af4d-4094-a06e-725c2db3dea6",
+          "startDate": "2024-04-30",
+          "endDate": "2024-05-03"
+        }
+      ],
+      "members": [],
+      "title": "TaskTitan",
+      "startDate": "2024-05-14",
+      "endDate": "2024-05-24"
     }
   ]
 }

@@ -15,7 +15,7 @@ import { useSelector } from "react-redux";
 import { getEventsWithDates } from "../../redux/store/slices/eventsWithDates";
 import FullScreenDialog from "./DetailsDialog";
 
-const CalendarComp = () => {
+const CalendarComp = ({id}) => {
 
   const [allEvents, setAllEvents] = useState([]);
   const [info, setInfo] = useState(null);
@@ -28,10 +28,9 @@ const CalendarComp = () => {
   const AllTasks = useSelector((state) => state.backlog.backlog)
 
   useEffect(() => {
-    dispatch(getEventsWithDates("1"));
-    dispatch(getBacklogAction("1"))
-    
-  }, [dispatch]);
+    dispatch(getEventsWithDates(id));
+    dispatch(getBacklogAction(id))
+  }, [dispatch, id]);
 
 
   useEffect(() => {
@@ -65,7 +64,7 @@ const CalendarComp = () => {
   const UpdateTaskDate = (task) => {
     dispatch(
       UpdateTaskDateAction({
-        projectId: "1",
+        projectId: id,
         taskId: task.id,
         startDate: info.startStr,
         endDate: info.endStr,
@@ -76,7 +75,8 @@ const CalendarComp = () => {
   return (
     <div>
       {isDialogOpened === true && (
-        <FormDialog
+        <FormDialog 
+          id={id}
           info={info}
           setAllEvents={setAllEvents}
           setIsDialogOpened={setIsDialogOpened}
