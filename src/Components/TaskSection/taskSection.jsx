@@ -64,7 +64,7 @@ const TaskSection = ({
           </Typography>
           <Stack direction={"row"} justifyContent={"end"}>
             <Tooltip
-              title={assignedTo.name}
+              title={assignedTo.email}
               slotProps={{
                 popper: {
                   modifiers: [

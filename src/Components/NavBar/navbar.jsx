@@ -1,5 +1,5 @@
 import "../../styles/Navbar.css";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -20,11 +20,19 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import MoveToInboxIcon from "@mui/icons-material/MoveToInbox";
 import { Badge } from "@mui/material";
 import MailIcon from "@mui/icons-material/Mail";
+import { useSelector } from "react-redux";
+import {
+  handleDisagreeUserInvitations,
+  updateUserProjects,
+} from "../../redux/store/slices/currentUserSlice";
+import { useDispatch } from "react-redux";
+import axios from "axios";
 
 const pages = ["Home"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -42,25 +50,76 @@ const Navbar = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
+  //notifactions
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleMenu = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleCloseMenu = () => {
+    setAnchorEl(null);
+  };
+  // const currentUser = useSelector((state) => state.currentUser.currentUser);
+  
+
+  let userId = localStorage.getItem("id");
+  const [invitations, setInvitations] = React.useState([]);
+
+  React.useEffect(() => {
+    if (userId) {
+      axios.get("http://localhost:8000/users/" + userId).then((res) => {
+        setInvitations(res.data.invitations);
+      });
+    }
+  }, [userId]);
+  console.log(invitations);
+
+  const [counter, setCounter] = React.useState(0);
+  // if (currentUser) {
+  //   console.log(currentUser);
+  //   // setCounter(currentUser.invitations.length);
+  // }
+  const dispatch = useDispatch();
+
+  const handleClickAccept = ({ projectId, role }) => {
+    console.log(projectId);
+    console.log(role);
+    let obj = {
+      userId: userId,
+      project: { role: role, projectId: projectId, assignedTasks: [] },
+    };
+    console.log(obj);
+    setInvitations(invitations.filter((i) => i.projectId !== projectId));
+    dispatch(updateUserProjects(obj));
+  };
+
+  const handleDisAgreeClk = ({ projectId }) => {
+    console.log("Disagree");
+    console.log(projectId);
+    let obj = {
+      userId: userId,
+      projectId: projectId,
+    };
+
+    dispatch(handleDisagreeUserInvitations(obj));
+
+    setInvitations(invitations.filter((i) => i.projectId !== projectId));
+  };
+  // if (currentUser)
   return (
     <>
       <div style={{ display: "flex", flexDirection: "column" }}>
-        {/* <div>
-          {" "}
-          <header className="header">
-
-            <h1 style={{color:'#66fcf1' , fontSize: '2em'}}>TaskTitan</h1>
-            <nav className="navbar">
-            </nav>
-          </header>
-        </div> */}
-
         <AppBar position="static" style={{ backgroundColor: "#0b0c10" }}>
           <Container maxWidth="xl">
             <Toolbar disableGutters>
               <ChecklistIcon
                 sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}
-                style={{ marginLeft: "20px", color: "rgba(255, 99, 132, 1)" }}
+                style={{
+                  marginLeft: "20px",
+                  color: "rgba(255, 99, 132, 1)",
+                }}
               />
               {/* <StickyNote2Icon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
               <Typography
@@ -81,7 +140,12 @@ const Navbar = () => {
                 TaskTitan
               </Typography>
 
-              <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+              <Box
+                sx={{
+                  flexGrow: 1,
+                  display: { xs: "flex", md: "none" },
+                }}
+              >
                 <IconButton
                   size="large"
                   aria-label="account of current user"
@@ -138,11 +202,19 @@ const Navbar = () => {
               >
                 TaskTitan
               </Typography>
-              <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+              <Box
+                sx={{
+                  flexGrow: 1,
+                  display: { xs: "none", md: "flex" },
+                }}
+              >
                 {pages.map((page) => (
                   <Button>
                     <Link
-                      style={{ color: "white", textDecoration: "none" }}
+                      style={{
+                        color: "white",
+                        textDecoration: "none",
+                      }}
                       key={page}
                       onClick={handleCloseNavMenu}
                       sx={{ my: 2, color: "white", display: "block" }}
@@ -156,13 +228,68 @@ const Navbar = () => {
 
               <Box sx={{ flexGrow: 0 }}>
                 <Badge
-                  badgeContent={4}
+                  badgeContent={counter}
                   color="primary"
                   sx={{ marginRight: "1rem" }}
                 >
-                  <MailIcon color="white" />
+                  <MailIcon color="white" onClick={handleMenu} />
                 </Badge>
-                <LogoutIcon></LogoutIcon>
+                <Menu
+                  id="menu-appbar"
+                  anchorEl={anchorEl}
+                  PaperProps={{
+                    style: {
+                      maxHeight: "25vh",
+                      width: "40ch",
+                    },
+                  }}
+                  transformOrigin={{
+                    vertical: "top",
+                    horizontal: "right",
+                  }}
+                  open={Boolean(anchorEl)}
+                  onClose={handleCloseMenu}
+                >
+                  {invitations.length > 0 ? (
+                    invitations.map((invitation) => (
+                      <>
+                        <MenuItem>
+                          {invitation.projectName}
+                          <Button
+                            onClick={() => {
+                              console.log(invitation.role);
+                              handleClickAccept({
+                                projectId: invitation.projectId,
+                                role: invitation.role,
+                              });
+                            }}
+                          >
+                            agree
+                          </Button>
+
+                          <Button
+                            onClick={() => {
+                              handleDisAgreeClk({
+                                projectId: invitation.projectId,
+                              });
+                            }}
+                          >
+                            Disagree
+                          </Button>
+                        </MenuItem>
+                      </>
+                    ))
+                  ) : (
+                    <MenuItem>No Notifacations</MenuItem>
+                  )}
+                </Menu>
+
+                <LogoutIcon
+                  onClick={() => {
+                    localStorage.clear();
+                    navigate("/");
+                  }}
+                ></LogoutIcon>
               </Box>
             </Toolbar>
           </Container>

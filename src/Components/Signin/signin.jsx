@@ -54,6 +54,10 @@ export default function SignIn({ closeSignin }) {
     onError: (error) => console.log("Login Failed:", error),
   });
 
+  // useEffect(() => {
+  //   dispatch(setCurrentUser(UserSignin));
+  // }, [UserSignin, dispatch]);
+
   useEffect(() => {
     if (user) {
       axios
@@ -70,10 +74,12 @@ export default function SignIn({ closeSignin }) {
           console.log(res.data.id);
           dispatch(getUserAction(res.data));
           dispatch(setCurrentUser(UserSignin));
+          console.log(res.data);
           localStorage.setItem("id", res.data.id);
           localStorage.setItem("name", res.data.name);
           localStorage.setItem("picture", res.data.picture);
           localStorage.setItem("email", res.data.email);
+          console.log(UserSignin);
           navigate("/home");
         })
         .catch((err) => console.log(err));
@@ -87,7 +93,7 @@ export default function SignIn({ closeSignin }) {
       dispatch(setCurrentUser(UserSignin));
       navigate("/home");
     }
-  }, [user, UserSignin]);
+  }, [user, UserSignin, dispatch]);
 
   const [invalidEmail, setInvalidEmail] = useState(false);
   const handleSubmit = (event) => {

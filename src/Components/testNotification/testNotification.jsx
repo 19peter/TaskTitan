@@ -51,8 +51,6 @@ export default function TestNotification() {
     };
     console.log(obj);
     dispatch(updateUserProjects(obj));
-    // dispatch(getUserInvitation(id));
-    //todo
   };
 
   const handleDisAgreeClk = ({ projectId }) => {
@@ -117,33 +115,9 @@ export default function TestNotification() {
               </>
             ))
           ) : (
-            <MenuItem>No Notify</MenuItem>
+            <MenuItem>No Notifacations</MenuItem>
           )}
         </Menu>
       </div>
-      // <List sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}>
-      //   {invitations.map((invitation) => (
-      //     <ListItem
-      //       key={invitation}
-      //       disableGutters
-      //       secondaryAction={
-      //         <IconButton
-      //           aria-label="comment"
-      //           onClick={() => {
-      //             console.log(invitation.role);
-      //             handleClickAccept({
-      //               projectId: invitation.projectId,
-      //               role: invitation.role,
-      //             });
-      //           }}
-      //         >
-      //           <CommentIcon />
-      //         </IconButton>
-      //       }
-      //     >
-      //       <ListItemText primary={invitation.projectName} />
-      //     </ListItem>
-      //   ))}
-      // </List>
     );
 }
