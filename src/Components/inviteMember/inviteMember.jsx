@@ -17,6 +17,7 @@ import {
 } from "../../redux/store/slices/usersSlice";
 
 import { getProjectById } from "../../redux/store/slices/projectSlice";
+
 const InviteMember = ({ id }) => {
   console.log(id);
   const projectId = "1";
@@ -67,15 +68,24 @@ const InviteMember = ({ id }) => {
   };
 
   return (
-    <div>
-      <Autocomplete
-        id="country-select-demo"
-        // value={userEmail}
-
+    <div style={{height:"100%",display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center",gap:"5vh"}}>
+      <Autocomplete      
         onChange={handlechange}
-        sx={{ width: 300 }}
+        sx={{ width: 300,
+          '& .MuiAutocomplete-inputRoot': {
+            color: '#66FCF1', // Change input text color
+            backgroundColor:"#0b0c10",
+            borderRadius:"13px",
+          },
+          
+          '& .MuiAutocomplete-popupIndicator': {
+            color: '#66FCF1', // Change dropdown indicator color
+          },
+          '& .MuiAutocomplete-clearIndicator': {
+            color: '#66FCF1', // Change clear button color
+          }
+        }}
         options={users}
-        autoHighlight
         getOptionLabel={(option) => option.email}
         renderOption={(props, option) => (
           <Box
@@ -88,35 +98,45 @@ const InviteMember = ({ id }) => {
         )}
         renderInput={(params) => (
           <TextField
+            style={{color:"red"}}
+            variant="outlined"
+            color="primary"
             {...params}
-            label="Choose a country"
+            InputLabelProps={{
+              style: { color: '#66FCF1' } // Change the color to red
+            }}
+            label=" choose Member Email "
             inputProps={{
               ...params.inputProps,
               autoComplete: "new-password", // disable autocomplete and autofill
             }}
-          />
+          >
+          </TextField>
         )}
       />
-      <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">Role</InputLabel>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
+      <FormControl sx={{width:300,borderRadius:"13px"}} >
+        <InputLabel>Role</InputLabel>
+        <TextField
+          select
           value={role}
           label="Role"
+          variant="outlined"
           onChange={handleChange}
+          InputLabelProps={{
+            style: { color: '#66FCF1' } // Change the color to red
+          }}
+          sx={{color:"#66FCF1",backgroundColor: "#0b0c10"}}
         >
           <MenuItem value={"Leader"}>Leader</MenuItem>
           <MenuItem value={"Member"}>Member</MenuItem>
-        </Select>
+        </TextField>
       </FormControl>
       <Button
         onClick={handleSubmit}
-        // type="submit"
         variant="contained"
-        sx={{ mt: 3, mb: 2, width: "60%", backgroundColor: "#060F27" }}
+        sx={{ mt: 3, mb: 2, width: "10%",color:"#0b0c10", backgroundColor: "#66FCF1" }}
       >
-        Sign In
+        Send
       </Button>
     </div>
   );
