@@ -12,7 +12,14 @@
           "assignedTasks": []
         }
       ],
-      "invitations": []
+      "invitations": [
+        {
+          "projectId": "36eaf23c-fbe3-48fe-905b-fc96fc4ab3fc",
+          "projectName": "project1",
+          "ProjectManger": "hassan",
+          "role": "Member"
+        }
+      ]
     },
     {
       "id": "112730736456781467110",
@@ -20,7 +27,14 @@
       "email": "hassan.walid77@gmail.com",
       "picture": "https://lh3.googleusercontent.com/a/ACg8ocJ0IMbCQbNcHpI9Ii1pVa1umtP3fv_PmIiFGQDW9AKDlTlo7A=s96-c",
       "userProjects": [],
-      "invitations": []
+      "invitations": [
+        {
+          "projectId": "36eaf23c-fbe3-48fe-905b-fc96fc4ab3fc",
+          "projectName": "project1",
+          "ProjectManger": "hassan",
+          "role": "Leader"
+        }
+      ]
     },
     {
       "id": "113705067715860298092",
@@ -28,7 +42,20 @@
       "email": "nouransayednasr@gmail.com",
       "picture": "https://lh3.googleusercontent.com/a/ACg8ocLmxDNwuea-g_8rCTSJAT7atXinkmEmxUYiT1A43dXwAyG0fQ=s96-c",
       "userProjects": [],
-      "invitations": []
+      "invitations": [
+        {
+          "projectId": "36eaf23c-fbe3-48fe-905b-fc96fc4ab3fc",
+          "projectName": "project1",
+          "ProjectManger": "hassan",
+          "role": "Member"
+        },
+        {
+          "projectId": "36eaf23c-fbe3-48fe-905b-fc96fc4ab3fc",
+          "projectName": "project1",
+          "ProjectManger": "hassan",
+          "role": "Member"
+        }
+      ]
     }
   ],
   "projects": [

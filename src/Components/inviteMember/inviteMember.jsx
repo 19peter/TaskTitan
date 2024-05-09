@@ -25,35 +25,29 @@ const InviteMember = ({ id }) => {
   const project = useSelector((state) => state.projects.project);
 
   const dispatch = useDispatch();
-  // let invitedUser = {};
   const [invitedUser, setInvitedUser] = useState({});
 
+  const [selectedUser, setSelectedUser] = useState(null); 
+
   const users = useSelector((state) => state.users.users);
-  //   console.log(users);
   const [role, setRole] = React.useState("");
 
   const handleChange = (event) => {
     setRole(event.target.value);
   };
+  
   useEffect(() => {
     dispatch(getAllUsersAction());
     dispatch(getProjectById(id));
   }, []);
 
   const handlechange = (e, newValue) => {
-    // setUserEmail(e.target.value);
-    console.log(newValue);
-    // invitedUser = { ...newValue };
+    setSelectedUser(newValue); 
     setInvitedUser({ ...newValue });
-    console.log(invitedUser);
   };
 
   const handleSubmit = (event) => {
-    console.log("pro", project);
-    console.log(role);
     event.preventDefault();
-    console.log(invitedUser);
-
     invitedUser.invitations = [
       ...invitedUser.invitations,
       {
@@ -63,8 +57,8 @@ const InviteMember = ({ id }) => {
         role: role,
       },
     ];
-
     dispatch(setUserNotification(invitedUser));
+    setSelectedUser(null); 
   };
 
   return (
@@ -80,19 +74,19 @@ const InviteMember = ({ id }) => {
     >
       <Autocomplete
         onChange={handlechange}
+        value={selectedUser} 
         sx={{
           width: 300,
           "& .MuiAutocomplete-inputRoot": {
-            color: "#66FCF1", // Change input text color
+            color: "#66FCF1",
             backgroundColor: "#0b0c10",
             borderRadius: "13px",
           },
-
           "& .MuiAutocomplete-popupIndicator": {
-            color: "#66FCF1", // Change dropdown indicator color
+            color: "#66FCF1",
           },
           "& .MuiAutocomplete-clearIndicator": {
-            color: "#66FCF1", // Change clear button color
+            color: "#66FCF1",
           },
         }}
         options={users}
@@ -113,12 +107,12 @@ const InviteMember = ({ id }) => {
             color="primary"
             {...params}
             InputLabelProps={{
-              style: { color: "#66FCF1" }, // Change the color to red
+              style: { color: "#66FCF1" },
             }}
             label=" choose Member Email "
             inputProps={{
               ...params.inputProps,
-              autoComplete: "new-password", // disable autocomplete and autofill
+              autoComplete: "new-password",
             }}
           ></TextField>
         )}
@@ -132,7 +126,7 @@ const InviteMember = ({ id }) => {
           variant="outlined"
           onChange={handleChange}
           InputLabelProps={{
-            style: { color: "#66FCF1" }, // Change the color to red
+            style: { color: "#66FCF1" },
           }}
           sx={{ color: "#66FCF1", backgroundColor: "#0b0c10" }}
         >
