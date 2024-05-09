@@ -68,22 +68,32 @@ const InviteMember = ({ id }) => {
   };
 
   return (
-    <div style={{height:"100%",display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center",gap:"5vh"}}>
-      <Autocomplete      
+    <div
+      style={{
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        gap: "5vh",
+      }}
+    >
+      <Autocomplete
         onChange={handlechange}
-        sx={{ width: 300,
-          '& .MuiAutocomplete-inputRoot': {
-            color: '#66FCF1', // Change input text color
-            backgroundColor:"#0b0c10",
-            borderRadius:"13px",
+        sx={{
+          width: 300,
+          "& .MuiAutocomplete-inputRoot": {
+            color: "#66FCF1", // Change input text color
+            backgroundColor: "#0b0c10",
+            borderRadius: "13px",
           },
-          
-          '& .MuiAutocomplete-popupIndicator': {
-            color: '#66FCF1', // Change dropdown indicator color
+
+          "& .MuiAutocomplete-popupIndicator": {
+            color: "#66FCF1", // Change dropdown indicator color
           },
-          '& .MuiAutocomplete-clearIndicator': {
-            color: '#66FCF1', // Change clear button color
-          }
+          "& .MuiAutocomplete-clearIndicator": {
+            color: "#66FCF1", // Change clear button color
+          },
         }}
         options={users}
         getOptionLabel={(option) => option.email}
@@ -98,23 +108,22 @@ const InviteMember = ({ id }) => {
         )}
         renderInput={(params) => (
           <TextField
-            style={{color:"red"}}
+            style={{ color: "red" }}
             variant="outlined"
             color="primary"
             {...params}
             InputLabelProps={{
-              style: { color: '#66FCF1' } // Change the color to red
+              style: { color: "#66FCF1" }, // Change the color to red
             }}
             label=" choose Member Email "
             inputProps={{
               ...params.inputProps,
               autoComplete: "new-password", // disable autocomplete and autofill
             }}
-          >
-          </TextField>
+          ></TextField>
         )}
       />
-      <FormControl sx={{width:300,borderRadius:"13px"}} >
+      <FormControl sx={{ width: 300, borderRadius: "13px" }}>
         <InputLabel>Role</InputLabel>
         <TextField
           select
@@ -123,9 +132,9 @@ const InviteMember = ({ id }) => {
           variant="outlined"
           onChange={handleChange}
           InputLabelProps={{
-            style: { color: '#66FCF1' } // Change the color to red
+            style: { color: "#66FCF1" }, // Change the color to red
           }}
-          sx={{color:"#66FCF1",backgroundColor: "#0b0c10"}}
+          sx={{ color: "#66FCF1", backgroundColor: "#0b0c10" }}
         >
           <MenuItem value={"Leader"}>Leader</MenuItem>
           <MenuItem value={"Member"}>Member</MenuItem>
@@ -134,7 +143,13 @@ const InviteMember = ({ id }) => {
       <Button
         onClick={handleSubmit}
         variant="contained"
-        sx={{ mt: 3, mb: 2, width: "10%",color:"#0b0c10", backgroundColor: "#66FCF1" }}
+        sx={{
+          mt: 3,
+          mb: 2,
+          width: "10%",
+          color: "#0b0c10",
+          backgroundColor: "#66FCF1",
+        }}
       >
         Send
       </Button>
