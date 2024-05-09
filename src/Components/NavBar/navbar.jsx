@@ -23,6 +23,7 @@ import MailIcon from "@mui/icons-material/Mail";
 import { useSelector } from "react-redux";
 import {
   handleDisagreeUserInvitations,
+  setCurrentUser,
   updateUserProjects,
 } from "../../redux/store/slices/currentUserSlice";
 import { useDispatch } from "react-redux";
@@ -62,7 +63,6 @@ const Navbar = () => {
     setAnchorEl(null);
   };
   // const currentUser = useSelector((state) => state.currentUser.currentUser);
-  
 
   let userId = localStorage.getItem("id");
   const [invitations, setInvitations] = React.useState([]);

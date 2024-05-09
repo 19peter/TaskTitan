@@ -8,7 +8,7 @@ import {
   Select,
   TextField,
 } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import {
@@ -19,6 +19,7 @@ import {
 import { getProjectById } from "../../redux/store/slices/projectSlice";
 
 const InviteMember = ({ id }) => {
+  const pointer = useRef();
   console.log(id);
   const projectId = "1";
   const projectName = "Event Reservation";
@@ -73,6 +74,7 @@ const InviteMember = ({ id }) => {
       }}
     >
       <Autocomplete
+        // value={emailUser}
         onChange={handlechange}
         value={selectedUser} 
         sx={{

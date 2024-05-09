@@ -10,14 +10,19 @@
           "role": "Member",
           "projectId": "36eaf23c-fbe3-48fe-905b-fc96fc4ab3fc",
           "assignedTasks": []
+        },
+        {
+          "role": "Member",
+          "projectId": "baeff6f3-97aa-4078-8301-1732cfa9db81",
+          "assignedTasks": []
         }
       ],
       "invitations": [
         {
-          "projectId": "36eaf23c-fbe3-48fe-905b-fc96fc4ab3fc",
-          "projectName": "project1",
-          "ProjectManger": "hassan",
-          "role": "Member"
+          "projectId": "72535a54-f217-498d-9d8f-f12769d7daea",
+          "projectName": "Examination System",
+          "ProjectManger": "Nouran",
+          "role": "Leader"
         }
       ]
     },
@@ -29,10 +34,10 @@
       "userProjects": [],
       "invitations": [
         {
-          "projectId": "36eaf23c-fbe3-48fe-905b-fc96fc4ab3fc",
-          "projectName": "project1",
-          "ProjectManger": "hassan",
-          "role": "Leader"
+          "projectId": "72535a54-f217-498d-9d8f-f12769d7daea",
+          "projectName": "Examination System",
+          "ProjectManger": "Nouran",
+          "role": "Member"
         }
       ]
     },
@@ -41,18 +46,57 @@
       "name": "Nouran Sayed Nasr",
       "email": "nouransayednasr@gmail.com",
       "picture": "https://lh3.googleusercontent.com/a/ACg8ocLmxDNwuea-g_8rCTSJAT7atXinkmEmxUYiT1A43dXwAyG0fQ=s96-c",
+      "userProjects": [
+        {
+          "role": "Member",
+          "projectId": "36eaf23c-fbe3-48fe-905b-fc96fc4ab3fc",
+          "assignedTasks": []
+        }
+      ],
+      "invitations": [
+        {
+          "projectId": "72535a54-f217-498d-9d8f-f12769d7daea",
+          "projectName": "Examination System",
+          "ProjectManger": "Nouran",
+          "role": "Member"
+        }
+      ]
+    },
+    {
+      "id": "105176122730447230763",
+      "name": "Hassan Walid",
+      "email": "hassanwalid401@gmail.com",
+      "picture": "https://lh3.googleusercontent.com/a/ACg8ocJWUxi8c17VMpO8cfr4Hcj7sHMxDQNBuizb3obnKP-wG8Gy2Q=s96-c",
+      "userProjects": [],
+      "invitations": []
+    },
+    {
+      "id": "105176122730447230762",
+      "name": "Ahmed Badr",
+      "email": "AhmedBadr372@gmail.com",
+      "picture": "https://lh3.googleusercontent.com/a/ACg8ocJWUxi8c17VMpO8cfr4Hcj7sHMxDQNBuizb3obnKP-wG8Gy2Q=s96-c",
+      "userProjects": [],
+      "invitations": []
+    },
+    {
+      "id": "105176122730447230764",
+      "name": "Yasmeen Mohy Elden",
+      "email": "YasmeenMohyElden12@gmail.com",
+      "picture": "https://lh3.googleusercontent.com/a/ACg8ocJWUxi8c17VMpO8cfr4Hcj7sHMxDQNBuizb3obnKP-wG8Gy2Q=s96-c",
+      "userProjects": [],
+      "invitations": []
+    },
+    {
+      "id": "105176122730447230765",
+      "name": "Peter",
+      "email": "peter11@gmail.com",
+      "picture": "https://lh3.googleusercontent.com/a/ACg8ocJWUxi8c17VMpO8cfr4Hcj7sHMxDQNBuizb3obnKP-wG8Gy2Q=s96-c",
       "userProjects": [],
       "invitations": [
         {
-          "projectId": "36eaf23c-fbe3-48fe-905b-fc96fc4ab3fc",
-          "projectName": "project1",
-          "ProjectManger": "hassan",
-          "role": "Member"
-        },
-        {
-          "projectId": "36eaf23c-fbe3-48fe-905b-fc96fc4ab3fc",
-          "projectName": "project1",
-          "ProjectManger": "hassan",
+          "projectId": "72535a54-f217-498d-9d8f-f12769d7daea",
+          "projectName": "Examination System",
+          "ProjectManger": "Nouran",
           "role": "Member"
         }
       ]
@@ -163,7 +207,7 @@
       "tasks": [
         {
           "title": "task1",
-          "status": "Backlog",
+          "status": "Todo",
           "level": "intermediate",
           "priority": "medium",
           "assignedTo": {
@@ -173,12 +217,94 @@
           "id": "1",
           "startDate": "2024-04-29",
           "endDate": "2024-05-02"
+        },
+        {
+          "title": "task2",
+          "status": "In Progress",
+          "level": "intermediate",
+          "priority": "high",
+          "assignedTo": {
+            "email": "mokhtarmostafa1526@gmail.com"
+          },
+          "details": "task2 Details",
+          "id": "2",
+          "startDate": "2024-05-12",
+          "endDate": "2024-05-16"
+        },
+        {
+          "title": "Task3",
+          "status": "Todo",
+          "level": "intermediate",
+          "priority": "medium",
+          "assignedTo": {
+            "email": "nouransayednasr@gmail.com"
+          },
+          "details": "task3 Details",
+          "id": "3",
+          "startDate": "2024-05-09",
+          "endDate": "2024-05-12"
+        },
+        {
+          "title": "Task4",
+          "status": "Done",
+          "level": "difficult",
+          "priority": "high",
+          "assignedTo": {
+            "email": "nouransayednasr@gmail.com"
+          },
+          "details": "Task4 Dt",
+          "id": "4",
+          "startDate": "2024-05-22",
+          "endDate": "2024-05-25"
+        },
+        {
+          "title": "task6",
+          "status": "Done",
+          "level": "intermediate",
+          "priority": "medium",
+          "assignedTo": {
+            "email": "mokhtarmostafa1526@gmail.com"
+          },
+          "details": "task6 Details",
+          "id": "5",
+          "startDate": "2024-05-26",
+          "endDate": "2024-05-30"
+        },
+        {
+          "title": "Task 5",
+          "status": "In Progress",
+          "level": "intermediate",
+          "priority": "medium",
+          "assignedTo": {
+            "email": "nouransayednasr@gmail.com"
+          },
+          "details": "Task 5 DT",
+          "id": "6",
+          "startDate": "2024-06-02",
+          "endDate": "2024-06-06"
+        },
+        {
+          "title": "Task10",
+          "status": "Backlog",
+          "level": "difficult",
+          "priority": "low",
+          "assignedTo": {
+            "email": "mokhtarmostafa1526@gmail.com"
+          },
+          "details": "task10 Details",
+          "id": "7",
+          "startDate": "2024-06-06",
+          "endDate": "2024-06-09"
         }
       ],
       "members": [
         {
           "email": "mokhtarmostafa1526@gmail.com",
           "id": "114450078144869306460"
+        },
+        {
+          "email": "nouransayednasr@gmail.com",
+          "id": "113705067715860298092"
         }
       ],
       "title": "project1",
@@ -186,6 +312,41 @@
       "endDate": "2024-05-25",
       "name": "hassan",
       "backgroundColor": "#45a29e"
+    },
+    {
+      "id": "baeff6f3-97aa-4078-8301-1732cfa9db81",
+      "manager": {
+        "email": "hassan.walid77@gmail.com",
+        "id": "112730736456781467110",
+        "name": "hassan walid"
+      },
+      "tasks": [],
+      "members": [
+        {
+          "email": "mokhtarmostafa1526@gmail.com",
+          "id": "114450078144869306460"
+        }
+      ],
+      "title": "Project2",
+      "startDate": "2024-05-09",
+      "endDate": "2024-05-23",
+      "name": "hassan walid",
+      "backgroundColor": "#c2185b"
+    },
+    {
+      "id": "72535a54-f217-498d-9d8f-f12769d7daea",
+      "manager": {
+        "email": "nouransayednasr@gmail.com",
+        "id": "113705067715860298092",
+        "name": "Nouran"
+      },
+      "tasks": [],
+      "members": [],
+      "title": "Examination System",
+      "startDate": "2024-05-09",
+      "endDate": "2024-05-17",
+      "name": "Nouran",
+      "backgroundColor": "#880e4f"
     }
   ]
 }
