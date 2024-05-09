@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 let newUser = {};
+
 export const getUserAction = createAsyncThunk("users/getUser", async (user) => {
   newUser = {
     id: user.id,
@@ -8,8 +9,9 @@ export const getUserAction = createAsyncThunk("users/getUser", async (user) => {
     email: user.email,
     picture: user.picture,
   };
-  console.log(user.id);
+  // console.log(user.id);
   const res = await axios.get("http://localhost:8000/users/" + user.id);
+  // console.log(res.data);
   return res.data;
 });
 
@@ -33,7 +35,7 @@ const isUserInDBSlice = createSlice({
       state.user = action.payload;
     });
     builder.addCase(getUserAction.rejected, (state, action) => {
-      newUser = { ...newUser, userProjects: [] };
+      newUser = { ...newUser, userProjects: [], invitations: [] };
       axios.post("http://localhost:8000/users/", newUser).then(() => {
         console.log("added successfully");
       });

@@ -21,6 +21,7 @@ const Home = () => {
   const dispatch = useDispatch();
   const allProjects = useSelector((state) => state.projects.projects);
   const cur_user = useSelector((state) => state.currentUser.currentUser);
+  console.log(cur_user);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -76,38 +77,70 @@ const Home = () => {
   };
 
   return (
-    <div className="global-background" style={{ display: "flex", flexDirection: "column" }}>
+    <div
+      className="global-background"
+      style={{ display: "flex", flexDirection: "column" }}
+    >
       <div>
-        <h2 style={{ marginTop: "3%", marginLeft: "2%", fontFamily: "Roboto, sans-serif",color:"white" }}>Projects Analysis</h2>
+        <h2
+          style={{
+            marginTop: "3%",
+            marginLeft: "2%",
+            fontFamily: "Roboto, sans-serif",
+            color: "white",
+          }}
+        >
+          Projects Analysis
+        </h2>
 
         <Dashboard></Dashboard>
       </div>
       <div>
         {/* <div style={{height:"35%"}}> <Dashboard></Dashboard> </div>             */}
-        <h2 style={{ textAlign: "left", marginLeft: "2%",fontFamily: "Roboto, sans-serif",color:"white"  }}>Owned Projects</h2>
-        <div style={{ display: "flex", flexWrap: "wrap",marginTop:"1%" }}>
+        <h2
+          style={{
+            textAlign: "left",
+            marginLeft: "2%",
+            fontFamily: "Roboto, sans-serif",
+            color: "white",
+          }}
+        >
+          Owned Projects
+        </h2>
+        <div style={{ display: "flex", flexWrap: "wrap", marginTop: "1%" }}>
           {ownedProjects.map((project) => (
             <ActionAreaCard
               projectTitle={project.title}
               key={project.id}
               id={project.id}
-              backgroundColor ={project.backgroundColor}
+              backgroundColor={project.backgroundColor}
             />
           ))}
         </div>
-        <h2 style={{ textAlign: "left", marginLeft: "2%", fontFamily: "Roboto, sans-serif",color:"white"  }}>Guest Projects</h2>
-        <div style={{ display: "flex", flexWrap: "wrap",marginTop:"1%" }}>
+        <h2
+          style={{
+            textAlign: "left",
+            marginLeft: "2%",
+            fontFamily: "Roboto, sans-serif",
+            color: "white",
+          }}
+        >
+          Guest Projects
+        </h2>
+        <div style={{ display: "flex", flexWrap: "wrap", marginTop: "1%" }}>
           {guestProjects.map((project) => (
             <ActionAreaCard
               projectTitle={project.title}
               key={project.id}
               id={project.id}
-              backgroundColor ={project.backgroundColor}
+              backgroundColor={project.backgroundColor}
             />
           ))}
         </div>
 
-         <button onClick={handleCreateNewProject} className="create-button">Create New Project</button> 
+        <button onClick={handleCreateNewProject} className="create-button">
+          Create New Project
+        </button>
 
         {/* <Button
           onClick={handleCreateNewProject}
@@ -125,22 +158,22 @@ const Home = () => {
           Create New Project
         </Button> */}
 
-          <Dialog open={open} onClose={handleClose}>
-            <DialogTitle>Create New Project</DialogTitle>
-            <DialogContent>
-              <CreateProjectForm />
-            </DialogContent>
-            <DialogActions>
-              <Button onClick={handleClose}>Close</Button>
-            </DialogActions>
-          </Dialog>
-          <Backdrop
-            open={open}
-            sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
-          />
-        </div>
+        <Dialog open={open} onClose={handleClose}>
+          <DialogTitle>Create New Project</DialogTitle>
+          <DialogContent>
+            <CreateProjectForm />
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleClose}>Close</Button>
+          </DialogActions>
+        </Dialog>
+        <Backdrop
+          open={open}
+          sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        />
       </div>
-    );
+    </div>
+  );
 };
 
 export default Home;
