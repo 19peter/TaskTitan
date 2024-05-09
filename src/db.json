@@ -180,17 +180,6 @@
           "endDate": "2024-05-03"
         },
         {
-          "title": "tsssst",
-          "status": "In Progress",
-          "level": "easy",
-          "priority": "medium",
-          "assignedTo": {
-            "email": "peter@gmail.com"
-          },
-          "details": "asd",
-          "id": "6"
-        },
-        {
           "title": "tsssstMokh",
           "status": "Backlog",
           "level": "easy",

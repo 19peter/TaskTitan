@@ -98,9 +98,9 @@ const Backlog = ({ id }) => {
     // console.log(taskToBeUpdated);
   };
 
-  const handleDeleteButton = (id) => {
+  const handleDeleteButton = (taskid) => {
     if (isAuthourized) {
-      dispatch(DelteTaskAction({ projectId: id, deletedTaskId: id }));
+      dispatch(DelteTaskAction({ projectId: id, deletedTaskId: taskid }));
     }
   };
 

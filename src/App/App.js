@@ -35,6 +35,7 @@ function App() {
 
   const router = createBrowserRouter([
     { path: "/", element: <Intro /> },
+    { path: "/TaskTitan", element: <Intro /> },
     { path: "/signin", element: <SignIn /> },
     {
       element: <Navbar />,
