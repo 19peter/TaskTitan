@@ -59,12 +59,17 @@ const Backlog = ({ id }) => {
   // let isAuthourized = false;
 
   const [isAuthourized, setIsAuthourized ] = useState(true);
+  const [isManager, setIsManager] = useState(false);
 
   useEffect(() => {
     userObj?.userProjects?.forEach((m) => {
       if (m.projectId === id) {
         if (m.role === "member") {
           setIsAuthourized(false);
+        }
+
+        if (m.role.toLowerCase() === "manager") {
+          setIsManager(true);
         }
       }
     });
@@ -98,9 +103,9 @@ const Backlog = ({ id }) => {
     // console.log(taskToBeUpdated);
   };
 
-  const handleDeleteButton = (id) => {
-    if (isAuthourized) {
-      dispatch(DelteTaskAction({ projectId: id, deletedTaskId: id }));
+  const handleDeleteButton = (taskid) => {
+    if (isManager) {
+      dispatch(DelteTaskAction({ projectId: id, deletedTaskId: taskid }));
     }
   };
 

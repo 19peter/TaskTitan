@@ -40,6 +40,7 @@ function App() {
   console.log(currentUser);
   const router = createBrowserRouter([
     { path: "/", element: <Intro /> },
+    { path: "/TaskTitan", element: <Intro /> },
     { path: "/signin", element: <SignIn /> },
 
     {
