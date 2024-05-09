@@ -8,7 +8,7 @@ import {
   Select,
   TextField,
 } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import {
@@ -19,6 +19,7 @@ import {
 import { getProjectById } from "../../redux/store/slices/projectSlice";
 
 const InviteMember = ({ id }) => {
+  const pointer = useRef();
   console.log(id);
   const projectId = "1";
   const projectName = "Event Reservation";
@@ -26,6 +27,7 @@ const InviteMember = ({ id }) => {
 
   const dispatch = useDispatch();
   // let invitedUser = {};
+  const [emailUser, setEmailUser] = useState("");
   const [invitedUser, setInvitedUser] = useState({});
 
   const users = useSelector((state) => state.users.users);
@@ -42,9 +44,11 @@ const InviteMember = ({ id }) => {
 
   const handlechange = (e, newValue) => {
     // setUserEmail(e.target.value);
+    // console.log(e.target.value);
     console.log(newValue);
     // invitedUser = { ...newValue };
     setInvitedUser({ ...newValue });
+    // setEmailUser("newValue");
     console.log(invitedUser);
   };
 
@@ -63,8 +67,8 @@ const InviteMember = ({ id }) => {
         role: role,
       },
     ];
-
-    dispatch(setUserNotification(invitedUser));
+    console.log(pointer);
+    // dispatch(setUserNotification(invitedUser));
   };
 
   return (
@@ -79,6 +83,7 @@ const InviteMember = ({ id }) => {
       }}
     >
       <Autocomplete
+        // value={emailUser}
         onChange={handlechange}
         sx={{
           width: 300,
@@ -106,22 +111,26 @@ const InviteMember = ({ id }) => {
             {option.email}
           </Box>
         )}
-        renderInput={(params) => (
-          <TextField
-            style={{ color: "red" }}
-            variant="outlined"
-            color="primary"
-            {...params}
-            InputLabelProps={{
-              style: { color: "#66FCF1" }, // Change the color to red
-            }}
-            label=" choose Member Email "
-            inputProps={{
-              ...params.inputProps,
-              autoComplete: "new-password", // disable autocomplete and autofill
-            }}
-          ></TextField>
-        )}
+        renderInput={(params) => {
+          // console.log(params.inputProps.ref.current.value);
+          return (
+            <TextField
+              ref={pointer}
+              style={{ color: "red" }}
+              variant="outlined"
+              color="primary"
+              {...params}
+              InputLabelProps={{
+                style: { color: "#66FCF1" }, // Change the color to red
+              }}
+              label=" choose Member Email "
+              inputProps={{
+                ...params.inputProps,
+                autoComplete: "new-password", // disable autocomplete and autofill
+              }}
+            ></TextField>
+          );
+        }}
       />
       <FormControl sx={{ width: 300, borderRadius: "13px" }}>
         <InputLabel>Role</InputLabel>
