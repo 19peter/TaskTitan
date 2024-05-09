@@ -38,7 +38,9 @@ const Home = () => {
       }
     };
     fetchData();
+    console.log("ttttttttttttttttttttttttttt");
     if (!cur_user) {
+      console.log("ttttttttttttttttttttttttttt");
       navigate("/");
     }
   }, [dispatch]);

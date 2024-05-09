@@ -84,16 +84,16 @@ export default function SignIn({ closeSignin }) {
         })
         .catch((err) => console.log(err));
     } else if (UserSignin) {
-      console.log(UserSignin);
       localStorage.setItem("id", UserSignin.id);
       localStorage.setItem("name", UserSignin.name);
       localStorage.setItem("picture", UserSignin.picture);
       localStorage.setItem("email", UserSignin.email);
 
       dispatch(setCurrentUser(UserSignin));
+
       navigate("/home");
     }
-  }, [user, UserSignin, dispatch]);
+  }, [UserSignin]);
 
   const [invalidEmail, setInvalidEmail] = useState(false);
   const handleSubmit = (event) => {

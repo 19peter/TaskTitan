@@ -38,6 +38,18 @@
           "projectName": "Examination System",
           "ProjectManger": "Nouran",
           "role": "Member"
+        },
+        {
+          "projectId": "b29a18a5-09c2-4bdc-8447-97f63a5b2835",
+          "projectName": "Examination system",
+          "ProjectManger": "Mokhtar",
+          "role": "Leader"
+        },
+        {
+          "projectId": "dce31737-9721-422a-9b21-2d64452c5521",
+          "projectName": "Examination system2",
+          "ProjectManger": "Mokhtar",
+          "role": "Leader"
         }
       ]
     },
@@ -59,6 +71,12 @@
           "projectName": "Examination System",
           "ProjectManger": "Nouran",
           "role": "Member"
+        },
+        {
+          "projectId": "1",
+          "projectName": "Event Reservation",
+          "ProjectManger": "Yasmeen Mohy Elden",
+          "role": "Leader"
         }
       ]
     },
@@ -68,7 +86,26 @@
       "email": "hassanwalid401@gmail.com",
       "picture": "https://lh3.googleusercontent.com/a/ACg8ocJWUxi8c17VMpO8cfr4Hcj7sHMxDQNBuizb3obnKP-wG8Gy2Q=s96-c",
       "userProjects": [],
-      "invitations": []
+      "invitations": [
+        {
+          "projectId": "b29a18a5-09c2-4bdc-8447-97f63a5b2835",
+          "projectName": "Examination system",
+          "ProjectManger": "Mokhtar",
+          "role": "Member"
+        },
+        {
+          "projectId": "b29a18a5-09c2-4bdc-8447-97f63a5b2835",
+          "projectName": "Examination system",
+          "ProjectManger": "Mokhtar",
+          "role": "Member"
+        },
+        {
+          "projectId": "dce31737-9721-422a-9b21-2d64452c5521",
+          "projectName": "Examination system2",
+          "ProjectManger": "Mokhtar",
+          "role": "Member"
+        }
+      ]
     },
     {
       "id": "105176122730447230762",
@@ -84,7 +121,20 @@
       "email": "YasmeenMohyElden12@gmail.com",
       "picture": "https://lh3.googleusercontent.com/a/ACg8ocJWUxi8c17VMpO8cfr4Hcj7sHMxDQNBuizb3obnKP-wG8Gy2Q=s96-c",
       "userProjects": [],
-      "invitations": []
+      "invitations": [
+        {
+          "projectId": "b29a18a5-09c2-4bdc-8447-97f63a5b2835",
+          "projectName": "Examination system",
+          "ProjectManger": "Mokhtar",
+          "role": "Member"
+        },
+        {
+          "projectId": "dce31737-9721-422a-9b21-2d64452c5521",
+          "projectName": "Examination system2",
+          "ProjectManger": "Mokhtar",
+          "role": "Member"
+        }
+      ]
     },
     {
       "id": "105176122730447230765",
@@ -100,6 +150,16 @@
           "role": "Member"
         }
       ]
+    },
+    {
+      "id": "a01a",
+      "userProjects": [],
+      "invitations": []
+    },
+    {
+      "id": "85ef",
+      "userProjects": [],
+      "invitations": []
     }
   ],
   "projects": [
@@ -176,8 +236,8 @@
           },
           "details": "Add Register Page",
           "id": "4",
-          "startDate": "2024-05-13",
-          "endDate": "2024-05-18"
+          "startDate": "2024-05-05",
+          "endDate": "2024-05-09"
         },
         {
           "title": "Login",
@@ -192,6 +252,17 @@
           "id": "5",
           "startDate": "2024-04-30",
           "endDate": "2024-05-03"
+        },
+        {
+          "title": "asd",
+          "status": "Todo",
+          "level": "intermediate",
+          "priority": "medium",
+          "assignedTo": {
+            "email": "mohyeldenyasmeen@gmail.com"
+          },
+          "details": "asd",
+          "id": "5"
         }
       ],
       "startDate": "date",
@@ -347,6 +418,36 @@
       "endDate": "2024-05-17",
       "name": "Nouran",
       "backgroundColor": "#880e4f"
+    },
+    {
+      "id": "b29a18a5-09c2-4bdc-8447-97f63a5b2835",
+      "manager": {
+        "email": "mokhtarmostafa1526@gmail.com",
+        "id": "114450078144869306460",
+        "name": "Mokhtar"
+      },
+      "tasks": [],
+      "members": [],
+      "title": "Examination system",
+      "startDate": "2024-05-14",
+      "endDate": "2024-05-24",
+      "name": "Mokhtar",
+      "backgroundColor": "#c2185b"
+    },
+    {
+      "id": "dce31737-9721-422a-9b21-2d64452c5521",
+      "manager": {
+        "email": "mokhtarmostafa1526@gmail.com",
+        "id": "114450078144869306460",
+        "name": "Mokhtar"
+      },
+      "tasks": [],
+      "members": [],
+      "title": "Examination system2",
+      "startDate": "2024-05-17",
+      "endDate": "2024-05-31",
+      "name": "Mokhtar",
+      "backgroundColor": "#9575cd"
     }
   ]
 }

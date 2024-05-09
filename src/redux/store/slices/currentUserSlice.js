@@ -58,6 +58,7 @@ const currentUserSlice = createSlice({
   },
   reducers: {
     setCurrentUser: (state, action) => {
+      console.log("Cuserrr");
       state.currentUser = action.payload;
     },
   },

@@ -30,6 +30,11 @@ export const getUserAction2 = createAsyncThunk(
 const isUserInDBSlice = createSlice({
   name: "user",
   initialState: { user: null },
+  reducers:{
+    ResetUserState: (state, action)=>{
+      state.user = null;
+    }
+  },
   extraReducers: (builder) => {
     builder.addCase(getUserAction.fulfilled, (state, action) => {
       state.user = action.payload;
@@ -50,7 +55,9 @@ const isUserInDBSlice = createSlice({
       console.log("error");
       state.user = null;
     });
+
   },
 });
 
 export default isUserInDBSlice.reducer;
+export const {ResetUserState} = isUserInDBSlice.actions

@@ -28,6 +28,7 @@ import {
 } from "../../redux/store/slices/currentUserSlice";
 import { useDispatch } from "react-redux";
 import axios from "axios";
+import { ResetUserState } from "../../redux/store/slices/isUserInDBSlice";
 
 const pages = ["Home"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
@@ -286,7 +287,10 @@ const Navbar = () => {
 
                 <LogoutIcon
                   onClick={() => {
+                    console.log(localStorage);
                     localStorage.clear();
+                    console.log(localStorage);
+                    dispatch(ResetUserState())
                     navigate("/");
                   }}
                 ></LogoutIcon>
