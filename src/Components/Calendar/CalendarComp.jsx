@@ -15,14 +15,22 @@ import { getAllUsersAction } from "../../redux/store/slices/usersSlice";
 import { useSelector } from "react-redux";
 import { getEventsWithDates } from "../../redux/store/slices/eventsWithDates";
 import FullScreenDialog from "./DetailsDialog";
+import LightModeIcon from '@mui/icons-material/LightMode';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
 
-const CalendarComp = ({id}) => {
+const CalendarComp = ({ id }) => {
 
   const [allEvents, setAllEvents] = useState([]);
   const [info, setInfo] = useState(null);
   const [isDialogOpened, setIsDialogOpened] = useState(false);
   const [fullScreenDialogFlag, setFullScreenDialogFlag] = useState(false);
   const [taskDetails, setTaskDetails] = useState('');
+  const [lightMode, setLightMode] = useState(true);
+  const [modeStyle, setModeStyle] = useState({
+    color: "white",
+    padding: "10px",
+    borderRadius: "20px"
+  })
   const dispatch = useDispatch();
 
   const tsks = useSelector((state) => state.eventsWithDates.eventsWithDates)
@@ -31,7 +39,7 @@ const CalendarComp = ({id}) => {
   const currentUser = useSelector((state) => state.currentUser.currentUser);
   const allUsers = useSelector((state) => state.users.users);
   const userObj = allUsers?.find((u) => u.id === currentUser.id);
-  const [isAuthourized, setIsAuthourized ] = useState(true);
+  const [isAuthourized, setIsAuthourized] = useState(true);
 
   useEffect(() => {
     userObj?.userProjects?.forEach((m) => {
@@ -57,7 +65,7 @@ const CalendarComp = ({id}) => {
         start: t.startDate,
         end: t.endDate,
         title: t.title,
-        color: "#45a29e"
+        color: "#45a29e",
       }
     })))
   }, [tsks])
@@ -93,10 +101,37 @@ const CalendarComp = ({id}) => {
     );
   };
 
+  let handleMode = () => {
+    if (lightMode) {
+      setModeStyle(
+        {
+          backgroundColor: "white",
+          padding: "10px",
+          borderRadius: "20px"
+        }
+      )
+    } else {
+      setModeStyle({
+        
+          color: "white",
+          padding: "10px",
+          borderRadius: "20px"
+        
+      })
+    }
+    setLightMode((old) => !old);
+  }
+
   return (
-    <div>
+    <div style={ modeStyle}>
+
+    <div style={{ width: "100%", display: 'flex', alignItems: "center", justifyContent: "center" , cursor: "pointer"}}>
+    {lightMode ? <DarkModeIcon onClick={handleMode}></DarkModeIcon> : <LightModeIcon onClick={handleMode}></LightModeIcon>}
+
+    </div>
+
       {isDialogOpened === true && (
-        <FormDialog 
+        <FormDialog
           id={id}
           info={info}
           setAllEvents={setAllEvents}
@@ -104,7 +139,9 @@ const CalendarComp = ({id}) => {
           UpdateTaskDate={UpdateTaskDate}
         ></FormDialog>
       )}
+
       <FullCalendar
+
         className="Calendar"
         plugins={[dayGridPlugin, timeGridPlugin, interationPlugin]}
         initialView={"dayGridMonth"}
@@ -112,7 +149,7 @@ const CalendarComp = ({id}) => {
           start: "today prev,next",
           center: "title",
           end: "dayGridMonth,timeGridWeek,timeGridDay",
-          
+
         }}
         events={allEvents}
         // height={"50vh"}
@@ -125,7 +162,7 @@ const CalendarComp = ({id}) => {
       />
 
       {fullScreenDialogFlag &&
-        <FullScreenDialog allTasks={AllTasks} task = {taskDetails} setFullScreenDialogFlag = {setFullScreenDialogFlag}></FullScreenDialog>
+        <FullScreenDialog allTasks={AllTasks} task={taskDetails} setFullScreenDialogFlag={setFullScreenDialogFlag}></FullScreenDialog>
       }
     </div>
   );

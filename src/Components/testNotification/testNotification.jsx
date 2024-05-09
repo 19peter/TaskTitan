@@ -8,7 +8,10 @@ import { useDispatch } from "react-redux";
 import { getUserInvitation } from "../../redux/store/slices/usersSlice";
 import { useSelector } from "react-redux";
 import { getProjectById } from "../../redux/store/slices/projectSlice";
-import { updateUserProjects } from "../../redux/store/slices/currentUserSlice";
+import {
+  handleDisagreeUserInvitations,
+  updateUserProjects,
+} from "../../redux/store/slices/currentUserSlice";
 import { AccountCircle } from "@mui/icons-material";
 import {
   Button,
@@ -24,16 +27,7 @@ import InviteMember from "./../inviteMember/inviteMember";
 
 export default function TestNotification() {
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const [open, setOpen] = React.useState(false);
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleCloseDialog = () => {
-    setOpen(false);
-    handleCloseMenu();
-  };
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -41,23 +35,18 @@ export default function TestNotification() {
   const handleCloseMenu = () => {
     setAnchorEl(null);
   };
-  let id = "114450078144869306460";
+
   const currentUser = useSelector((state) => state.currentUser.currentUser);
-  // const invitations = useSelector((state) => state.users.userInvitations);
 
   if (currentUser) console.log(currentUser.invitations);
-  // console.log(invitations);
-  const dispatch = useDispatch();
 
-  React.useEffect(() => {
-    dispatch(getUserInvitation(id));
-  }, [id, dispatch]);
+  const dispatch = useDispatch();
 
   const handleClickAccept = ({ projectId, role }) => {
     console.log(projectId);
     console.log(role);
     let obj = {
-      userId: id,
+      userId: currentUser.id,
       project: { role: role, projectId: projectId, assignedTasks: [] },
     };
     console.log(obj);
@@ -65,11 +54,16 @@ export default function TestNotification() {
     // dispatch(getUserInvitation(id));
     //todo
   };
-  const handleAgreeClk = () => {
-    console.log("agree");
-  };
-  const handleDisAgreeClk = () => {
+
+  const handleDisAgreeClk = ({ projectId }) => {
     console.log("Disagree");
+    console.log(projectId);
+    let obj = {
+      userId: currentUser.id,
+      projectId: projectId,
+    };
+
+    dispatch(handleDisagreeUserInvitations(obj));
   };
   if (currentUser)
     return (
@@ -93,45 +87,38 @@ export default function TestNotification() {
           open={Boolean(anchorEl)}
           onClose={handleCloseMenu}
         >
-          {currentUser.invitations.map((invitation) => (
-            <>
-              <MenuItem>
-                {invitation.projectName}
-                <Button
-                  onClick={() => {
-                    console.log(invitation.role);
-                    handleClickAccept({
-                      projectId: invitation.projectId,
-                      role: invitation.role,
-                    });
-                  }}
-                >
-                  agree
-                </Button>
-
-                <Button onClick={handleDisAgreeClk}>Disagree</Button>
-              </MenuItem>
-
-              {/* <Dialog open={open} onClose={handleCloseDialog}>
-                <DialogTitle id="alert-dialog-title">
+          {currentUser.invitations.length > 0 ? (
+            currentUser.invitations.map((invitation) => (
+              <>
+                <MenuItem>
                   {invitation.projectName}
-                </DialogTitle>
-                <DialogContent>
-                  <DialogContentText id="alert-dialog-description">
-                    Let Google help apps determine location. This means sending
-                    anonymous location data to Google, even when no apps are
-                    running. {invitation.projectName}
-                  </DialogContentText>
-                </DialogContent>
-                <DialogActions>
-                  <Button onClick={handleCloseDialog}>Disagree</Button>
-                  <Button onClick={handleCloseDialog} autoFocus>
-                    Agree
+                  <Button
+                    onClick={() => {
+                      console.log(invitation.role);
+                      handleClickAccept({
+                        projectId: invitation.projectId,
+                        role: invitation.role,
+                      });
+                    }}
+                  >
+                    agree
                   </Button>
-                </DialogActions>
-              </Dialog> */}
-            </>
-          ))}
+
+                  <Button
+                    onClick={() => {
+                      handleDisAgreeClk({
+                        projectId: invitation.projectId,
+                      });
+                    }}
+                  >
+                    Disagree
+                  </Button>
+                </MenuItem>
+              </>
+            ))
+          ) : (
+            <MenuItem>No Notify</MenuItem>
+          )}
         </Menu>
       </div>
       // <List sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}>

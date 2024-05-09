@@ -35,6 +35,7 @@ function App() {
 
   const router = createBrowserRouter([
     { path: "/", element: <Intro /> },
+    { path: "/TaskTitan", element: <Intro /> },
     { path: "/signin", element: <SignIn /> },
     {
       element: <Navbar />,
@@ -56,13 +57,13 @@ function App() {
             />
           ),
         },
-        { path: "/backlog", element: <Backlog /> },
-        { path: "/calender", element: <CalendarComp /> },
-        { path: "/board", element: <Boardpage /> },
-        { path: "/dashboard", element: <Dashboard /> },
-        { path: "/members", element: <Members /> },
-        { path: "/backlogCalender", element: <BacklogCalender /> },
-        { path: "/InviteMember", element: <InviteMember></InviteMember> },
+        // { path: "/backlog", element: <Backlog /> },
+        // { path: "/calender", element: <CalendarComp /> },
+        // { path: "/board", element: <Boardpage /> },
+        // { path: "/dashboard", element: <Dashboard /> },
+        // { path: "/members", element: <Members /> },
+
+        // { path: "/InviteMember", element: <InviteMember></InviteMember> },
         { path: "/testNotify", element: <TestNotification></TestNotification> },
       ],
     },

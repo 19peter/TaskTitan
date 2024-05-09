@@ -8,19 +8,14 @@
       "userProjects": [
         {
           "projectId": "1",
-          "assignedTasks": [""],
+          "assignedTasks": [
+            ""
+          ],
           "role": "leader"
-        }
-      ],
-      "invitations": [
-        {
-          "role": "Member",
-          "projectId": "1",
-          "assignedTasks": []
         },
         {
           "role": "Member",
-          "projectId": "1",
+          "projectId": "45cc7168-5c17-4d1a-8d10-37610f8539d3",
           "assignedTasks": []
         }
       ],
@@ -67,7 +62,23 @@
       "name": "Nouran Sayed Nasr",
       "email": "nouransayednasr@gmail.com",
       "picture": "https://lh3.googleusercontent.com/a/ACg8ocLmxDNwuea-g_8rCTSJAT7atXinkmEmxUYiT1A43dXwAyG0fQ=s96-c",
-      "userProjects": [],
+      "userProjects": [
+        {
+          "role": "Member",
+          "projectId": "45cc7168-5c17-4d1a-8d10-37610f8539d3",
+          "assignedTasks": []
+        },
+        {
+          "role": "Leader",
+          "projectId": "45cc7168-5c17-4d1a-8d10-37610f8539d3",
+          "assignedTasks": []
+        },
+        {
+          "role": "Member",
+          "projectId": "c6784d47-0cc0-42f0-9f37-2f9c0bd5aa7c",
+          "assignedTasks": []
+        }
+      ],
       "invitations": []
     },
     {
@@ -77,31 +88,12 @@
       "picture": "https://lh3.googleusercontent.com/a/ACg8ocJWUxi8c17VMpO8cfr4Hcj7sHMxDQNBuizb3obnKP-wG8Gy2Q=s96-c",
       "userProjects": [],
       "invitations": []
-    },
-    {
-      "id": "4c3e",
-      "userProjects": []
-    },
-    {
-      "id": "2f32",
-      "userProjects": []
-    },
-    {
-      "id": "b807",
-      "userProjects": []
-    },
-    {
-      "id": "0f86",
-      "userProjects": []
-    },
-    {
-      "id": "07f2",
-      "userProjects": []
     }
   ],
   "projects": [
     {
       "id": "1",
+      "backgroundColor": "#45a29e",
       "manager": {
         "email": "mohyeldenyasmeen@gmail.com",
         "id": "109240513695962267084",
@@ -136,19 +128,6 @@
       "title": "Event Reservation",
       "tasks": [
         {
-          "title": "MUI",
-          "status": "Todo",
-          "level": "difficult",
-          "priority": "medium",
-          "assignedTo": {
-            "name": "Mokhtar Mostafa",
-            "email": "Badr@gmail.com"
-          },
-          "id": "1",
-          "startDate": "2024-05-27",
-          "endDate": "2024-05-30"
-        },
-        {
           "title": "Payement",
           "status": "In Progress",
           "level": "intermediate",
@@ -163,7 +142,7 @@
         },
         {
           "title": "Dashboard",
-          "status": "Backlog",
+          "status": "In Progress",
           "level": "intermediate",
           "priority": "high",
           "assignedTo": {
@@ -201,19 +180,8 @@
           "endDate": "2024-05-03"
         },
         {
-          "title": "tsssst",
-          "status": "In Progress",
-          "level": "easy",
-          "priority": "medium",
-          "assignedTo": {
-            "email": "peter@gmail.com"
-          },
-          "details": "asd",
-          "id": "6"
-        },
-        {
           "title": "tsssstMokh",
-          "status": "In Progress",
+          "status": "Backlog",
           "level": "easy",
           "priority": "medium",
           "assignedTo": {
@@ -227,124 +195,36 @@
       "endDate": "date"
     },
     {
-      "id": "ca4bf85b-867b-4b65-8ebd-92da68b37d02",
+      "id": "c6784d47-0cc0-42f0-9f37-2f9c0bd5aa7c",
       "manager": {
-        "email": "nouransayednasr@gmail.com",
-        "id": "113705067715860298092",
-        "name": "nouran"
+        "email": "hassan.walid77@gmail.com",
+        "id": "112730736456781467110",
+        "name": "hassan walid"
       },
-      "tasks": [],
-      "members": [
+      "tasks": [
         {
-          "email": "hassan.walid77@gmail.com",
-          "id": "112730736456781467110"
+          "title": "aay7aga",
+          "status": "Backlog",
+          "level": "easy",
+          "priority": "medium",
+          "assignedTo": {
+            "email": "nouransayednasr@gmail.com"
+          },
+          "details": "ay7agaay7aga",
+          "id": "100"
         }
       ],
-      "title": "Blood Donation",
-      "startDate": "2024-06-01",
-      "endDate": "2024-06-25"
-    },
-    {
-      "id": "c7ebe41d-7d7e-4e63-ba0b-477843593954",
-      "manager": {
-        "email": "nouransayednasr@gmail.com",
-        "name": "Nouran Sayed Nasr",
-        "id": "113705067715860298092"
-      },
-      "tasks": [],
-      "members": [],
-      "title": "Examination System",
-      "startDate": "2024-05-02",
-      "endDate": "2024-05-12"
-    },
-    {
-      "id": "1a29185f-c3a2-4ea8-98ce-baaa3a7039b2",
-      "manager": {
-        "email": "mohyeldenyasmeen@gmail.com",
-        "name": "Yasmeen Mohy Elden",
-        "id": "109240513695962267084"
-      },
-      "tasks": [],
       "members": [
         {
           "email": "nouransayednasr@gmail.com",
           "id": "113705067715860298092"
-        },
-        {
-          "email": "badr@gmail.com",
-          "id": "2"
         }
       ],
-      "title": "waslny",
-      "startDate": "2024-05-09",
-      "endDate": "2024-05-31"
-    },
-    {
-      "id": "fae6c423-85fe-42fd-b2f4-756831aa6988",
-      "manager": {
-        "email": "mokhtarmostafa1526@gmail.com",
-        "name": "mokhtar mostafa",
-        "id": "114450078144869306460"
-      },
-      "tasks": [
-        {
-          "title": "tassk",
-          "status": "Backlog",
-          "level": "intermediate",
-          "priority": "high",
-          "assignedTo": {
-            "email": "Badr@gmail.com"
-          },
-          "details": "asd",
-          "id": "7a62b08d-fbdf-4d0c-ac9d-a84d6ce3be37",
-          "startDate": "2024-04-29",
-          "endDate": "2024-05-03"
-        },
-        {
-          "title": "asd",
-          "status": "Backlog",
-          "level": "intermediate",
-          "priority": "medium",
-          "assignedTo": {
-            "email": "peter@gmail.com"
-          },
-          "details": "asd",
-          "id": "f53b7b98-8ea2-455e-aa78-4bee21377da4"
-        },
-        {
-          "title": "teeest",
-          "status": "Backlog",
-          "level": "intermediate",
-          "priority": "medium",
-          "assignedTo": {
-            "email": "asd@gmail.com"
-          },
-          "details": "asd",
-          "id": 3
-        }
-      ],
-      "members": [],
-      "title": "mokhtar test",
-      "startDate": "2024-05-03",
-      "endDate": "2024-05-27"
-    },
-    {
-      "id": "45cc7168-5c17-4d1a-8d10-37610f8539d3",
-      "manager": {
-        "email": "hassan.walid77@gmail.com",
-        "id": "112730736456781467110",
-        "name": "nouran"
-      },
-      "tasks": [],
-      "members": [
-        {
-          "email": "mokhtarmostafa1526@gmail.com",
-          "id": "114450078144869306460"
-        }
-      ],
-      "title": "sssss",
-      "startDate": "",
-      "endDate": ""
+      "title": "testhassan",
+      "startDate": "2024-05-02",
+      "endDate": "2024-05-15",
+      "name": "hassan walid",
+      "backgroundColor": "#45a29e"
     }
   ]
 }

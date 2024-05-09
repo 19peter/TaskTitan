@@ -15,7 +15,7 @@ import { useDispatch } from "react-redux";
 import { getBacklogAction } from "../../redux/store/slices/backlogSlice";
 import { useSelector } from "react-redux";
 
-const CalendarDialog = ({id, info, setIsDialogOpened, setAllEvents, UpdateTaskDate }) => {
+const CalendarDialog = ({id, info, setIsDialogOpened, setAllEvents, UpdateTaskDate}) => {
   const dispatch = useDispatch();
 
   const allTasks = useSelector((state) => state.backlog.backlog);
@@ -38,7 +38,7 @@ const CalendarDialog = ({id, info, setIsDialogOpened, setAllEvents, UpdateTaskDa
   };
 
   return (
-    <div>
+    <div >
       <React.Fragment>
         <Dialog
           open={open}

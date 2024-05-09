@@ -1,3 +1,4 @@
+import '../../App/App.css'
 import React, { useEffect, useState } from "react";
 import { styled } from "@mui/material/styles";
 import Table from "@mui/material/Table";
@@ -24,7 +25,7 @@ import { getAllUsersAction } from "../../redux/store/slices/usersSlice";
 //#region Styling
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.common.black,
+    backgroundColor: "#252938",
     color: theme.palette.common.white,
   },
   [`&.${tableCellClasses.body}`]: {
@@ -58,12 +59,17 @@ const Backlog = ({ id }) => {
   // let isAuthourized = false;
 
   const [isAuthourized, setIsAuthourized ] = useState(true);
+  const [isManager, setIsManager] = useState(false);
 
   useEffect(() => {
     userObj?.userProjects?.forEach((m) => {
       if (m.projectId === id) {
         if (m.role === "member") {
           setIsAuthourized(false);
+        }
+
+        if (m.role.toLowerCase() === "manager") {
+          setIsManager(true);
         }
       }
     });
@@ -97,16 +103,16 @@ const Backlog = ({ id }) => {
     // console.log(taskToBeUpdated);
   };
 
-  const handleDeleteButton = (id) => {
-    if (isAuthourized) {
-      dispatch(DelteTaskAction({ projectId: id, deletedTaskId: id }));
+  const handleDeleteButton = (taskid) => {
+    if (isManager) {
+      dispatch(DelteTaskAction({ projectId: id, deletedTaskId: taskid }));
     }
   };
 
   if (!tasks) return <div>Loading...</div>;
   return (
     <div>
-      <TableContainer component={Paper}>
+      <TableContainer component={Paper} >
         <Table sx={{ minWidth: 700 }} aria-label="customized table">
           <TableHead>
             <TableRow>
@@ -121,10 +127,10 @@ const Backlog = ({ id }) => {
                   </IconButton>
                 )}
               </StyledTableCell>
-              <StyledTableCell align="right">assignedTo</StyledTableCell>
-              <StyledTableCell align="right">status</StyledTableCell>
+              <StyledTableCell align="right">Assigned To</StyledTableCell>
+              <StyledTableCell align="right">Status</StyledTableCell>
               <StyledTableCell align="right">Level</StyledTableCell>
-              <StyledTableCell align="right">priority</StyledTableCell>
+              <StyledTableCell align="right">Priority</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>

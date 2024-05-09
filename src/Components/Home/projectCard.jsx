@@ -3,17 +3,20 @@ import Card from '@mui/material/Card';
 import { CardActionArea, CardContent, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
-export default function ActionAreaCard({ projectTitle, id }) {
+export default function ActionAreaCard({ projectTitle, id,backgroundColor }) {
   const navigate = useNavigate();
 
   const handleClick = () => {
     navigate(`/project/${id}`);
   };
 
+  //#45a29e
+
+
   return (
-    <Card onClick={handleClick} sx={{ width: 250, marginBottom: "1%", marginLeft: "2%" }}>
+    <Card onClick={handleClick} sx={{ width: 240, marginBottom: "1%", marginLeft: "2%" }}>
       <CardActionArea>
-        <div style={{ backgroundColor: '#1565c0', height: 110 }}></div>
+        <div style={{ backgroundColor: backgroundColor, height: 110 }}></div>
         <CardContent>
           <Typography gutterBottom component="div">
             {projectTitle}

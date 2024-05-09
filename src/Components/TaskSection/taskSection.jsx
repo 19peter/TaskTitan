@@ -14,6 +14,7 @@ import { orange } from "@mui/material/colors";
 import { Draggable } from "react-beautiful-dnd";
 import { useSelector } from "react-redux";
 
+
 const TaskSection = ({
   id,
   title,
@@ -24,7 +25,6 @@ const TaskSection = ({
   index,
 }) => {
   const currentUser = useSelector((state) => state.currentUser.currentUser);
-  console.log("in task sec current user is ", currentUser);
   let flag = true;
   let flagOpacity = 0.4;
 
@@ -50,16 +50,16 @@ const TaskSection = ({
           ref={provided.innerRef}
           isDragging={snapshot.isDragging}
           width={"80%"}
-          height={"10%"}
-          p={"20px"}
+          height={"fit-content"}
+          p={"0.5vw 0.5vw"}
           display={"flex"}
           flexDirection={"column"}
-          bgcolor={"#F2F4F4"}
+          bgcolor={"white"}
           borderRadius={"13px"}
           margin={"10px 0"}
           sx={{ opacity: flagOpacity }}
         >
-          <Typography textAlign={"left"} variant={"body1"}>
+          <Typography sx={{textIndent:"10px"}} textAlign={"left"} variant={"body1"} fontFamily={"cursive"}>
             {title}
           </Typography>
           <Stack direction={"row"} justifyContent={"end"}>
