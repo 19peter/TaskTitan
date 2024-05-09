@@ -41,6 +41,7 @@ export const handleDisagreeUserInvitations = createAsyncThunk(
   async ({ userId, projectId }) => {
     const res = await axios.get("http://localhost:8000/users/" + userId);
     const user = res.data;
+    console.log(user);
     user.invitations = user.invitations.filter(
       (Invitation) => Invitation.projectId !== projectId
     );

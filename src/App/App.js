@@ -21,21 +21,28 @@ import InviteMember from "../Components/inviteMember/inviteMember.jsx";
 import TestNotification from "../Components/testNotification/testNotification.jsx";
 import axios from "axios";
 import NotFound from "../Components/NotFound/NotFound.jsx";
+import { useSelector } from "react-redux";
 function App() {
   const dispatch = useDispatch();
+  const currentUser = useSelector((state) => state.currentUser.currentUser);
 
   useEffect(() => {
+    console.log("refresh");
+
     let userId = localStorage.getItem("id");
     if (userId) {
       axios.get("http://localhost:8000/users/" + userId).then((res) => {
         dispatch(setCurrentUser(res.data));
+        console.log(res.data);
       });
     }
-  }, []);
-
+  }, [dispatch]);
+  console.log(currentUser);
   const router = createBrowserRouter([
     { path: "/", element: <Intro /> },
+    { path: "/TaskTitan", element: <Intro /> },
     { path: "/signin", element: <SignIn /> },
+
     {
       element: <Navbar />,
       children: [
