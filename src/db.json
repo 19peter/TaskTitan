@@ -17,6 +17,11 @@
           "role": "Member",
           "projectId": "45cc7168-5c17-4d1a-8d10-37610f8539d3",
           "assignedTasks": []
+        },
+        {
+          "role": "Member",
+          "projectId": "e7f36cce-abd8-4810-b2b9-6d0b03b7fc15",
+          "assignedTasks": []
         }
       ],
       "invitations": []
@@ -256,7 +261,34 @@
         "id": "113705067715860298092",
         "name": "nsdd"
       },
-      "tasks": [],
+      "tasks": [
+        {
+          "title": "task1",
+          "status": "Backlog",
+          "level": "difficult",
+          "priority": "high",
+          "assignedTo": {
+            "email": "hassan.walid77@gmail.com"
+          },
+          "details": "task1task1",
+          "id": "1",
+          "startDate": "2024-05-06",
+          "endDate": "2024-05-10"
+        },
+        {
+          "title": "task2",
+          "status": "Todo",
+          "level": "intermediate",
+          "priority": "low",
+          "assignedTo": {
+            "email": "mokhtarmostafa1526@gmail.com"
+          },
+          "details": "task1task2",
+          "id": "2",
+          "startDate": "2024-05-12",
+          "endDate": "2024-05-17"
+        }
+      ],
       "members": [
         {
           "email": "hassan.walid77@gmail.com",
@@ -265,6 +297,10 @@
         {
           "email": "hassan.walid77@gmail.com",
           "id": "112730736456781467110"
+        },
+        {
+          "email": "mokhtarmostafa1526@gmail.com",
+          "id": "114450078144869306460"
         }
       ],
       "title": "tessttt",

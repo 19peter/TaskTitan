@@ -62,6 +62,7 @@ const Navbar = () => {
     setAnchorEl(null);
   };
   // const currentUser = useSelector((state) => state.currentUser.currentUser);
+  
 
   let userId = localStorage.getItem("id");
   const [invitations, setInvitations] = React.useState([]);
